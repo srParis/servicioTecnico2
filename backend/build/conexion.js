@@ -5,7 +5,7 @@ exports.default = {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'dbusuarios',
+        database: 'servicio_tecnico',
         port: 3306
     }
 };

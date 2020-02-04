@@ -1,27 +1,36 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { LeeruserComponent } from './components/leeruser/leeruser.component';
-import { CrearuserComponent } from './components/crearuser/crearuser.component';
-
+import { LoginComponent } from './views/login/login.component';
+import { RegistrarComponent } from './views/registrar/registrar.component';
+import { AdminComponent } from './views/admin/admin.component';
+import { UserComponent } from './views/user/user.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'home',
     component: HomeComponent
   },
   {
-    path: 'crearuser',
-    component: CrearuserComponent
+    path: 'user',
+    component: UserComponent
   },
   {
-    path: 'leeruser',
-    component: LeeruserComponent
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: 'registrar',
+    component: RegistrarComponent
   }
 ];
 
@@ -30,3 +39,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+// export const APP_ROUTING = RouterModule.forRoot(routes);
