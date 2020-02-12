@@ -13,6 +13,11 @@ import { LoginComponent } from './views/login/login.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { UserComponent } from './views/user/user.component';
 import { RegistrarComponent } from './views/registrar/registrar.component';
+import { MarcasComponent } from './components/marcas/marcas.component';
+import { ModelosComponent } from './components/modelos/modelos.component';
+import { ReparacionesComponent } from './components/reparaciones/reparaciones.component';
+import { EstadosComponent } from './components/estados/estados.component';
+import { BarranavegacionAdminComponent } from './components/barranavegacion-admin/barranavegacion-admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { RegistrarComponent } from './views/registrar/registrar.component';
     LoginComponent,
     AdminComponent,
     UserComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    MarcasComponent,
+    ModelosComponent,
+    ReparacionesComponent,
+    EstadosComponent,
+    BarranavegacionAdminComponent
   ],
   imports: [
     BrowserModule,

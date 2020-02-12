@@ -19,29 +19,29 @@ class TipoEstadoController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO tipoEstado SET ?', [req.body]);
+            yield database_1.default.query('INSERT INTO tipos_estado SET ?', [req.body]);
             res.json({ 'message': 'Se ha creado el estado' });
         });
     }
     read(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tipoEstado = yield database_1.default.query('SELECT * FROM tipo_estado', [req.body]);
+            const tipoEstado = yield database_1.default.query('SELECT * FROM tipos_estado', [req.body]);
             res.json(tipoEstado);
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE tipo_estado SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE tipos_estado SET ? WHERE id=?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM tipo_estado WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM tipos_estado WHERE id=?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const estado = yield database_1.default.query('SELECT * FROM tipo_estado WHERE id=?', [req.params.id]);
+            const estado = yield database_1.default.query('SELECT * FROM tipos_estado WHERE id=?', [req.params.id]);
             res.json(estado);
         });
     }

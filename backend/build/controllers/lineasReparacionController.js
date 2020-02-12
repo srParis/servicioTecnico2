@@ -13,37 +13,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class TipoReparacionController {
+class LineasReparacionController {
     index(req, res) {
-        res.json({ 'message': 'Estás en tipos_reparacion' });
+        res.json({ 'message': 'Estás en lineas Reparacion' });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO tipos_reparacion SET ?', [req.body]);
-            res.json({ 'message': 'Se ha creado el usuario' });
+            yield database_1.default.query('INSERT INTO lineas_reparacion SET ?', [req.body]);
+            res.json({ 'message': 'Se ha creado la linea_reparacion' });
         });
     }
     read(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tipo_reparacion = yield database_1.default.query('SELECT * FROM tipos_reparacion', [req.body]);
-            res.json(tipo_reparacion);
+            const lineasreparacion = yield database_1.default.query('SELECT * FROM lineas_reparacion', [req.body]);
+            res.json(lineasreparacion);
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE tipos_reparacion SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE lineas_reparacion SET ? WHERE id=?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM tipos_reparacion WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM lineas_Reparacion WHERE id=?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tipoReparacion = yield database_1.default.query('SELECT * FROM tipos_reparacion WHERE id=?', [req.params.id]);
-            res.json(tipoReparacion);
+            const lineaReparacion = yield database_1.default.query('SELECT * FROM lineas_Reparacion WHERE id=?', [req.params.id]);
+            res.json(lineaReparacion);
         });
     }
 }
-exports.tipoReparacionController = new TipoReparacionController;
+exports.lineasReparacionController = new LineasReparacionController;

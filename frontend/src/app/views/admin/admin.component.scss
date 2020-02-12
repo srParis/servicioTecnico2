@@ -1,0 +1,25 @@
+.plantilla{
+
+    margin:0;
+    padding:0;
+    height: 100vh;
+    width:100vw;
+    display:grid;
+    grid-template-columns: 12fr;
+    grid-template-rows:0.98fr 9fr 1fr;
+    grid-template-areas: "cabecera"
+                         "cuerpo"
+                         "pie";
+}
+.cabecera{
+    grid-area:cabecera;
+    background:green;
+}
+.cuerpo{
+    grid-area:cuerpo;
+    background:#F2F2F2;
+}
+.pie{
+    grid-area:pie;
+    background: #2B3242;
+}

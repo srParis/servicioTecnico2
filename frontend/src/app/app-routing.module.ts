@@ -5,6 +5,8 @@ import { LoginComponent } from './views/login/login.component';
 import { RegistrarComponent } from './views/registrar/registrar.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { UserComponent } from './views/user/user.component';
+import { MarcasComponent } from './components/marcas/marcas.component';
+import { ModelosComponent } from './components/modelos/modelos.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'registrar',
     component: RegistrarComponent
+  },
+  {
+    path: 'marcas',
+    component: MarcasComponent
+  },
+  {
+    path: 'modelos',
+    component: ModelosComponent
   }
 ];
 
