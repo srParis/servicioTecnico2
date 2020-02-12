@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -18,6 +17,7 @@ import { ModelosComponent } from './components/modelos/modelos.component';
 import { ReparacionesComponent } from './components/reparaciones/reparaciones.component';
 import { EstadosComponent } from './components/estados/estados.component';
 import { BarranavegacionAdminComponent } from './components/barranavegacion-admin/barranavegacion-admin.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { BarranavegacionAdminComponent } from './components/barranavegacion-admi
     ModelosComponent,
     ReparacionesComponent,
     EstadosComponent,
-    BarranavegacionAdminComponent
+    BarranavegacionAdminComponent,
+    TrabajadoresComponent
   ],
   imports: [
     BrowserModule,

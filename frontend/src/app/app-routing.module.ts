@@ -7,6 +7,10 @@ import { AdminComponent } from './views/admin/admin.component';
 import { UserComponent } from './views/user/user.component';
 import { MarcasComponent } from './components/marcas/marcas.component';
 import { ModelosComponent } from './components/modelos/modelos.component';
+import { CrearuserComponent } from './components/crearuser/crearuser.component';
+import { LeeruserComponent } from './components/leeruser/leeruser.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { ReparacionesComponent } from './components/reparaciones/reparaciones.component';
 
 const routes: Routes = [
   {
@@ -21,6 +25,22 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'newUser',
+    component: CrearuserComponent
+  },
+  {
+    path: 'listUsuarios',
+    component: LeeruserComponent
+  },
+  {
+    path: 'workers',
+    component: TrabajadoresComponent
+  },
+  {
+    path: 'repairs',
+    component: ReparacionesComponent
   },
   {
     path: 'user',
