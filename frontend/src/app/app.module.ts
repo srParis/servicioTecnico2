@@ -18,6 +18,8 @@ import { ReparacionesComponent } from './components/reparaciones/reparaciones.co
 import { EstadosComponent } from './components/estados/estados.component';
 import { BarranavegacionAdminComponent } from './components/barranavegacion-admin/barranavegacion-admin.component';
 import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import {ModeloUsuarioModule} from './modelo-usuario/modelo-usuario.module';
+import { ModeloAdminModule } from './modelo-admin/modelo-admin.module';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,16 @@ import { TrabajadoresComponent } from './components/trabajadores/trabajadores.co
     ReparacionesComponent,
     EstadosComponent,
     BarranavegacionAdminComponent,
-    TrabajadoresComponent
+    TrabajadoresComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModeloUsuarioModule,
+    ModeloAdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
