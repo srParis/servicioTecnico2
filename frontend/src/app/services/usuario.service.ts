@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Mimodelo } from '../modelo/mimodelo';
-
+import { Usuario } from '../modelos/modelos';
 @Injectable({
   providedIn: 'root'
 })
-export class MimodeloService {
+export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +17,7 @@ export class MimodeloService {
 
   }
 
-  saveUsuario(usuario: Mimodelo): Observable<any> {
+  saveUsuario(usuario: Usuario): Observable<any> {
     console.log(usuario);
     return this.http.post('http://localhost:3000/usuarios', usuario);
   }
