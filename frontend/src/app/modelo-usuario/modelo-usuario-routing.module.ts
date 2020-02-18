@@ -8,19 +8,21 @@ import { LeeruserComponent } from '../components/leeruser/leeruser.component';
 const routes: Routes = [
   {
     path: '',
-    component: UserComponent,
+    component: CrearuserComponent,
     children: [
-    {
-    path: 'links',
-    component: CrearuserComponent
-    },
-    {
-    path: 'info',
-    component: LeeruserComponent
-    }
+      {
+
+        path: 'links',
+        component: CrearuserComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'info',
+        component: LeeruserComponent
+      }
     ]
-    }
-    ];
+  }
+];
 
 
 @NgModule({

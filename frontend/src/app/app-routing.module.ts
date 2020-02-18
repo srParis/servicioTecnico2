@@ -20,12 +20,12 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
-    // loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => m.ModeloUsuarioModule)
+     loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => m.ModeloUsuarioModule)
   },
   {
     path: 'admin',
     component: AdminComponent,
-    // loadChildren: () => import('./modelo-admin/modelo-admin.module')
+    //loadChildren: () => import('./modelo-admin/modelo-admin.module').then(m => m.ModeloAdminModule)
   },
   {
     path: 'registrar',
