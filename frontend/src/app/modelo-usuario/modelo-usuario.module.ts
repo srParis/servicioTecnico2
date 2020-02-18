@@ -7,6 +7,8 @@ import { UserInicioComponent } from '../components/user-inicio/user-inicio.compo
 import { ListarReparacionesUserComponent } from '../components/listar-reparaciones-user/listar-reparaciones-user.component';
 
 
+
+
 @NgModule({
   declarations: [
     BarranavegacionComponent,

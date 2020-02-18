@@ -22,8 +22,7 @@ import { ModeloAdminModule } from './modelo-admin/modelo-admin.module';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ModeloUsuarioModule,
-    ModeloAdminModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
