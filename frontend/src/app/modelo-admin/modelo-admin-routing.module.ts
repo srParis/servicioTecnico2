@@ -11,16 +11,16 @@ import { AdminComponent } from '../views/admin/admin.component';
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     children: [
       {
-        path: 'newUser',
-        component: CrearuserComponent
-      },
-      {
         path: 'listUsuarios',
         component: LeeruserComponent
+      },
+      {
+        path: 'newUser',
+        component: CrearuserComponent
       },
       {
         path: 'workers',
@@ -38,7 +38,6 @@ const routes: Routes = [
         path: 'modelos',
         component: ModelosComponent
       }
-
     ]
   }
 ];

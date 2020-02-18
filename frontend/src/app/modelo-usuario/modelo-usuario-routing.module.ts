@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { UserComponent } from '../views/user/user.component';
-import { CrearuserComponent } from '../components/crearuser/crearuser.component';
-import { LeeruserComponent } from '../components/leeruser/leeruser.component';
+import { UserInicioComponent } from '../components/user-inicio/user-inicio.component';
+import { ListarReparacionesUserComponent } from '../components/listar-reparaciones-user/listar-reparaciones-user.component';
+
 
 
 const routes: Routes = [
@@ -10,17 +12,15 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
-    {
-    path: 'links',
-    component: CrearuserComponent
-    },
-    {
-    path: 'info',
-    component: LeeruserComponent
-    }
-    ]
-    }
-    ];
+      {
+      path: 'links',
+      component: UserInicioComponent
+      },
+      {
+      path: 'info',
+      component: ListarReparacionesUserComponent
+      }]
+  }];
 
 
 @NgModule({

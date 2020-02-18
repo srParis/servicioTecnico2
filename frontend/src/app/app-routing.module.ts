@@ -4,6 +4,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegistrarComponent } from './views/registrar/registrar.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { UserComponent } from './views/user/user.component';
+import { ModeloUsuarioModule } from './modelo-usuario/modelo-usuario.module';
 
 
 
@@ -19,13 +20,11 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserComponent,
-    // loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => m.ModeloUsuarioModule)
+    loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => ModeloUsuarioModule)
   },
   {
     path: 'admin',
-    component: AdminComponent,
-    // loadChildren: () => import('./modelo-admin/modelo-admin.module')
+    loadChildren: () => import('./modelo-admin/modelo-admin.module').then(m => m.ModeloAdminModule)
   },
   {
     path: 'registrar',
