@@ -29,4 +29,20 @@ export class UsuarioService {
   updateUsuario() {
 
   }
+
+  getLogin(usuario: Usuario): Observable<any> {
+    return this.http.post('http://localhost:3000/usuarios/login/', usuario);
+  }
+
+  logIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }

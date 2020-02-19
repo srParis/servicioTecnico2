@@ -46,10 +46,14 @@
     border: 4px solid #013631;
     color: white;
     font-family: fantasy;
-    font-weight: bolder;
     padding: 5px;
     font-size: 14px;
     cursor: pointer;
     margin: 12px 0;
     position: relative;
+}
+
+.mensaje {
+    color: red;
+    font-size: small;
 }
