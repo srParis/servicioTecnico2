@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MimodeloService } from 'src/app/services/mimodelo.service';
-import { Mimodelo } from 'src/app/modelo/mimodelo';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/modelos/modelos';
 
 @Component({
   selector: 'app-leeruser',
@@ -9,11 +9,11 @@ import { Mimodelo } from 'src/app/modelo/mimodelo';
 })
 export class LeeruserComponent implements OnInit {
 
-  public usuarios: Mimodelo;
-  constructor(private mimodeloService: MimodeloService) { }
+  public usuarios: Usuario;
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.mimodeloService.getUsuarios().subscribe(
+    this.usuarioService.getUsuarios().subscribe(
       res => {
         console.log(res);
         this.usuarios = res;

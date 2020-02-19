@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MimodeloService } from 'src/app/services/mimodelo.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Mimodelo } from 'src/app/modelo/mimodelo';
+import { Usuario } from 'src/app/modelos/modelos';
 
 @Component({
   selector: 'app-crearuser',
@@ -11,9 +11,9 @@ import { Mimodelo } from 'src/app/modelo/mimodelo';
 export class CrearuserComponent implements OnInit {
 
   private formuser: FormGroup;
-  public usuarios: Mimodelo;
+  public usuarios: Usuario;
 
-  constructor(private formBuilder: FormBuilder, private mimodeloService: MimodeloService) {
+  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) {
     this.formuser = formBuilder.group({
       nombre: [],
       imagen: []
@@ -23,7 +23,7 @@ export class CrearuserComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    this.mimodeloService.saveUsuario(this.formuser.value).subscribe(
+    this.usuarioService.saveUsuario(this.formuser.value).subscribe(
       res => {
         console.log(res);
       },
