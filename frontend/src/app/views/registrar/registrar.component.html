@@ -19,8 +19,8 @@
                 <select formControlName="poblacion" [(ngModel)]="seleccionado">
                     <option *ngFor="let item of poblaciones" [value]="item">{{item}}</option>
                 </select>
-                <!-- <label>Provincia:</label><input type="text" formControlName="provincia"><br>
-                <label>CP:</label><input type="text" formControlName="cp"><br> -->
+                <label>Provincia:</label><input type="text" formControlName="provincia" disabled="true"><br>
+                <label>CP:</label><input type="text" formControlName="cp" disabled="true"><br>
             </div>
             
             <!-- Datos cuenta -->

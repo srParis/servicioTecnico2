@@ -29,6 +29,8 @@ export class RegistrarComponent implements OnInit {
       direccion: [''],
       imagen: [''],
       poblacion: [''],
+      provincia: [''],
+      cp: [''],
       password2: ['']
     });
   }
