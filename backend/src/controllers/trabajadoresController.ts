@@ -17,15 +17,15 @@ class TrabajadoresController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE trabajadores SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE trabajadores SET ? WHERE id_trabajador =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM trabajadores WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM trabajadores WHERE id_trabajador =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const trabajador = await pool.query('SELECT * FROM trabajadores WHERE id=?', [req.params.id]);
+        const trabajador = await pool.query('SELECT * FROM trabajadores WHERE id_trabajador =?', [req.params.id]);
         res.json(trabajador);
     }
 }

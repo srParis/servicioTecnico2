@@ -13,8 +13,8 @@ export class ProvinciaService {
     return this.http.get('http://localhost:3000/provincias');
   }
 
-  getProvincia() {
-
+  getProvincia(id: number) {
+    return this.http.get('http://localhost:3000/provincias' + id);
   }
 
   saveProvincia(provincia: Provincia): Observable<any> {

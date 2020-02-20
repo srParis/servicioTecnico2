@@ -13,8 +13,8 @@ export class MarcaService {
     return this.http.get('http://localhost:3000/marcas');
   }
 
-  getMarca() {
-
+  getMarca(id: number) {
+    return this.http.get('http://localhost:3000/marcas/' + id);
   }
 
   saveMarca(marca: Marca): Observable<any> {

@@ -17,15 +17,15 @@ class ModelosController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE modelos SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE modelos SET ? WHERE id_modelo =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM modelos WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM modelos WHERE id_modelo=?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const modelo = await pool.query('SELECT * FROM modelos WHERE id=?', [req.params.id]);
+        const modelo = await pool.query('SELECT * FROM modelos WHERE id_modelo=?', [req.params.id]);
         res.json(modelo);
     }
 }

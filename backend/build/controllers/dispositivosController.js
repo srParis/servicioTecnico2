@@ -31,17 +31,17 @@ class DispositivosController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE dispositivos SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE dispositivos SET ? WHERE id_dispositivos =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM dispositivos WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM dispositivos WHERE id_dispositivos =?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const dispositivo = yield database_1.default.query('SELECT * FROM dispositivos WHERE id=?', [req.params.id]);
+            const dispositivo = yield database_1.default.query('SELECT * FROM dispositivos WHERE id_dispositivo=?', [req.params.id]);
             res.json(dispositivo);
         });
     }

@@ -17,15 +17,15 @@ class HistorialEstadosController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE historial_estados SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE historial_estados SET ? WHERE id_historial =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM historial_estados WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM historial_estados WHERE id_historial=?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const historialEstado = await pool.query('SELECT * FROM historial_estados WHERE id=?', [req.params.id]);
+        const historialEstado = await pool.query('SELECT * FROM historial_estados WHERE id_historial =?', [req.params.id]);
         res.json(historialEstado);
     }
 }

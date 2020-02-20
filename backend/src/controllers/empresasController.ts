@@ -17,15 +17,15 @@ class EmpresasController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE empresas SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE empresas SET ? WHERE id_empresa=?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM empresas WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM empresas WHERE id_empresa=?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const empresa = await pool.query('SELECT * FROM empresas WHERE id=?', [req.params.id]);
+        const empresa = await pool.query('SELECT * FROM empresas WHERE id_empresa=?', [req.params.id]);
         res.json(empresa);
     }
 }

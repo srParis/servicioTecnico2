@@ -17,15 +17,15 @@ class ProvinciasController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE provincias SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE provincias SET ? WHERE id_provincia=?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM provincias WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM provincias WHERE id_provincia =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const provincia = await pool.query('SELECT * FROM provincias WHERE id=?', [req.params.id]);
+        const provincia = await pool.query('SELECT * FROM provincias WHERE id_provincia=?', [req.params.id]);
         res.json(provincia);
     }
 

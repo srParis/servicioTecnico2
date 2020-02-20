@@ -13,8 +13,8 @@ export class TipoEstadoService {
     return this.http.get('http://localhost:3000/tipo_estado');
   }
 
-  getTipoEstado() {
-
+  getTipoEstado(id: number) {
+    return this.http.get('http://localhost:3000/tipo_estado' + id);
   }
 
   saveTipoEstado(tipoEstado: TipoEstado): Observable<any> {

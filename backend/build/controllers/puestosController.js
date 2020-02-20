@@ -31,17 +31,17 @@ class PuestosController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE puestos SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE puestos SET ? WHERE id_puesto =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM puestos WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM puestos WHERE id_puesto=?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const puesto = yield database_1.default.query('SELECT * FROM puestos WHERE id=?', [req.params.id]);
+            const puesto = yield database_1.default.query('SELECT * FROM puestos WHERE id_puesto =?', [req.params.id]);
             res.json(puesto);
         });
     }

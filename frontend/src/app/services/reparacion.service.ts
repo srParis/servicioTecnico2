@@ -10,11 +10,11 @@ export class ReparacionService {
   constructor(private http: HttpClient) { }
 
   getReparaciones(): Observable<any> {
-    return this.http.get('http://localhost:3000/reparacion');
+    return this.http.get('http://localhost:3000/reparaciones');
   }
 
-  getReparacion() {
-
+  getReparacion(id: number) {
+    return this.http.get('http://localhost:3000/reparaciones/' + id);
   }
 
   saveReparacion(reparacion: Reparaciones): Observable<any> {

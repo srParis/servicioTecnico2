@@ -31,17 +31,17 @@ class TipoReparacionController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE tipos_reparacion SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE tipos_reparacion SET ? WHERE id_reparacion =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM tipos_reparacion WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM tipos_reparacion WHERE id_reparacion=?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tipoReparacion = yield database_1.default.query('SELECT * FROM tipos_reparacion WHERE id=?', [req.params.id]);
+            const tipoReparacion = yield database_1.default.query('SELECT * FROM tipos_reparacion WHERE id_reparacion=?', [req.params.id]);
             res.json(tipoReparacion);
         });
     }

@@ -10,11 +10,11 @@ export class DispositivoService {
   constructor(private http: HttpClient) { }
 
   getDispositivos(): Observable<any> {
-    return this.http.get('http://localhost:3000/usuarios');
+    return this.http.get('http://localhost:3000/dispositivos');
   }
 
-  getDispositivo() {
-
+  getDispositivo(id: number) {
+    return this.http.get('http:/localhost:3000/dispositivos/' + id);
   }
 
   saveUsuario( dispositivo: Dispositivo): Observable<any> {

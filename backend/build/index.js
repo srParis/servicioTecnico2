@@ -40,7 +40,7 @@ class Server {
     routes() {
         this.app.use(indexRoutes_1.default);
         this.app.use('/usuarios', usuariosRoutes_1.default);
-        this.app.use('/direccion', direccionesRoutes_1.default);
+        this.app.use('/direcciones', direccionesRoutes_1.default);
         this.app.use('/dispositivos', dispositivosRoutes_1.default);
         this.app.use('/empresas', empresasRoutes_1.default);
         this.app.use('/facturas', facturasRoutes_1.default);

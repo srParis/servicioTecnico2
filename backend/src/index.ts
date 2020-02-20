@@ -40,7 +40,7 @@ class Server {
     routes():void{
         this.app.use(indexRoutes);
         this.app.use('/usuarios',usuariosRoutes);
-        this.app.use('/direccion', direccionesRoutes);
+        this.app.use('/direcciones', direccionesRoutes);
         this.app.use('/dispositivos', dispositivosRoutes);
         this.app.use('/empresas', empresasRoutes);
         this.app.use('/facturas', facturasRoutes);
@@ -56,7 +56,7 @@ class Server {
         this.app.use('/tipoEstado', tipoEstadoRoutes);
         this.app.use('/tipoReparacion',tipoReparacionRoutes);
         this.app.use('/trabajadores', trabajadoresRoutes);
-        
+    
 
     }
 

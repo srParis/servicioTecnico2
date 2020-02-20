@@ -17,15 +17,15 @@ class DispositivosController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE dispositivos SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE dispositivos SET ? WHERE id_dispositivos =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM dispositivos WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM dispositivos WHERE id_dispositivos =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const dispositivo = await pool.query('SELECT * FROM dispositivos WHERE id=?', [req.params.id]);
+        const dispositivo = await pool.query('SELECT * FROM dispositivos WHERE id_dispositivo=?', [req.params.id]);
         res.json(dispositivo);
     }
 }

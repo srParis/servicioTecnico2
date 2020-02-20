@@ -31,17 +31,17 @@ class MarcasController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE marcas SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE marcas SET ? WHERE id_marca =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM marcas WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM marcas WHERE id_marca =?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const marca = yield database_1.default.query('SELECT * FROM marcas WHERE id=?', [req.params.id]);
+            const marca = yield database_1.default.query('SELECT * FROM marcas WHERE id_marca =?', [req.params.id]);
             res.json(marca);
         });
     }

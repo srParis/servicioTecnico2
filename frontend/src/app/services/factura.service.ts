@@ -13,8 +13,8 @@ export class FacturaService {
     return this.http.get('http://localhost:3000/facturas');
   }
 
-  getFactura() {
-
+  getFactura(id: number) {
+    return this.http.get('http://localhost:3000/facturas/' + id);
   }
 
   saveFactura(factura: Factura): Observable<any> {

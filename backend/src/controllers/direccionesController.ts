@@ -17,15 +17,15 @@ class DireccionesController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE direcciones SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE direcciones SET ? WHERE id_direccion =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM direcciones WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM direcciones WHERE id_direccion =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const direccion = await pool.query('SELECT * FROM direcciones WHERE id=?', [req.params.id]);
+        const direccion = await pool.query('SELECT * FROM direcciones WHERE id_direccion = ?', [req.params.id]);
         res.json(direccion);
     }
 }

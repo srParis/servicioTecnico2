@@ -15,7 +15,7 @@ export class DireccionService {
 
   getDireccion(direccion: Direccion) {
     const id = direccion.id;
-    return this.http.get('http://localhost:3000/' + id);
+    return this.http.get('http://localhost:3000/direcciones/' + id);
   }
 
   saveDireccion( direccion: Direccion): Observable<any> {

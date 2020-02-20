@@ -13,8 +13,8 @@ export class EmpresaService {
     return this.http.get('http://localhost:3000/empresas');
   }
 
-  getEmpresa() {
-
+  getEmpresa(id: number) {
+    return this.http.get('http://localhost:3000/empresas/' + id);
   }
 
   saveEmpresa(empresa: Empresa): Observable<any> {

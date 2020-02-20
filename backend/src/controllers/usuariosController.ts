@@ -17,15 +17,15 @@ class UsuariosController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE usuarios SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE usuarios SET ? WHERE id_usuario=?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM usuarios WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM usuarios WHERE id_usuario =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const usuario = await pool.query('SELECT * FROM usuarios WHERE id=?', [req.params.id]);
+        const usuario = await pool.query('SELECT * FROM usuarios WHERE id_usuario =?', [req.params.id]);
         res.json(usuario);
     }
 }

@@ -13,8 +13,8 @@ export class TrabajadoresService {
     return this.http.get('http://localhost:3000/trabajadores');
   }
 
-  getTrabajador() {
-
+  getTrabajador(id: number) {
+    return this.http.get('http://localhost:3000/trabajadores' + id);
   }
 
   saveTrabajador(trabajadores: Trabajadores): Observable<any> {

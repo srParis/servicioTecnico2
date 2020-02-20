@@ -17,11 +17,11 @@ class PoblacionesController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE poblaciones SET ? WHERE id=?', [req.body, req.params.id]);
+        await pool.query('UPDATE poblaciones SET ? WHERE id_poblacion =?', [req.body, req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM poblaciones WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM poblaciones WHERE id_poblacion =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){

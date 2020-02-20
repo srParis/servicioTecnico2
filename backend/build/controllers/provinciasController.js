@@ -31,17 +31,17 @@ class ProvinciasController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE provincias SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE provincias SET ? WHERE id_provincia=?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM provincias WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM provincias WHERE id_provincia =?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provincia = yield database_1.default.query('SELECT * FROM provincias WHERE id=?', [req.params.id]);
+            const provincia = yield database_1.default.query('SELECT * FROM provincias WHERE id_provincia=?', [req.params.id]);
             res.json(provincia);
         });
     }

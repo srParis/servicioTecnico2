@@ -17,15 +17,15 @@ class ReparacionesController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE reparaciones SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE reparaciones SET ? WHERE id_reparaciones =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM reparaciones WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM reparaciones WHERE id_reparaciones =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const reparacion = await pool.query('SELECT * FROM reparaciones WHERE id=?', [req.params.id]);
+        const reparacion = await pool.query('SELECT * FROM reparaciones WHERE id_reparaciones =?', [req.params.id]);
         res.json(reparacion);
     }
 }

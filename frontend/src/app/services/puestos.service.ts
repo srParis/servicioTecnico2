@@ -13,8 +13,8 @@ export class PuestoService {
     return this.http.get('http://localhost:3000/puestos');
   }
 
-  getPuesto() {
-
+  getPuesto(id: number) {
+    return this.http.get('http://localhost:3000/puestos' + id);
   }
 
   savePuesto(puesto: Puesto): Observable<any> {

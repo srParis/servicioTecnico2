@@ -31,17 +31,17 @@ class DireccionesController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE direcciones SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE direcciones SET ? WHERE id_direccion =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM direcciones WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM direcciones WHERE id_direccion =?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const direccion = yield database_1.default.query('SELECT * FROM direcciones WHERE id=?', [req.params.id]);
+            const direccion = yield database_1.default.query('SELECT * FROM direcciones WHERE id_direccion = ?', [req.params.id]);
             res.json(direccion);
         });
     }

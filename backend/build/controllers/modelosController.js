@@ -31,17 +31,17 @@ class ModelosController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE modelos SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE modelos SET ? WHERE id_modelo =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM modelos WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM modelos WHERE id_modelo=?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const modelo = yield database_1.default.query('SELECT * FROM modelos WHERE id=?', [req.params.id]);
+            const modelo = yield database_1.default.query('SELECT * FROM modelos WHERE id_modelo=?', [req.params.id]);
             res.json(modelo);
         });
     }

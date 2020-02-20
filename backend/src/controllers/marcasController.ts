@@ -17,15 +17,15 @@ class MarcasController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE marcas SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE marcas SET ? WHERE id_marca =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM marcas WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM marcas WHERE id_marca =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const marca = await pool.query('SELECT * FROM marcas WHERE id=?', [req.params.id]);
+        const marca = await pool.query('SELECT * FROM marcas WHERE id_marca =?', [req.params.id]);
         res.json(marca);
     }
 }

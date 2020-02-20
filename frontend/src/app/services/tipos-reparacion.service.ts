@@ -13,8 +13,8 @@ export class TipoReparacionService {
     return this.http.get('http://localhost:3000/tipo_reparacion');
   }
 
-  getTipoReparacion() {
-
+  getTipoReparacion(id: number) {
+    return this.http.get('http://localhost:3000/tipo_reparacion' + id);
   }
 
   saveTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {

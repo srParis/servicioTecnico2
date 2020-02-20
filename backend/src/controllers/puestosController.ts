@@ -17,15 +17,15 @@ class PuestosController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE puestos SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE puestos SET ? WHERE id_puesto =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM puestos WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM puestos WHERE id_puesto=?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const puesto = await pool.query('SELECT * FROM puestos WHERE id=?', [req.params.id]);
+        const puesto = await pool.query('SELECT * FROM puestos WHERE id_puesto =?', [req.params.id]);
         res.json(puesto);
     }
 }

@@ -31,17 +31,17 @@ class HistorialEstadosController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE historial_estados SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE historial_estados SET ? WHERE id_historial =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM historial_estados WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM historial_estados WHERE id_historial=?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const historialEstado = yield database_1.default.query('SELECT * FROM historial_estados WHERE id=?', [req.params.id]);
+            const historialEstado = yield database_1.default.query('SELECT * FROM historial_estados WHERE id_historial =?', [req.params.id]);
             res.json(historialEstado);
         });
     }

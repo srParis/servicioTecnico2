@@ -31,17 +31,17 @@ class TrabajadoresController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE trabajadores SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE trabajadores SET ? WHERE id_trabajador =?', [req.params.id]);
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('DELETE FROM trabajadores WHERE id=?', [req.params.id]);
+            yield database_1.default.query('DELETE FROM trabajadores WHERE id_trabajador =?', [req.params.id]);
         });
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const trabajador = yield database_1.default.query('SELECT * FROM trabajadores WHERE id=?', [req.params.id]);
+            const trabajador = yield database_1.default.query('SELECT * FROM trabajadores WHERE id_trabajador =?', [req.params.id]);
             res.json(trabajador);
         });
     }

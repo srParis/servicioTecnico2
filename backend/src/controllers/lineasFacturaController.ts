@@ -17,15 +17,15 @@ class LineasFacturaController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE lineas_factura SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE lineas_factura SET ? WHERE id_lineas_factura=?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM lineas_factura WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM lineas_factura WHERE id_lineas_factura =?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const lineaFactura = await pool.query('SELECT * FROM lineas_factura WHERE id=?', [req.params.id]);
+        const lineaFactura = await pool.query('SELECT * FROM lineas_factura WHERE id_lineas_factura =?', [req.params.id]);
         res.json(lineaFactura);
     }
 }

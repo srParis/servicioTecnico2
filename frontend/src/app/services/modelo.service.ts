@@ -13,8 +13,8 @@ export class ModeloService {
     return this.http.get('http://localhost:3000/modelos');
   }
 
-  getModelo() {
-
+  getModelo(id: number) {
+    return this.http.get('http://localhost:3000/modelos' + id);
   }
 
   saveModelo(modelo: Modelo): Observable<any> {

@@ -17,15 +17,15 @@ class TipoReparacionController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE tipos_reparacion SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE tipos_reparacion SET ? WHERE id_reparacion =?', [req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
-        await pool.query('DELETE FROM tipos_reparacion WHERE id=?', [req.params.id]);
+        await pool.query('DELETE FROM tipos_reparacion WHERE id_reparacion=?', [req.params.id]);
     }
 
     public async readone(req:Request,res:Response){
-        const tipoReparacion = await pool.query('SELECT * FROM tipos_reparacion WHERE id=?', [req.params.id]);
+        const tipoReparacion = await pool.query('SELECT * FROM tipos_reparacion WHERE id_reparacion=?', [req.params.id]);
         res.json(tipoReparacion);
     }
 }
