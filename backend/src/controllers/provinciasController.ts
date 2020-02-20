@@ -28,5 +28,6 @@ class ProvinciasController {
         const provincia = await pool.query('SELECT * FROM provincias WHERE id=?', [req.params.id]);
         res.json(provincia);
     }
+
 }
 export const provinciasController = new ProvinciasController;

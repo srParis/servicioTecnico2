@@ -27,7 +27,7 @@ export class DireccionService {
     return this.http.delete('http://localhost:3000/:');
   }
 
-  updateDireccion() {
-
+  updateDireccion(direccion: Direccion) {
+    return this.http.put('http://localhost:3000/direcciones/', direccion);
   }
 }

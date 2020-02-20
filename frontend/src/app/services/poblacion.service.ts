@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Poblacion } from '../modelos/modelos';
+import { Poblacion, Provincia } from '../modelos/modelos';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,10 +23,14 @@ export class PoblacionService {
   }
 
   deletePoblacion() {
-
+    
   }
 
   updatePoblacion() {
 
+  }
+  getPpb(provincia: Provincia) {
+    const id = provincia.id;
+    return this.http.get('http://localhost:3000/provincias/poblaciones/' + id);
   }
 }

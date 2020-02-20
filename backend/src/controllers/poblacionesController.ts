@@ -17,7 +17,7 @@ class PoblacionesController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE poblaciones SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE poblaciones SET ? WHERE id=?', [req.body, req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
@@ -27,6 +27,12 @@ class PoblacionesController {
     public async readone(req:Request,res:Response){
         const poblacion = await pool.query('SELECT * FROM poblaciones WHERE id=?', [req.params.id]);
         res.json(poblacion);
+    }
+    public async readPobProvincias(req: Request, res:Response){
+        console.log(req.params.id);
+        const poblaciones = await pool.query('select poblaciones.* from poblaciones where poblaciones.id_provincia = ? ', [req.params.id]);
+        res.json(poblaciones);
+
     }
 }
 export const poblacionesController = new PoblacionesController;

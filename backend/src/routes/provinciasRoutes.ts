@@ -13,6 +13,7 @@ class ProvinciasRoutes {
         this.router.put('/:id',provinciasController.update);
         this.router.delete('/:id',provinciasController.delete);
         this.router.get('/:id',provinciasController.readone);
+        
     }
 }
 const provinciasRoutes = new ProvinciasRoutes();

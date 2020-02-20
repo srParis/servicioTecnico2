@@ -31,7 +31,7 @@ class PoblacionesController {
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('UPDATE poblaciones SET ? WHERE id=?', [req.params.id]);
+            yield database_1.default.query('UPDATE poblaciones SET ? WHERE id=?', [req.body, req.params.id]);
         });
     }
     delete(req, res) {
@@ -43,6 +43,13 @@ class PoblacionesController {
         return __awaiter(this, void 0, void 0, function* () {
             const poblacion = yield database_1.default.query('SELECT * FROM poblaciones WHERE id=?', [req.params.id]);
             res.json(poblacion);
+        });
+    }
+    readPobProvincias(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.params.id);
+            const poblaciones = yield database_1.default.query('select poblaciones.* from poblaciones where poblaciones.id_provincia = ? ', [req.params.id]);
+            res.json(poblaciones);
         });
     }
 }
