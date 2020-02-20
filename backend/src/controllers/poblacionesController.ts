@@ -17,7 +17,7 @@ class PoblacionesController {
     }
 
     public async update(req:Request,res:Response){
-        await pool.query('UPDATE poblaciones SET ? WHERE id=?', [req.params.id]);
+        await pool.query('UPDATE poblaciones SET ? WHERE id=?', [req.body, req.params.id]);
     }
 
     public async delete(req:Request,res:Response){
