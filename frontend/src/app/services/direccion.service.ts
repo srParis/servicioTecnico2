@@ -10,20 +10,21 @@ export class DireccionService {
   constructor(private http: HttpClient) { }
 
   getDirecciones(): Observable<any> {
-    return this.http.get('http://localhost:3000/usuarios');
+    return this.http.get('http://localhost:3000/direcciones');
   }
 
-  getDireccion() {
-
+  getDireccion(direccion: Direccion) {
+    const id = direccion.id;
+    return this.http.get('http://localhost:3000/' + id);
   }
 
   saveDireccion( direccion: Direccion): Observable<any> {
     console.log(direccion);
-    return this.http.post('http://localhost:3000/Direccions', direccion);
+    return this.http.post('http://localhost:3000/Direcciones', direccion);
   }
 
   deleteDireccion() {
-
+    return this.http.delete('http://localhost:3000/:');
   }
 
   updateDireccion() {

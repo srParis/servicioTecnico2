@@ -13,8 +13,9 @@ export class UsuarioService {
     return this.http.get('http://localhost:3000/usuarios');
   }
 
-  getUsuario() {
-
+  getUsuario(usuario: Usuario) {
+    const id = usuario.id;
+    return this.http.get('http:/localhost:3000/usuarios/' + id );
   }
 
   saveUsuario(usuario: Usuario): Observable<any> {
