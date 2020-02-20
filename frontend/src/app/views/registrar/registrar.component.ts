@@ -18,6 +18,7 @@ export class RegistrarComponent implements OnInit {
   public usuarios: Usuario;
   public poblaciones: Poblacion;
   public provincias: Provincia;
+  public cp: string;
 
   private patron = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
 
@@ -80,9 +81,9 @@ export class RegistrarComponent implements OnInit {
     return this.formuser.get('password2');
   }
 
-  public onOptionsSelected(value: string ) {
+  public onOptionsSelected(value: number) {
     // console.log('the selected value is ' + value);
-    this.poblacionService.getPoblaciones().subscribe(
+    this.poblacionService.getPoblacionesProv(value).subscribe(
       res => {
         console.log(res);
         this.poblaciones = res;
@@ -91,6 +92,10 @@ export class RegistrarComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  public onOptionsSelected2(value: string) {
+    this.cp = value;
   }
 
   // private validatePassword(control: AbstractControl) {

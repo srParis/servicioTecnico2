@@ -20,11 +20,11 @@
                     <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
                 </select>
                 <label>Localidad:</label>
-                <select formControlName="poblacion" [(ngModel)]="seleccionado2">
-                    <option *ngFor="let item2 of poblaciones" [value]="item">{{item2}}</option>
+                <select formControlName="poblacion" [(ngModel)]="seleccionado2"#mySelect2 (change)='onOptionsSelected2(mySelect2.value)'>
+                    <option *ngFor="let item2 of poblaciones" [value]="item2.cp">{{item2.nombre}}, {{item2.cp}}</option>
                 </select>
                 <!-- <label>Provincia:</label><input type="text" formControlName="provincia" disabled="true"><br> -->
-                <label>CP:</label><input type="text" formControlName="cp" disabled="true"><br>
+                <label>CP:</label><input *ngIf="cp != null" type="text" formControlName="cp" disabled="true" value="{{cp}}">  <br>
             </div>
             
             <!-- Datos cuenta -->

@@ -29,8 +29,8 @@ export class PoblacionService {
   updatePoblacion() {
 
   }
-  getPpb(provincia: Provincia) {
-    const id = provincia.id;
-    return this.http.get('http://localhost:3000/provincias/poblaciones/' + id);
+
+  getPoblacionesProv(id: number ) {
+    return this.http.get('http://localhost:3000/poblaciones/provincias/' + id);
   }
 }
