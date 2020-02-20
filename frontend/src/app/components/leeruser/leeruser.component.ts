@@ -10,10 +10,10 @@ import { Usuario } from 'src/app/modelos/modelos';
 export class LeeruserComponent implements OnInit {
 
   public usuarios: Usuario;
-  constructor(private mimodeloService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.mimodeloService.getUsuarios().subscribe(
+    this.usuarioService.getUsuarios().subscribe(
       res => {
         console.log(res);
         this.usuarios = res;

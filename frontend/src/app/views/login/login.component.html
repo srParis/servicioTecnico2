@@ -1,20 +1,36 @@
 <div class="container-login">
-    <!-- <form class="login-box" [hidden]="loading" [formGroup]="loginForm" (ngSubmit)="enviarFormulario()">
+    <form [formGroup]="formlogin" (submit)="submit()" class="login-box">
         <div class="div-img">
             <img class="img-log"  src="../../../assets/thephoneplanet.png" alt="">
         </div>
         <div class="textbox">
-            <input type="text" formControlName="user" placeholder="User">
+            <input type="text" formControlName="email" placeholder="Email">
+        </div>
+        <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">
+            <div *ngIf="email.errors.required">
+                *El email es obligatorio
+            </div>
+            <div class="mensaje" *ngIf="email.errors.pattern">
+                *El email tiene que cumplir unos requisitos
+            </div>
         </div>
         <div class="textbox">
-            <input type="password" formControlName="pass" placeholder="Password">
+            <input type="password" formControlName="password" placeholder="Password">
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched) ">
+            <div class="mensaje" *ngIf="password.errors.required">
+                *La contraseña es obligatoria
+            </div>
+            <div class="mensaje" *ngIf="password.errors.minlength">
+                *La contraseña tiene que tener más de 4 caracteres
+            </div>
         </div>
         <div class="div-btns">
-            <button class="btn" type="submit">ENTRAR</button><br>
+            <button class="btn" type="submit" [disabled]="!formlogin.valid">ENTRAR</button><br>
             <a routerLink="/registrar" href="#"><button class="btn" type="button">REGISTRAR</button></a>
         </div>
-    </form> -->
-    <a routerLink="/user" routerLinkActive="router-link-active" href="#"><button class="btn" type="button">USER</button></a>
+    </form>
+    <!-- <a routerLink="/user" routerLinkActive="router-link-active" href="#"><button class="btn" type="button">USER</button></a>
     <a routerLink="/admin" routerLinkActive="router-link-active" href="#"><button class="btn" type="button">ADMIN</button></a>
-    <a routerLink="/registrar" href="#"><button class="btn" type="button">REGISTRAR</button></a>
+    <a routerLink="/registrar" href="#"><button class="btn" type="button">REGISTRAR</button></a> -->
 </div>

@@ -1,34 +1,40 @@
 <div class="container-registrar">
-    <form class="registrar-box" [hidden]="loading" [formGroup]="loginForm" (ngSubmit)="enviarFormulario()">
-        <h1 class="titulo"></h1>Registrar
+    <form class="registrar-box" [formGroup]="formuser" (submit)="submit()">
+        <h1 class="titulo">Registrar</h1>
         <div class="cont-prin">
             <!-- Datos personales -->
             <div class="cont-sec">
-                <label>Nombre:</label><input type="text" formControlName="nombre">
-                <label>Apellidos:</label><input type="text" formControlName="apellidos">
-                <label>DNI:</label><input type="text" formControlName="dni">
-                <label>Telefono:</label><input type="text" formControlName="telefono">
+                <h3>Datos personales</h3>
+                <label>Nombre:</label><input type="text" formControlName="nombre"><br>
+                <label>Apellidos:</label><input type="text" formControlName="apellidos"><br>
+                <label>DNI:</label><input type="text" formControlName="dni"><br>
+                <label>Telefono:</label><input type="text" formControlName="telefono"><br>
             </div>
             
             <!-- Datos direccion -->
             <div class="cont-sec">
-                <label>Direccion:</label><input type="text" formControlName="direccion">
-                <label>Localidad:</label><input type="text" formControlName="localidad">
-                <label>Provincia:</label><input type="text" formControlName="provincia">
-                <label>CP:</label><input type="text" formControlName="cp">
+                <h3>Datos dirección</h3>
+                <label>Direccion:</label><input type="text" formControlName="direccion"><br>
+                <label>Localidad:</label>
+                <select formControlName="poblacion" [(ngModel)]="seleccionado">
+                    <option *ngFor="let item of poblaciones" [value]="item">{{item}}</option>
+                </select>
+                <!-- <label>Provincia:</label><input type="text" formControlName="provincia"><br>
+                <label>CP:</label><input type="text" formControlName="cp"><br> -->
             </div>
             
             <!-- Datos cuenta -->
             <div class="cont-sec">
-                <label>Email:</label><input type="text" formControlName="user">
-                <label>Nombre usuario:</label><input type="text" formControlName="user">
-                <label>Contraseña:</label><input type="text" formControlName="user">
-                <label>Repite la contraseña:</label><input type="text" formControlName="user">
+                <h3>Datos cuenta</h3>
+                <label>Email:</label><input type="text" formControlName="email"><br>
+                <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br>
+                <label>Contraseña:</label><input type="text" formControlName="password1"><br>
+                <label>Repite la contraseña:</label><input type="text" formControlName="password2"><br>
             </div>
 
             <!-- Botones -->
             <div class="div-btns">
-                <button class="btn" type="submit">Aceptar</button><br>
+                <button class="btn" type="submit"  [disabled]="!formuser.valid">Aceptar</button><br>
                 <a routerLink="/login" href="#"><button class="btn" type="button">Cancelar</button></a>
             </div>
         </div>
