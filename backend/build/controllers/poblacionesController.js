@@ -41,7 +41,7 @@ class PoblacionesController {
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const poblacion = yield database_1.default.query('SELECT * FROM poblaciones WHERE id=?', [req.params.id]);
+            const poblacion = yield database_1.default.query('SELECT * FROM poblaciones WHERE id_poblacion =?', [req.params.id]);
             res.json(poblacion);
         });
     }

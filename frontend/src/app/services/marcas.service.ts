@@ -22,8 +22,8 @@ export class MarcaService {
     return this.http.post('http://localhost:3000/marcas', marca);
   }
 
-  deleteMarca() {
-
+  deleteMarca(id: number) {
+    return this.http.delete('http://localhost:3000/marcas/' + id);
   }
 
   updateMarca() {
