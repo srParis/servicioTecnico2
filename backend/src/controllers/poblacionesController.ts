@@ -28,5 +28,11 @@ class PoblacionesController {
         const poblacion = await pool.query('SELECT * FROM poblaciones WHERE id=?', [req.params.id]);
         res.json(poblacion);
     }
+    public async readPobProvincias(req: Request, res:Response){
+        console.log(req.params.id);
+        const poblaciones = await pool.query('select poblaciones.* from poblaciones where poblaciones.id_provincia = ? ', [req.params.id]);
+        res.json(poblaciones);
+
+    }
 }
 export const poblacionesController = new PoblacionesController;

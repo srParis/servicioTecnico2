@@ -13,6 +13,7 @@ class PoblacionesRoutes {
         this.router.put('/:id', poblacionesController_1.poblacionesController.update);
         this.router.delete('/:id', poblacionesController_1.poblacionesController.delete);
         this.router.get('/:id', poblacionesController_1.poblacionesController.readone);
+        this.router.get('/provincias/:id', poblacionesController_1.poblacionesController.readPobProvincias);
     }
 }
 const poblacionesRoutes = new PoblacionesRoutes();

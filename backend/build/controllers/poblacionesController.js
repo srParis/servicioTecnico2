@@ -45,5 +45,12 @@ class PoblacionesController {
             res.json(poblacion);
         });
     }
+    readPobProvincias(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.params.id);
+            const poblaciones = yield database_1.default.query('select poblaciones.* from poblaciones where poblaciones.id_provincia = ? ', [req.params.id]);
+            res.json(poblaciones);
+        });
+    }
 }
 exports.poblacionesController = new PoblacionesController;
