@@ -15,11 +15,15 @@
             <div class="cont-sec">
                 <h3>Datos dirección</h3>
                 <label>Direccion:</label><input type="text" formControlName="direccion"><br>
-                <label>Localidad:</label>
-                <select formControlName="poblacion" [(ngModel)]="seleccionado">
-                    <option *ngFor="let item of poblaciones" [value]="item">{{item}}</option>
+                <label>Provincia:</label>
+                <select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+                    <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
                 </select>
-                <label>Provincia:</label><input type="text" formControlName="provincia" disabled="true"><br>
+                <label>Localidad:</label>
+                <select formControlName="poblacion" [(ngModel)]="seleccionado2">
+                    <option *ngFor="let item2 of poblaciones" [value]="item">{{item2}}</option>
+                </select>
+                <!-- <label>Provincia:</label><input type="text" formControlName="provincia" disabled="true"><br> -->
                 <label>CP:</label><input type="text" formControlName="cp" disabled="true"><br>
             </div>
             
@@ -29,7 +33,20 @@
                 <label>Email:</label><input type="text" formControlName="email"><br>
                 <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br>
                 <label>Contraseña:</label><input type="text" formControlName="password1"><br>
+                <div *ngIf="password1.invalid && (password1.dirty || password1.touched) ">
+                    <div class="mensaje" *ngIf="password1.errors.required">
+                        *La contraseña es obligatoria
+                    </div>
+                    <div class="mensaje" *ngIf="password1.errors.minlength">
+                        *La contraseña tiene que tener más de 4 caracteres
+                    </div>
+                </div>
                 <label>Repite la contraseña:</label><input type="text" formControlName="password2"><br>
+                <div *ngIf="password2.invalid && (password2.dirty || password2.touched) ">
+                    <div *ngIf="password2.errors.mustMatch">
+                        *La contraseña no coincide
+                    </div>
+                </div>
             </div>
 
             <!-- Botones -->
