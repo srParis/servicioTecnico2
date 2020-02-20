@@ -13,8 +13,8 @@ export class PoblacionService {
     return this.http.get('http://localhost:3000/poblaciones');
   }
 
-  getPoblacion() {
-
+  getPoblacion(id: number) {
+    return this.http.get('http://localhost:3000/poblaciones/' + id);
   }
 
   savePoblacion(poblacion: Poblacion): Observable<any> {
@@ -23,7 +23,7 @@ export class PoblacionService {
   }
 
   deletePoblacion() {
-    
+
   }
 
   updatePoblacion() {
