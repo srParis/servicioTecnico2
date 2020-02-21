@@ -10,16 +10,16 @@ export class TipoReparacionService {
   constructor(private http: HttpClient) { }
 
   getTipoReparaciones(): Observable<any> {
-    return this.http.get('http://localhost:3000/tipo_reparacion');
+    return this.http.get('http://localhost:3000/tipoReparacion');
   }
 
   getTipoReparacion(id: number) {
-    return this.http.get('http://localhost:3000/tipo_reparacion' + id);
+    return this.http.get('http://localhost:3000/tipoReparacion' + id);
   }
 
   saveTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {
     console.log(tipoReparacion);
-    return this.http.post('http://localhost:3000/tipo_reparacion', tipoReparacion);
+    return this.http.post('http://localhost:3000/tipoReparacion', tipoReparacion);
   }
 
   deleteTipoReparacion() {

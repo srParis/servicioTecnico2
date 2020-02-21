@@ -1,0 +1,61 @@
+.contenedor_leerusuarios{
+    display:grid; 
+    justify-items: center; 
+  }
+  .contenedor_tabla{
+      widtH:100%;
+      display:grid;
+      grid-template-columns:12fr;
+      grid-template-areas:"titulo"
+                          "filaencabezados"
+                          "datosusuario";
+  
+  }
+  .titulo{
+      grid-area:titulo;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+      background-color:grey;
+      color:white;
+  }
+  .filaencabezados{
+      grid-area:filaencabezados;
+      display:grid;
+      grid-template-columns:2fr 5fr 5fr;
+      grid-template-areas:"tid tnombre tmodelo";
+  }
+  .tid{
+      grid-area:tid;
+      display:flex;
+      justify-content:center;
+
+  }
+  .tnombre{
+      grid-area:tnombre;
+    display:flex;
+    justify-content: center;
+  
+  }
+  .tmodelo{
+      grid-area:tmodelo;
+      display:flex;
+      justify-content: center;;
+
+  }
+  
+  .datosusuario{
+      grid-area:datosusuario;
+      display:grid;
+      grid-template-columns:2fr 5fr 5fr;
+      grid-auto-rows: auto;
+  }
+  .datosusuario:nth-child(odd){
+    background-color:whitesmoke;
+    text-align: center;
+  }
+  
+  .datosusuario:nth-child(even){
+      background-color:lightgrey;
+    text-align: center;
+  }

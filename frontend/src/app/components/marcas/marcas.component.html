@@ -1,1 +1,24 @@
-<h1>Marcas</h1>
+<div class="fichausuario">
+    <div class="contenedor_tabla">
+        <div class="titulo">
+            <h1>Listado de Marcas</h1>
+        </div>
+        <div class="filaencabezados">
+            <div class="tid">Id</div>
+            <div class="tnombre">Nombre</div>
+        </div>
+        <div class="filadatos">
+            <div class="datosusuario" *ngFor="let marc of marcas">
+
+                <div>
+                    {{marc.id_marca}}
+                </div>
+                <div>
+                    {{marc.nombre}}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

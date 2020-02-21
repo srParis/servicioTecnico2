@@ -7,7 +7,7 @@ import { ReparacionesComponent } from '../components/reparaciones/reparaciones.c
 import { MarcasComponent } from '../components/marcas/marcas.component';
 import { ModelosComponent } from '../components/modelos/modelos.component';
 import { AdminComponent } from '../views/admin/admin.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -43,7 +43,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),
+  ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class ModeloAdminRoutingModule { }

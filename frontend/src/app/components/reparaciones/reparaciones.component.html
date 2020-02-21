@@ -1,1 +1,42 @@
-<h1>Reparaciones</h1>
+<div class="fichausuario">
+    <!--
+<form [formGroup]="formmarc" (submit)="submit()">
+    Marca: <input type="text" formControlName="marca">
+    <button type="submit">Enviar</button>
+</form>
+-->
+    <!--
+SELECT PARA MOSTRAR MODELOS SEGUN LA MARCA
+<select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+    <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
+</select>
+-->
+    <div class="contenedor_leerusuarios">
+        <div class="contenedor_tabla">
+            <div class="titulo">
+                <h1>Listado de tipos de reparaciones</h1>
+            </div>
+            <div class="filaencabezados">
+                <div class="tid">Id</div>
+                <div class="tnombre">Nombre</div>
+                <div class="tprecio">Precio</div>
+            </div>
+            <div class="filadatos">
+                <div class="datosusuario" *ngFor="let repair of tipoReparacion">
+
+                    <div>
+                        {{repair.id_reparacion}}
+                    </div>
+                    <div>
+                        {{repair.nombre}}
+                    </div>
+                    <div>
+                        {{repair.precio_reparacion}}€
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
