@@ -9,7 +9,7 @@ import { TipoReparacionService } from 'src/app/services/tipos-reparacion.service
   styleUrls: ['./reparaciones.component.scss']
 })
 export class ReparacionesComponent implements OnInit {
-  private formmarc: FormGroup;
+  //private formmarc: FormGroup;
   public tipoReparacion: TipoReparacion;
   constructor(private formBuilder: FormBuilder, private tipoReparacionService: TipoReparacionService) { }
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {ReactiveFormsModule } from '@angular/forms';
 import { ModeloAdminRoutingModule } from './modelo-admin-routing.module';
 import { BarranavegacionAdminComponent } from '../components/barranavegacion-admin/barranavegacion-admin.component';
 import { CrearuserComponent } from '../components/crearuser/crearuser.component';
@@ -27,7 +27,8 @@ import { AdminComponent } from '../views/admin/admin.component';
   ],
   imports: [
     CommonModule,
-    ModeloAdminRoutingModule
+    ModeloAdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ModeloAdminModule { }
