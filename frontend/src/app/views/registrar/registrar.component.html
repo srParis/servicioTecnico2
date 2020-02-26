@@ -6,8 +6,32 @@
             <div class="cont-sec">
                 <h3>Datos personales</h3>
                 <label>Nombre:</label><input type="text" formControlName="nombre"><br>
+                <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
+                    <div class="mensaje" *ngIf="dni.errors.required">
+                        *El nombre es obligatorio
+                    </div>
+                    <div class="mensaje" *ngIf="dni.errors.pattern">
+                        *El nombre tiene 8 dígitos y 1 letra
+                    </div>
+                </div>
                 <label>Apellidos:</label><input type="text" formControlName="apellidos"><br>
+                <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
+                    <div class="mensaje" *ngIf="dni.errors.required">
+                        *Los apellidos son obligatorios
+                    </div>
+                    <div class="mensaje" *ngIf="dni.errors.pattern">
+                        *Los apellidos tiene 8 dígitos y 1 letra
+                    </div>
+                </div>
                 <label>DNI:</label><input type="text" formControlName="dni"><br>
+                <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
+                    <div class="mensaje" *ngIf="dni.errors.required">
+                        *El DNI es obligatorio
+                    </div>
+                    <div class="mensaje" *ngIf="dni.errors.pattern">
+                        *El DNI tiene 8 dígitos y 1 letra
+                    </div>
+                </div>
                 <label>Telefono:</label><input type="text" formControlName="telefono"><br>
             </div>
             
@@ -24,13 +48,21 @@
                     <option *ngFor="let item2 of poblaciones" [value]="item2.cp">{{item2.nombre}}, {{item2.cp}}</option>
                 </select>
                 <!-- <label>Provincia:</label><input type="text" formControlName="provincia" disabled="true"><br> -->
-                <label>CP:</label><input *ngIf="cp != null" type="text" formControlName="cp" disabled="true" value="{{cp}}">  <br>
+                <label>CP:</label><input *ngIf="cp != null" type="text" formControlName="cp" disabled="true" value="{{cp}}"><br>
             </div>
             
             <!-- Datos cuenta -->
             <div class="cont-sec">
                 <h3>Datos cuenta</h3>
                 <label>Email:</label><input type="text" formControlName="email"><br>
+                <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">
+                    <div *ngIf="email.errors.required">
+                        *El email es obligatorio
+                    </div>
+                    <div class="mensaje" *ngIf="email.errors.pattern">
+                        *El email tiene que cumplir unos requisitos
+                    </div>
+                </div>
                 <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br>
                 <label>Contraseña:</label><input type="text" formControlName="password1"><br>
                 <div *ngIf="password1.invalid && (password1.dirty || password1.touched) ">
@@ -45,6 +77,9 @@
                 <div *ngIf="password2.invalid && (password2.dirty || password2.touched) ">
                     <div *ngIf="password2.errors.mustMatch">
                         *La contraseña no coincide
+                    </div>
+                    <div class="mensaje" *ngIf="password2.errors.required">
+                        *La contraseña es obligatoria
                     </div>
                 </div>
             </div>

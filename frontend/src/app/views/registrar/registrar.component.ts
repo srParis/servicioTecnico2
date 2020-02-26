@@ -20,18 +20,21 @@ export class RegistrarComponent implements OnInit {
   public provincias: Provincia;
   public cp: string;
 
-  private patron = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
+  private patronEmail = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
+  private patronDNI = '[0-9]{8}[A-Za-z]{1}';
+  private patronNomb = '[A-Za-z]{0-35}';
+  private patronApe = '[A-Za-z]{0-100}';
 
   constructor( private router: Router, private formBuilder: FormBuilder,
                private usuarioService: UsuarioService, private poblacionService: PoblacionService,
                private provinciaService: ProvinciaService) {
     this.formuser = formBuilder.group({
-      email: ['', [Validators.required,  Validators.pattern(this.patron)]],
+      email: ['', [Validators.required,  Validators.pattern(this.patronEmail)]],
       password1: ['', [Validators.required, Validators.minLength(4)]],
       password2: ['', [Validators.required]],
-      apellidos: [''],
-      nombre: [''],
-      dni: [''],
+      apellidos: ['', [Validators.required, Validators.pattern(this.patronApe)]],
+      nombre: ['', [Validators.required, Validators.pattern(this.patronNomb)]],
+      dni: ['', [Validators.required, Validators.pattern(this.patronDNI)]],
       telefono: [''],
       direccion: [''],
       imagen: [''],
@@ -81,6 +84,18 @@ export class RegistrarComponent implements OnInit {
     return this.formuser.get('password2');
   }
 
+  get dni() {
+    return this.formuser.get('dni');
+  }
+
+  get nombre() {
+    return this.formuser.get('nombre');
+  }
+
+  get apellidos() {
+    return this.formuser.get('apellidos');
+  }
+
   public onOptionsSelected(value: number) {
     // console.log('the selected value is ' + value);
     this.poblacionService.getPoblacionesProv(value).subscribe(
@@ -97,18 +112,4 @@ export class RegistrarComponent implements OnInit {
   public onOptionsSelected2(value: string) {
     this.cp = value;
   }
-
-  // private validatePassword(control: AbstractControl) {
-  //   const password2 = control.value;
-  //   let password1 = document.getElementById("input1").value;
-
-  //   if( password2 === password1) {
-  //       console.log('Los valores son iguales');
-  //   } else {
-  //       console.log('los valores no son iguales');
-  //   }
-  //   return error;
-  // }
-
-
 }

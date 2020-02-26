@@ -5,7 +5,7 @@ import { RegistrarComponent } from './views/registrar/registrar.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { UserComponent } from './views/user/user.component';
 import { ModeloUsuarioModule } from './modelo-usuario/modelo-usuario.module';
-
+import { GLoginUserGuard } from './services/glogin-user.guard';
 
 
 const routes: Routes = [
@@ -20,11 +20,13 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => ModeloUsuarioModule)
+    loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => ModeloUsuarioModule),
+    canActivate: [GLoginUserGuard]
   },
   {
     path: 'admin',
-    loadChildren: () => import('./modelo-admin/modelo-admin.module').then(m => m.ModeloAdminModule)
+    loadChildren: () => import('./modelo-admin/modelo-admin.module').then(m => m.ModeloAdminModule),
+    canActivate: [GLoginUserGuard]
   },
   {
     path: 'registrar',
