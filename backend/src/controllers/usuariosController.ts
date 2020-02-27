@@ -41,7 +41,7 @@ class UsuariosController {
         console.log(usuario);
         console.log(usuario.length);
 
-        
+
         if(usuario.length == 0){
             res.json({message: 'Error al loguearse'})
         }else{
