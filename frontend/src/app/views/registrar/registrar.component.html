@@ -6,21 +6,21 @@
             <div class="cont-sec">
                 <h3>Datos personales</h3>
                 <label>Nombre:</label><input type="text" formControlName="nombre"><br>
-                <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
-                    <div class="mensaje" *ngIf="dni.errors.required">
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched) ">
+                    <div class="mensaje" *ngIf="nombre.errors.required">
                         *El nombre es obligatorio
                     </div>
-                    <div class="mensaje" *ngIf="dni.errors.pattern">
-                        *El nombre tiene 8 dígitos y 1 letra
+                    <div class="mensaje" *ngIf="nombre.errors.pattern">
+                        *El nombre solo puede tener letras
                     </div>
                 </div>
                 <label>Apellidos:</label><input type="text" formControlName="apellidos"><br>
-                <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
-                    <div class="mensaje" *ngIf="dni.errors.required">
+                <div *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched) ">
+                    <div class="mensaje" *ngIf="apellidos.errors.required">
                         *Los apellidos son obligatorios
                     </div>
-                    <div class="mensaje" *ngIf="dni.errors.pattern">
-                        *Los apellidos tiene 8 dígitos y 1 letra
+                    <div class="mensaje" *ngIf="apellidos.errors.pattern">
+                        *Los apellidos solo pueden tener letras
                     </div>
                 </div>
                 <label>DNI:</label><input type="text" formControlName="dni"><br>

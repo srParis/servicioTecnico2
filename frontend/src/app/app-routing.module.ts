@@ -21,12 +21,12 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./modelo-usuario/modelo-usuario.module').then(m => ModeloUsuarioModule),
-    // canActivate: [GLoginUserGuard]
+    canActivate: [GLoginUserGuard]
   },
   {
     path: 'admin',
-    loadChildren: () => import('./modelo-admin/modelo-admin.module').then(m => m.ModeloAdminModule)
-    // canActivate: [GLoginUserGuard]
+    loadChildren: () => import('./modelo-admin/modelo-admin.module').then(m => m.ModeloAdminModule),
+    canActivate: [GLoginUserGuard]
   },
   {
     path: 'registrar',

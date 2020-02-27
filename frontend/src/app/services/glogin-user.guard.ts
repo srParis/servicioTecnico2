@@ -11,6 +11,7 @@ export class GLoginUserGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.miservicio.logIn()) {
+      // this.router.navigate(['login']);
       return true;
     }
     this.router.navigate(['login']);

@@ -28,9 +28,22 @@ export class LoginComponent implements OnInit {
   submit() {
     this.usuarioService.getLogin(this.formlogin.value).subscribe(
       res => {
-        console.log(res);
-        localStorage.setItem('token', res);
-        this.router.navigate(['/user']);
+        // console.log('-----------------------' + );
+        try {
+          if (res.message) {
+            // Mostrar mensaje error
+          } else {
+            console.log('--------------------------' + res.usuario[0].rol);
+            console.log('--------------------------' + res.accessToken);
+            localStorage.setItem('token', res.accessToken);
+            // localStorage.setItem('tipo', this.usuarios.password);
+            if (res.usuario[0].rol === 'user') {
+              this.router.navigate(['/user']);
+            } else {
+              this.router.navigate(['/admin']);
+            }
+          }
+        } catch (error) {}
       },
       err => {
         console.log(err);
