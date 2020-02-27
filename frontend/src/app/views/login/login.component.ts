@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   submit() {
     this.usuarioService.getLogin(this.formlogin.value).subscribe(
       res => {
-        // console.log(res);
+        console.log(res);
         localStorage.setItem('token', res);
         this.router.navigate(['/user']);
       },

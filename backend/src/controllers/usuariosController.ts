@@ -33,6 +33,7 @@ class UsuariosController {
     }
 
     public async readlogin(req:Request, res:Response){
+        
         const copiaUsuario = {
             email: req.body.email,
             password: req.body.password
@@ -50,6 +51,7 @@ class UsuariosController {
                                             SECRET_KEY, {expiresIn: expiresIn});
             res.json(accessToken);
         }
+        
     }
 }
 export const usuariosController = new UsuariosController;
