@@ -22,8 +22,10 @@ export class RegistrarComponent implements OnInit {
 
   private patronEmail = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
   private patronDNI = '[0-9]{8}[A-Za-z]{1}';
-  private patronNomb = '[A-Za-z]{0-35}';
-  private patronApe = '[A-Za-z]{0-100}';
+  private patronNomb = '[A-Za-z]*';
+  private patronApe = '[A-Za-z]*';
+  private patronTLF = '[0-9]{0,9}';
+  private patronDir = '[A-Za-z]*';
 
   constructor( private router: Router, private formBuilder: FormBuilder,
                private usuarioService: UsuarioService, private poblacionService: PoblacionService,
@@ -35,8 +37,11 @@ export class RegistrarComponent implements OnInit {
       apellidos: ['', [Validators.required, Validators.pattern(this.patronApe)]],
       nombre: ['', [Validators.required, Validators.pattern(this.patronNomb)]],
       dni: ['', [Validators.required, Validators.pattern(this.patronDNI)]],
-      telefono: [''],
+      tlf: ['', [Validators.required, Validators.pattern(this.patronTLF)]],
       direccion: [''],
+      num_dir: [''],
+      piso_dir: [''],
+      numpiso_dir: [''],
       imagen: [''],
       poblacion: [''],
       provincia: [''],
@@ -94,6 +99,10 @@ export class RegistrarComponent implements OnInit {
 
   get apellidos() {
     return this.formuser.get('apellidos');
+  }
+
+  get tlf() {
+    return this.formuser.get('tlf');
   }
 
   public onOptionsSelected(value: number) {

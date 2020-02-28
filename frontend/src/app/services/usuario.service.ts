@@ -39,11 +39,23 @@ export class UsuarioService {
     return !!localStorage.getItem('token');
   }
 
+  logInAd() {
+    return !!localStorage.getItem('token_admin');
+  }
+
   logOut() {
     localStorage.removeItem('token');
   }
 
+  logOutAd() {
+    localStorage.removeItem('token_admin');
+  }
+
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  getTokenAd() {
+    return localStorage.getItem('token_admin');
   }
 }
