@@ -17,7 +17,6 @@
 		crear cliente
 	-marcas
 		filtrar marcas
-		crear marca
 	-modelos
 		filtrar modelos
 		crear modelo
