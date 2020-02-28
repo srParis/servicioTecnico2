@@ -16,7 +16,7 @@ const routes: Routes = [
       component: UserInicioComponent
       },
       {
-      path: 'info',
+      path: 'listRep',
       component: ListarReparacionesUserComponent
       }]
   }];
