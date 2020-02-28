@@ -30,17 +30,17 @@ export class MarcasComponent implements OnInit {
       }
     );
   }
-/*
+
     submit() {
     this.marcaService.saveMarca(this.formmarc.value).subscribe(
       res => {
         console.log(res);
+        this.ngOnInit();
       },
       err => {
         console.log(err);
       }
     );
   }
-  */
 
 }

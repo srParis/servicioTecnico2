@@ -47,3 +47,6 @@
 		-ver reparacion
 	- perfil
 		-ver perfil usuario
+
+	ANOTACIONES
+	
