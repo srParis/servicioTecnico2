@@ -10,11 +10,20 @@ export class CompruebatokenService implements HttpInterceptor {
   constructor(private usuarioservice: UsuarioService) { }
 
   intercept(req: any, next: any) {
-    const token = req.clone({
-      setHeaders: {
-        Authorization: 'miaplicacion' + this.usuarioservice.getToken()
-      }
-    });
-    return next.handle(token);
+    if (this.usuarioservice.getToken() === null) {
+      const token = req.clone({
+        setHeaders: {
+          Authorization: 'miaplicacion' + this.usuarioservice.getTokenAd()
+        }
+      });
+      return next.handle(token);
+    } else {
+      const token = req.clone({
+        setHeaders: {
+          Authorization: 'miaplicacion' + this.usuarioservice.getToken()
+        }
+      });
+      return next.handle(token);
+    }
   }
 }
