@@ -28,9 +28,13 @@ export class LoginComponent implements OnInit {
   submit() {
     this.usuarioService.getLogin(this.formlogin.value).subscribe(
       res => {
-        console.log(res);
+        if (!res.message) {
+        // console.log(res);
         localStorage.setItem('token', res);
         this.router.navigate(['/user']);
+        } else {
+          console.log(res.message);
+        }
       },
       err => {
         console.log(err);

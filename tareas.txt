@@ -1,0 +1,49 @@
+-login
+	- hacer que se guarde la session
+-registrar
+	-añadir campos restantes
+-admin
+	-inicio
+		-ver que hacemos con esto
+	- listar pedidos
+		-listar los pedidos
+		-acceder al pedido
+	- crear pedido
+		-crear pedido
+	-listar clientes
+		listar los clientes
+		acceder a un cliente
+	- crear cliente
+		crear cliente
+	-marcas
+		filtrar marcas
+		crear marca
+	-modelos
+		filtrar modelos
+		crear modelo
+	- reparaciones
+		filtar tipo reparaciones
+		crear tipo reparacion
+	- trabajadores
+		listar trbajadores
+		crear trabajador
+		-filtrar trabajadores
+	- distribuidores
+		listar distribuidor
+		crear distribuidor
+		filtrar distribuidor
+	- puestos
+		listar puestos
+		crear puestos
+		filtrar puestos
+-user
+	-incio
+		ver que hacemos con esto
+	-crear reparacion
+		-crear reparacion
+	-ver reparaciones
+		- listar reparaciones
+		-filtrar reparaciones
+		-ver reparacion
+	- perfil
+		-ver perfil usuario

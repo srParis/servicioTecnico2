@@ -53,7 +53,8 @@ class UsuariosController {
                 email: req.body.email,
                 password: req.body.password
             };
-            const usuario = yield database_1.default.query('SELECT *FROM usuarios where email = ? and password = ?', [req.body.email, req.body.password]);
+            const usuario = yield database_1.default.query('SELECT * FROM usuarios where email =? and password =?', [req.body.email, req.body.password]);
+            console.log("hola");
             console.log(usuario);
             console.log(usuario.length);
             if (usuario.length == 0) {
