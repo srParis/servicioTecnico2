@@ -11,6 +11,9 @@ import { ModelosComponent } from '../components/modelos/modelos.component';
 import { MarcasComponent } from '../components/marcas/marcas.component';
 import { LeeruserComponent } from '../components/leeruser/leeruser.component';
 import { AdminComponent } from '../views/admin/admin.component';
+import { PuestosComponent } from '../components/puestos/puestos.component';
+import { EmpresasComponent } from '../components/empresas/empresas.component';
+import { CrearpedidoComponent } from '../components/crearpedido/crearpedido.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { AdminComponent } from '../views/admin/admin.component';
     ReparacionesComponent,
     EstadosComponent,
     TrabajadoresComponent,
-    CrearuserComponent
+    CrearuserComponent,
+    PuestosComponent,
+    EmpresasComponent,
+    CrearpedidoComponent
   ],
   imports: [
     CommonModule,

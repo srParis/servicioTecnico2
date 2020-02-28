@@ -12,6 +12,8 @@ import { ModeloAdminModule } from './modelo-admin/modelo-admin.module';
 import { GLoginUserGuard } from './services/glogin-user.guard';
 import { CompruebatokenService } from './services/compruebatoken.service';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,6 @@ import { CompruebatokenService } from './services/compruebatoken.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-
   ],
   providers: [
     GLoginUserGuard,
