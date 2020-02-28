@@ -8,6 +8,9 @@ import { MarcasComponent } from '../components/marcas/marcas.component';
 import { ModelosComponent } from '../components/modelos/modelos.component';
 import { AdminComponent } from '../views/admin/admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PuestosComponent } from '../components/puestos/puestos.component';
+import { EmpresasComponent } from '../components/empresas/empresas.component';
+import { CrearpedidoComponent } from '../components/crearpedido/crearpedido.component';
 
 const routes: Routes = [
   {
@@ -37,6 +40,18 @@ const routes: Routes = [
       {
         path: 'modelos',
         component: ModelosComponent
+      },
+      {
+        path: 'puestos',
+        component: PuestosComponent
+      },
+      {
+        path: 'empresas',
+        component: EmpresasComponent
+      },
+      {
+        path: 'newPedido',
+        component: CrearpedidoComponent
       }
     ]
   }
