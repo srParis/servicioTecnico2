@@ -38,20 +38,22 @@ class UsuariosController {
             email: req.body.email,
             password: req.body.password
         };
-           
-        const usuario = await pool.query('SELECT * FROM usuarios where email =? and password =?', [req.body.email, req.body.password]);
-        console.log("hola");
+        const usuario = await pool.query('SELECT * FROM usuarios where email = ? and password = ?', [req.body.email, req.body.password]);
         console.log(usuario);
         console.log(usuario.length);
 
 
-        if (usuario.length == 0) {
-            res.json({ message: 'Error al loguearse' })
-        } else {
-            const expiresIn = 24 * 60 * 60;
-            const accessToken = jwt.sign({ id: copiaUsuario.email },
-                SECRET_KEY, { expiresIn: expiresIn });
-            res.json(accessToken);
+        if(usuario.length == 0){
+            res.json({message: 'Error al loguearse'})
+        }else{
+            const expiresIn = 24*60*60;
+            const accessToken = jwt.sign({ id: copiaUsuario.email},
+                                            SECRET_KEY, {expiresIn: expiresIn});
+            let usu: any;
+            usu = {usuario, accessToken};
+
+            res.json(usu);
+            console.log(usu);
         }
 
         
