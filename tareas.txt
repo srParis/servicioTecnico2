@@ -17,7 +17,6 @@
 		crear cliente
 	-marcas
 		filtrar marcas
-		crear marca
 	-modelos
 		filtrar modelos
 		crear modelo
@@ -47,3 +46,12 @@
 		-ver reparacion
 	- perfil
 		-ver perfil usuario
+
+	ANOTACIONES
+
+	para el dia 13
+	css de registrar
+	 modelos y tipo
+	controlar al crear un modelo o marcas
+	css general
+	

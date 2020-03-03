@@ -12,7 +12,7 @@ export class MarcasComponent implements OnInit {
   private formmarc: FormGroup;
   public marcas: Marca;
 
-  constructor(private formBuilder: FormBuilder, private marcaService: MarcaService ) {
+  constructor(private formBuilder: FormBuilder, private marcaService: MarcaService) {
     this.formmarc = formBuilder.group({
       nombre: [],
     });
@@ -20,7 +20,7 @@ export class MarcasComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.marcaService.getMarcas().subscribe(
+    this.marcaService.getMarcas().subscribe(
       res => {
         console.log(res);
         this.marcas = res;
@@ -30,17 +30,25 @@ export class MarcasComponent implements OnInit {
       }
     );
   }
-/*
-    submit() {
-    this.marcaService.saveMarca(this.formmarc.value).subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+
+  submit() {
+
+    const marc = this.formmarc.value;
+    if (this.marcaService.getMarca(marc)) {
+
+      this.marcaService.saveMarca(marc).subscribe(
+        res => {
+          console.log(res);
+          this.ngOnInit();
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    } else {
+      console.log('Ya existe');
+    }
+
   }
-  */
 
 }
