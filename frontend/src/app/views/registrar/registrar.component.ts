@@ -26,6 +26,7 @@ export class RegistrarComponent implements OnInit {
   private patronApe = '[A-Za-z]*';
   private patronTLF = '[0-9]{0,9}';
   private patronDir = '[A-Za-z]*';
+  private patronNum = '[0-9]*';
 
   constructor( private router: Router, private formBuilder: FormBuilder,
                private usuarioService: UsuarioService, private poblacionService: PoblacionService,
@@ -38,13 +39,13 @@ export class RegistrarComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.pattern(this.patronNomb)]],
       dni: ['', [Validators.required, Validators.pattern(this.patronDNI)]],
       tlf: ['', [Validators.required, Validators.pattern(this.patronTLF)]],
-      direccion: [''],
-      num_dir: [''],
-      piso_dir: [''],
-      numpiso_dir: [''],
+      direccion: ['', [Validators.required, Validators.pattern(this.patronDir)]],
+      num_dir: ['', [Validators.required, Validators.pattern(this.patronNum)]],
+      piso_dir: ['', [Validators.pattern(this.patronDir)]],
+      numpiso_dir: ['', [Validators.pattern(this.patronNum)]],
       imagen: [''],
-      poblacion: [''],
-      provincia: [''],
+      provincia: ['', [Validators.required]],
+      poblacion: ['', [Validators.required]],
       cp: ['']
     }, {
       validator: MustMatch('password1', 'password2')
@@ -103,6 +104,26 @@ export class RegistrarComponent implements OnInit {
 
   get tlf() {
     return this.formuser.get('tlf');
+  }
+
+  get direccion() {
+    return this.formuser.get('direccion');
+  }
+
+  get num_dir() {
+    return this.formuser.get('num_dir');
+  }
+
+  get piso_dir() {
+    return this.formuser.get('piso_dir');
+  }
+
+  get numpiso_dir() {
+    return this.formuser.get('numpiso_dir');
+  }
+
+  get imagen() {
+    return this.formuser.get('imagen');
   }
 
   public onOptionsSelected(value: number) {
