@@ -5,7 +5,7 @@
             Nombre: <input type="text" formControlName="nombre">
             Modelo: <input type="text" formControlName="modelo">
             <select formControlName="marca" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
-                <option *ngFor="let item of marca" [value]="item.marca">{{item.nombre}}</option>
+                <option *ngFor="let item of marcas" [value]="item.marca">{{item.nombre}}</option>
             </select>
             <button type="submit">Crear</button>
         </form>
