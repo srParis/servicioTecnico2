@@ -1,17 +1,15 @@
 <div class="contenedor_leerusuarios">
     <div class="fichausuario">
-        <!--
-<form [formGroup]="formmarc" (submit)="submit()">
-    Marca: <input type="text" formControlName="marca">
-    <button type="submit">Enviar</button>
-</form>
--->
-        <!--
-SELECT PARA MOSTRAR MODELOS SEGUN LA MARCA
-<select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
-    <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
-</select>
--->
+     
+        <form [formGroup]="formmodelo" (submit)="submit()">
+            Nombre: <input type="text" formControlName="nombre">
+            Modelo: <input type="text" formControlName="modelo">
+            <select formControlName="marca" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+                <option *ngFor="let item of marca" [value]="item.marca">{{item.nombre}}</option>
+            </select>
+            <button type="submit">Crear</button>
+        </form>
+
         <div class="contenedor_tabla">
             <div class="titulo">
                 <h1>Listado de Modelos</h1>
