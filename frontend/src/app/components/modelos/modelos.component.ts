@@ -12,6 +12,7 @@ import { Modelo, Marca } from 'src/app/modelos/modelos';
 })
 export class ModelosComponent implements OnInit {
   private formmodelo: FormGroup;
+  private filtrarM: FormGroup;
   public modelos: Modelo;
   public marcas: Marca;
   public idMarcas: Marca;
@@ -21,8 +22,11 @@ export class ModelosComponent implements OnInit {
       nombre: [],
       modelo: [],
       id_marca: []
-    });
-   }
+    }),
+      this.filtrarM = formBuilder.group({
+        nombre: []
+      });
+  }
 
   ngOnInit() {
     this.marcasService.getMarcas().subscribe(
@@ -45,6 +49,39 @@ export class ModelosComponent implements OnInit {
       }
     );
   }
+
+
+  submit() {
+
+    const modelo = this.formmodelo.value;
+    if (this.modeloService.getModelos()) {
+
+      this.modeloService.saveModelo(modelo).subscribe(
+        res => {
+          console.log(res);
+          this.ngOnInit();
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    } else {
+      console.log('Ya existe');
+    }
+  }
+  submit2() {
+  }
+  get nombre() {
+    return this.formmodelo.get('nombre');
+  }
+
+  get modelo() {
+    return this.formmodelo.get('modelo');
+  }
+  get id_marca() {
+    return this.formmodelo.get('id_marca');
+  }
+
+
+
 }
-
-

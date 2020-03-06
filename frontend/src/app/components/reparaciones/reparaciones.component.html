@@ -1,3 +1,51 @@
+<div class="contenedor">
+    <div class="fichausuario">
+        <div class="crear">
+            <h3 class="titu">Crear Tipo Reparacion</h3>
+            <form [formGroup]="formRep" (submit)="submit()">
+                Nombre: <input type="text" formControlName="nombre"><br>
+                Precio: <input type="text" formControlName="precio"><br>
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+        <div class="filtrar">
+            <h3>Filtrar Tipo Reparacion</h3>
+            <form [formGroup]="filtrarRep" (submit)="submit2()">
+                Nombre: <input type="text" formControlName="nombre"><br>
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="tabla">
+        <div class="titulo">
+            <h1>Listado de Reparaciones</h1>
+        </div>
+        <div class="filaencabezados">
+            <div class="tid">Id</div>
+            <div class="tnombre">Nombre</div>
+            <div class="tmodelo">Precio</div>
+        </div>
+        <div class="filadatos">
+            <div class="datosusuario" *ngFor="let repair of tipoReparacion">
+
+                <div>
+                    {{repair.id_reparacion}}
+                </div>
+                <div>
+                    {{repair.nombre}}
+                </div>
+                <div>
+                    {{repair.precio_reparacion}}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--
 <div class="fichausuario">
 
     <div class="contenedor_leerusuarios">
@@ -29,3 +77,4 @@
         </div>
     </div>
 </div>
+-->

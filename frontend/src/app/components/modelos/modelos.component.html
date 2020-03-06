@@ -1,40 +1,50 @@
-<div class="contenedorTabla">
+<div class="contenedor">
     <div class="fichausuario">
-     
-        <form [formGroup]="formmodelo" (submit)="submit()">
-            Nombre: <input type="text" formControlName="nombre">
-            Modelo: <input type="text" formControlName="modelo">
-            <select formControlName="id_marca" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
-                <option *ngFor="let item of marcas" [value]="item.marca">{{item.nombre}}</option>
-            </select>
-            <button type="submit">Crear</button>
-        </form>
-        
-        <div class="contenedor_tabla">
-            <div class="titulo">
-                <h1>Listado de Modelos</h1>
-            </div>
-            <div class="filaencabezados">
-                <div class="tid">Id</div>
-                <div class="tnombre">Nombre</div>
-                <div class="tmodelo">Modelo</div>
-            </div>
-            <div class="filadatos">
-                <div class="datosusuario" *ngFor="let model of modelos">
+        <div class="crear">
+            <h3 class="titu">Crear Modelo</h3>
+            <form [formGroup]="formmodelo" (submit)="submit()">
+                Nombre: <input type="text" formControlName="nombre"><br>
+                Modelo: <input type="text" formControlName="modelo"><br>
+                Marca:<select formControlName="id_marca" [(ngModel)]="seleccionado">
+                    <option *ngFor="let item of marcas" [value]="item.id_marca">{{item.nombre}}</option>
+                </select><br>
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+        <div class="filtrar">
+            <h3>Filtrar Modelo</h3>
+            <form [formGroup]="filtrarM" (submit)="submit2()">
+                Nombre: <input type="text" formControlName="nombre"><br>
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+    </div>
 
-                    <div>
-                        {{model.id_modelo}}
-                    </div>
-                    <div>
-                        {{model.nombre}}
-                    </div>
-                    <div>
-                        {{model.modelo}}
-                    </div>
+    <div class="tabla">
+        <div class="titulo">
+            <h1>Listado de Modelos</h1>
+        </div>
+        <div class="filaencabezados">
+            <div class="tid">Id</div>
+            <div class="tnombre">Nombre</div>
+            <div class="tmodelo">Modelo</div>
+        </div>
+        <div class="filadatos">
+            <div class="datosusuario" *ngFor="let model of modelos">
 
+                <div>
+                    {{model.id_modelo}}
+                </div>
+                <div>
+                    {{model.nombre}}
+                </div>
+                <div>
+                    {{model.modelo}}
                 </div>
 
             </div>
+
         </div>
+
     </div>
 </div>

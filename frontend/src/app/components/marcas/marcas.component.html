@@ -1,19 +1,29 @@
-<div>
-    <form [formGroup]="formmarc" (submit)="submit()">
-        Nueva Marca: <input type="text" formControlName="nombre">
+<div class="contenedor">
+    <div class="fichausuario">
+        <div class="crear">
+            <h3 class="titu">Crear Marca</h3>
+            <form [formGroup]="formmarc" (submit)="submit()">
+                Nueva Marca: <input type="text" formControlName="nombre">
+        
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+        <div class="filtrar">
+            <h3>Filtrar Marca</h3>
+            <form [formGroup]="filtrarMo" (submit)="submit2()">
+                Marca: <input type="text" formControlName="marca"><br>
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+    </div>
 
-        <button type="submit">Crear</button>
-    </form>
-</div>
-
-<div class="fichausuario">
-    <div class="contenedor_tabla">
+    <div class="tabla">
         <div class="titulo">
             <h1>Listado de Marcas</h1>
         </div>
         <div class="filaencabezados">
             <div class="tid">Id</div>
-            <div class="tnombre">Nombre</div>
+            <div class="tnombre">Marca</div>
         </div>
         <div class="filadatos">
             <div class="datosusuario" *ngFor="let marc of marcas">
@@ -28,5 +38,7 @@
             </div>
 
         </div>
+
     </div>
 </div>
+

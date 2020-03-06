@@ -1,56 +1,93 @@
-.contenedor_leerusuarios{
-    display:grid; 
-    justify-items: center; 
-  }
-  .contenedor_tabla{
-      widtH:60%;
-      display:grid;
-      grid-template-columns:12fr;
-      grid-template-areas:"titulo"
-                          "filaencabezados"
-                          "datosusuario";
+.contenedor{
+  width:100%;
+  height: 100%;
+  display:grid; 
+  justify-items: center; 
+  grid-template-columns:2fr 10fr 2fr;
+  grid-template-rows:2fr 10fr ;
+  grid-template-areas:". fichausuario ."
+                      ". tabla ."
+}
+.fichausuario{
+  width:100%;
+  grid-area:fichausuario;
   
-  }
-  .titulo{
-      grid-area:titulo;
-      display:flex;
-      align-items:center;
-      justify-content: center;
-      background-color:grey;
-      color:white;
-  }
-  .filaencabezados{
-      grid-area:filaencabezados;
-      display:grid;
-      grid-template-columns:2fr 3fr ;
-      grid-template-areas:"tid tnombre";
-  }
-  .tid{
-      grid-area:tid;
-      display:flex;
-      justify-content:center;
+  display: grid;
+  grid-template-columns:6fr 6fr;
+  grid-template-areas:"crear filtrar"
+}
+.crear{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
+  grid-area:crear;
 
-  }
-  .tnombre{
-      grid-area:tnombre;
+}
+.titu{
+  color:#01c0ae;
+}
+.filtrar{
+ 
+  display:flex;
+  flex-direction:column;
+  justify-content:start ;
+  text-align:center;
+  grid-area:filtrar;
+ 
+}
+.tabla{
+    widtH:80%;
+    display:grid;
+    grid-area:tabla;
+    grid-template-columns:12fr;
+    grid-template-areas:"titulo"
+                        "filaencabezados"
+                        "datosusuario";
+
+}
+.titulo{
+    grid-area:titulo;
     display:flex;
+    align-items:center;
     justify-content: center;
-  
-  }
+    background-color:grey;
+    color:white;
+}
+.filaencabezados{
+    grid-area:filaencabezados;
+    display:grid;
+    grid-template-columns:2fr 10fr ;
+    grid-template-areas:"tid tnombre";
+    font-size:1.5rem;
+    background-color: #91FF85;
+}
+.tid{
+    grid-area:tid;
+    display:flex;
+    justify-content:center;
 
-  
-  .datosusuario{
-      grid-area:datosusuario;
-      display:grid;
-      grid-template-columns:2fr 3fr;
-      grid-auto-rows: auto;
-  }
-  .datosusuario:nth-child(odd){
-    background-color:whitesmoke;
-    text-align: center;
-  }
-  
-  .datosusuario:nth-child(even){
-      background-color:lightgrey;
-    text-align: center;
-  }
+}
+.tnombre{
+    grid-area:tnombre;
+  display:flex;
+  justify-content: center;
+
+}
+
+
+.datosusuario{
+    grid-area:datosusuario;
+    display:grid;
+    grid-template-columns:2fr 10fr;
+    grid-auto-rows: auto;
+}
+.datosusuario:nth-child(odd){
+  background-color:whitesmoke;
+  text-align: center;
+}
+
+.datosusuario:nth-child(even){
+    background-color:lightgrey;
+  text-align: center;
+}

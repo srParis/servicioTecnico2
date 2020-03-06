@@ -10,11 +10,15 @@ import { MarcaService } from 'src/app/services/marcas.service';
 })
 export class MarcasComponent implements OnInit {
   private formmarc: FormGroup;
+  private filtrarMo: FormGroup;
   public marcas: Marca;
 
   constructor(private formBuilder: FormBuilder, private marcaService: MarcaService) {
     this.formmarc = formBuilder.group({
       nombre: [],
+    }),
+    this.filtrarMo = formBuilder.group({
+      marca: []
     });
 
   }
