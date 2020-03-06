@@ -19,7 +19,14 @@ class DireccionesController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO direcciones SET ?', [req.body]);
+            const dirUser = {
+                direccion: req.body.nombre_dir,
+                numDir: req.body.numero,
+                piso: req.body.piso,
+                numPiso: req.body.numeroPiso,
+                poblacion: req.body.poblacion
+            };
+            yield database_1.default.query('INSERT INTO direcciones (nombre_calle, numero, piso, numero_piso, Poblaciones_id_poblacion) VALUES (?,?,?,?,?)', [dirUser.direccion, dirUser.numDir, dirUser.piso, dirUser.numPiso, dirUser.poblacion]);
             res.json({ 'message': 'Se ha creado la direccion' });
         });
     }
@@ -42,6 +49,12 @@ class DireccionesController {
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const direccion = yield database_1.default.query('SELECT * FROM direcciones WHERE id_direccion = ?', [req.params.id]);
+            res.json(direccion);
+        });
+    }
+    readoneByNom(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const direccion = yield database_1.default.query('SELECT * FROM direcciones WHERE nombre_calle = ? AND Poblaciones_id_poblacion = ?', [req.body.nombre_dir, req.body.poblacion]);
             res.json(direccion);
         });
     }

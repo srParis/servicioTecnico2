@@ -7,7 +7,15 @@ class DireccionesController {
     }
 
     public async create(req:Request,res:Response){
-        await pool.query('INSERT INTO direcciones SET ?', [req.body]);
+        const dirUser = {
+            direccion: req.body.nombre_dir,
+            numDir: req.body.numero,
+            piso: req.body.piso,
+            numPiso: req.body.numeroPiso,
+            poblacion: req.body.poblacion
+        };
+        await pool.query('INSERT INTO direcciones (nombre_calle, numero, piso, numero_piso, Poblaciones_id_poblacion) VALUES (?,?,?,?,?)',
+                [dirUser.direccion, dirUser.numDir, dirUser.piso, dirUser.numPiso, dirUser.poblacion]);
         res.json({'message': 'Se ha creado la direccion'});
     }
 
@@ -26,6 +34,11 @@ class DireccionesController {
 
     public async readone(req:Request,res:Response){
         const direccion = await pool.query('SELECT * FROM direcciones WHERE id_direccion = ?', [req.params.id]);
+        res.json(direccion);
+    }
+
+    public async readoneByNom(req:Request,res:Response){
+        const direccion = await pool.query('SELECT * FROM direcciones WHERE nombre_calle = ? AND Poblaciones_id_poblacion = ?', [req.body.nombre_dir, req.body.poblacion]);
         res.json(direccion);
     }
 }

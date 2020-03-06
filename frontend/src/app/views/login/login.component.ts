@@ -23,6 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/user']);
+    }
+    if (localStorage.getItem('token_admin')) {
+      this.router.navigate(['/admin']);
+    }
   }
 
   submit() {

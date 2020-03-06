@@ -1,34 +1,295 @@
 .container-registrar {
     width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+}
+
+.titulo {
+    width: 100%;
+    height: 20%;
+    align-items: center;
+}
+
+.tit1 {
+    text-align: center;
+    font-size: 30px; 
+    font-weight: bolder;
 }
 
 .registrar-box {
     width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.titulo {
-    text-align: center;
+    height: auto;
 }
 
 .cont-prin {
     width: 100%;
-    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+// CONTROL DATOS PERSONALES
+.cont-secp {
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.div-titdp {
+    width: 100%;
+    text-align: center;
+}
+
+.div-contdp, .div-contdd {
     display: grid;
-    grid-template-columns: 12fr;
-    grid-template-rows: 3fr 3fr 3fr 3fr;
-    grid-template-areas: "cont-secp"
-                            "cont-secd"
-                            "cont-secc"
-                            "div-btns";
+    grid-template-columns: repeat(auto-fill, 1fr);
+}
+
+@media (min-width: 36rem) {
+    .div-contdp {
+       display: flex;
+       align-items: center;
+    }
+
+    .div-contdd {
+        display: flex;
+        align-items: center;
+     }
+}
+
+.div-tidp{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "div-tildp div-tibdp" "div-til2dp div-tib2dp";
+    justify-items: center;
     align-items: center;
-    justify-content: center;
+}
+
+.div-tibdp{
+    grid-area: div-tibdp;
+    width: 100%;
+}
+
+.div-tildp{
+    grid-area: div-tildp;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tib2dp{
+    grid-area: div-tib2dp;
+    width: 100%;
+}
+
+.div-til2dp{
+    grid-area: div-til2dp;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tddp{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "div-tdldp div-tdbdp" "div-tdl2dp div-tdb2dp";
+    justify-items: center;
+    align-items: center;
+}
+
+.div-tdbdp{
+    grid-area: div-tdbdp;
+    width: 100%;
+}
+
+.div-tdldp{
+    grid-area: div-tdldp;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tdb2dp{
+    grid-area: div-tdb2dp;
+    width: 100%;
+}
+
+.div-tdl2dp{
+    grid-area: div-tdl2dp;
+    width: 100%;
+    text-align: center;
+}
+
+.div-mensdp{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+
+// CONTROL DATOS DIRECCIÓN
+.cont-secd {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-titdd {
+    grid-area: div-titdd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tidd{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "div-til1dd div-tib1dd" 
+                        "div-til2dd div-tib2dd" 
+                        "div-til3dd div-tib3dd" 
+                        "div-til4dd div-tib4dd";
+    justify-items: center;
+    align-items: center;
+}
+
+.div-tib1dd{
+    grid-area: div-tib1dd;
+    width: 100%;
+}
+
+.div-til1dd{
+    grid-area: div-til1dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tib2dd{
+    grid-area: div-tib2dd;
+    width: 100%;
+}
+
+.div-til2dd{
+    grid-area: div-til2dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tib3dd{
+    grid-area: div-tib3dd;
+    width: 100%;
+}
+
+.div-til3dd{
+    grid-area: div-til3dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tib4dd{
+    grid-area: div-tib4dd;
+    width: 100%;
+}
+
+.div-til4dd{
+    grid-area: div-til4dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tddd{
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "div-tdl1dd div-tdb1dd" 
+                        "div-tdl2dd div-tdb2dd" 
+                        "div-tdl3dd div-tdb3dd"
+                        "espaciodd espaciodd";
+    justify-items: center;
+    align-items: center;
+}
+
+.div-tdb1dd{
+    grid-area: div-tdb1dd;
+    width: 100%;
+}
+
+.div-tdl1dd{
+    grid-area: div-tdl1dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tdb2dd{
+    grid-area: div-tdb2dd;
+    width: 100%;
+}
+
+.div-tdl2dd{
+    grid-area: div-tdl2dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-tdb3dd{
+    grid-area: div-tdb3dd;
+    width: 100%;
+}
+
+.div-tdl3dd{
+    grid-area: div-tdl3dd;
+    width: 100%;
+    text-align: center;
+}
+
+.div-mensdd{
+    grid-area: div-mensdd;
+    width: 100%;
+    text-align: center;
+}
+
+// CONTROL DATOS CUENTA
+.cont-secc {
+    width: 100%;
+    grid-area: cont-secc;
+}
+.lbl-dc {
+    width: 10rem;
+    text-align: right;
+}
+
+.div-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.tit2 {
+    font-size: 30px; 
+    font-weight: bolder;
+}
+
+.abtn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
 }
 
 .btn {
-    width: 100%;
+    width: 30%;
     background: #01c0ae;
     border: 4px solid #013631;
     color: white;

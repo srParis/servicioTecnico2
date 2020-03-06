@@ -1,7 +1,7 @@
 
 export interface Direccion {
     id?: number;
-    nombre?: string;
+    nombre_dir?: string;
     numero?: number;
     piso?: string;
     numeroPiso?: string;
@@ -101,7 +101,8 @@ export interface Usuario {
     password?: string;
     direccion?: number;
     nif?: string;
-    imagen?: string;
+    tlf?: number;
+    // imagen?: string;
 }
 
 

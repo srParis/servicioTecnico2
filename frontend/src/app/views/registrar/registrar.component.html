@@ -1,132 +1,215 @@
 <div class="container-registrar">
+    <div class="titulo">
+        <p class="tit1">Registrar</p>
+    </div>
+    
     <form class="registrar-box" [formGroup]="formuser" (submit)="submit()">
-        <h1 class="titulo">Registrar</h1>
         <div class="cont-prin">
             <!-- Datos personales -->
             <div class="cont-secp">
-                <p class="tit2">Datos personales</p>
-                <label>*Nombre:</label><input type="text" formControlName="nombre"><br>
-                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched) ">
-                    <div class="mensaje" *ngIf="nombre.errors.required">
-                        *El nombre es obligatorio
+                <div class="div-titdp">
+                    <p class="tit2">Datos personales</p>
+                </div>
+                <div class="div-contdp">
+                    <div class="div-tidp">
+                        <div class="div-tildp">
+                            <label>*Nombre:</label>
+                        </div>
+                        <div class="div-tibdp">
+                            <input type="text" formControlName="nombre">
+                        </div>
+                        <div class="div-til2dp">
+                            <label>*DNI:</label>
+                        </div>
+                        <div class="div-tib2dp">
+                            <input type="text" formControlName="dni">
+                        </div>
                     </div>
-                    <div class="mensaje" *ngIf="nombre.errors.pattern">
-                        *El nombre solo puede tener letras
+                    <div class="div-tddp">
+                        <div class="div-tdldp">
+                            <label>*Apellidos:</label>
+                        </div>
+                        <div class="div-tdbdp">
+                            <input type="text" formControlName="apellidos">
+                        </div>
+                        <div class="div-tdl2dp">
+                            <label>*Telefono:</label>
+                        </div>
+                        <div class="div-tdb2dp">
+                            <input type="text" formControlName="tlf">
+                        </div>
                     </div>
                 </div>
-                <label>*Apellidos:</label><input type="text" formControlName="apellidos"><br>
-                <div *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched) ">
-                    <div class="mensaje" *ngIf="apellidos.errors.required">
-                        *Los apellidos son obligatorios
+                <div class="div-mensdp">
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched) ">
+                        <div class="mensaje" *ngIf="nombre.errors.required">
+                            *El nombre es obligatorio
+                        </div>
+                        <div class="mensaje" *ngIf="nombre.errors.pattern">
+                            *El nombre solo puede tener letras
+                        </div>
                     </div>
-                    <div class="mensaje" *ngIf="apellidos.errors.pattern">
-                        *Los apellidos solo pueden tener letras
+                    <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
+                        <div class="mensaje" *ngIf="dni.errors.required">
+                            *El DNI es obligatorio
+                        </div>
+                        <div class="mensaje" *ngIf="dni.errors.pattern">
+                            *El DNI tiene 8 dígitos y 1 letra
+                        </div>
                     </div>
-                </div>
-                <label>*DNI:</label><input type="text" formControlName="dni"><br>
-                <div *ngIf="dni.invalid && (dni.dirty || dni.touched) ">
-                    <div class="mensaje" *ngIf="dni.errors.required">
-                        *El DNI es obligatorio
+                    <div *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched) ">
+                        <div class="mensaje" *ngIf="apellidos.errors.required">
+                            *Los apellidos son obligatorios
+                        </div>
+                        <div class="mensaje" *ngIf="apellidos.errors.pattern">
+                            *Los apellidos solo pueden tener letras
+                        </div>
                     </div>
-                    <div class="mensaje" *ngIf="dni.errors.pattern">
-                        *El DNI tiene 8 dígitos y 1 letra
-                    </div>
-                </div>
-                <label>*Telefono:</label><input type="text" formControlName="tlf"><br>
-                <div *ngIf="tlf.invalid && (tlf.dirty || tlf.touched) ">
-                    <div class="mensaje" *ngIf="tlf.errors.required">
-                        *El teléfono es obligatorio
-                    </div>
-                    <div class="mensaje" *ngIf="tlf.errors.pattern">
-                        *El teléfono tiene 9 dígitos
+                    <div *ngIf="tlf.invalid && (tlf.dirty || tlf.touched) ">
+                        <div class="mensaje" *ngIf="tlf.errors.required">
+                            *El teléfono es obligatorio
+                        </div>
+                        <div class="mensaje" *ngIf="tlf.errors.pattern">
+                            *El teléfono tiene 9 dígitos
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- Datos direccion -->
             <div class="cont-secd">
-                <p class="tit2">Datos dirección</p>
-                <label>*Direccion:</label><input type="text" formControlName="direccion"><br>
-                <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched) ">
-                    <div class="mensaje" *ngIf="direccion.errors.required">
-                        *La dirección es obligatoria
+                <div class="div-titdd">
+                    <p class="tit2">Datos dirección</p>
+                </div>
+                <div class="div-contdd">
+                    <div class="div-tidd">
+                        <div class="div-til1dd">
+                            <label>*Direccion:</label>
+                        </div>
+                        <div class="div-tib1dd">
+                            <input type="text" formControlName="nombre_dir">
+                        </div>
+                        <div class="div-til2dd">
+                            <label>*Nº:</label>
+                        </div>
+                        <div class="div-tib2dd">
+                            <input type="text" formControlName="numero">
+                        </div>
+                        <div class="div-til3dd">
+                            <label>Nº piso:</label>
+                        </div>
+                        <div class="div-tib3dd">
+                            <input type="text" formControlName="numeroPiso">
+                        </div>
+                        <div class="div-til4dd">
+                            <label>Piso:</label>
+                        </div>
+                        <div class="div-tib4dd">
+                            <input type="text" formControlName="piso">
+                        </div>
                     </div>
-                    <div class="mensaje" *ngIf="direccion.errors.pattern">
-                        *La dirección no tiene el formato correcto
+                    <div class="div-tddd">
+                        <div class="div-tdl1dd">
+                            <label>*Provincia:</label>
+                        </div>
+                        <div class="div-tdb1dd">
+                            <select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+                                <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="div-tdl2dd">
+                            <label>*Localidad:</label>
+                            
+                        </div>
+                        <div class="div-tdb2dd">
+                            <select formControlName="poblacion" [(ngModel)]="seleccionado2" #mySelect2 (change)='onOptionsSelected2(mySelect2.value)'>
+                                <option *ngFor="let item2 of poblaciones" [value]="item2.id_poblacion" >{{item2.nombre}}, {{item2.cp}}</option>
+                            </select>
+                        </div>
+                        <div class="div-tdl3dd">
+                            <label>*CP:</label>
+                        </div>
+                        <div class="div-tdb3dd">
+                            <input  type="text" formControlName="cp" disabled="true" *ngFor="let item3 of pobl" [value]="item3.cp">
+                        </div>
                     </div>
                 </div>
-                <label>*Nº:</label><input type="text" formControlName="num_dir">
-                <div *ngIf="num_dir.invalid && (num_dir.dirty || num_dir.touched) ">
-                    <div class="mensaje" *ngIf="num_dir.errors.required">
-                        *El número es obligatorio
+                <div class="div-mensdd">
+                    <div *ngIf="nombre_dir.invalid && (nombre_dir.dirty || nombre_dir.touched) ">
+                        <div class="mensaje" *ngIf="nombre_dir.errors.required">
+                            *La dirección es obligatoria
+                        </div>
+                        <div class="mensaje" *ngIf="nombre_dir.errors.pattern">
+                            *La dirección no tiene el formato correcto
+                        </div>
                     </div>
-                    <div class="mensaje" *ngIf="num_dir.errors.pattern">
-                        *Solo se permiten números
+                    <div *ngIf="numero.invalid && (numero.dirty || numero.touched) ">
+                        <div class="mensaje" *ngIf="numero.errors.required">
+                            *El número es obligatorio
+                        </div>
+                        <div class="mensaje" *ngIf="numero.errors.pattern">
+                            *Solo se permiten números
+                        </div>
+                    </div>
+                    <div *ngIf="numeroPiso.invalid && (numeroPiso.dirty || numeroPiso.touched) ">
+                        <div class="mensaje" *ngIf="numeroPiso.errors.pattern">
+                            *Solo se permiten números
+                        </div>
+                    </div>
+                    <div *ngIf="piso.invalid && (piso.dirty || piso.touched) ">
+                        <div class="mensaje" *ngIf="piso.errors.pattern">
+                            *El piso no tiene el formato correcto
+                        </div>
+                    </div>
+                    <div *ngIf="provincia.invalid && (provincia.dirty || provincia.touched) ">
+                        <div class="mensaje" *ngIf="provincia.errors.required">
+                            *La provincia es obligatoria
+                        </div>
+                    </div>
+                    <div *ngIf="poblacion.invalid && (poblacion.dirty || poblacion.touched) ">
+                        <div class="mensaje" *ngIf="poblacion.errors.required">
+                            *La poblacion es obligatoria
+                        </div>
                     </div>
                 </div>
-                <label>Nº piso:</label><input type="text" formControlName="numpiso_dir"><br>
-                <div *ngIf="numpiso_dir.invalid && (numpiso_dir.dirty || numpiso_dir.touched) ">
-                    <div class="mensaje" *ngIf="numpiso_dir.errors.pattern">
-                        *Solo se permiten números
-                    </div>
-                </div>
-                <label>Piso:</label><input type="text" formControlName="piso_dir">
-                <div *ngIf="piso_dir.invalid && (piso_dir.dirty || piso_dir.touched) ">
-                    <div class="mensaje" *ngIf="piso_dir.errors.pattern">
-                        *El piso no tiene el formato correcto
-                    </div>
-                </div>
-                <label>*Provincia:</label>
-                <select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
-                    <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
-                </select>
-                <div *ngIf="provincia.invalid && (provincia.dirty || provincia.touched) ">
-                    <div class="mensaje" *ngIf="provincia.errors.required">
-                        *La provincia es obligatoria
-                    </div>
-                </div>
-                <label>*Localidad:</label>
-                <select formControlName="poblacion" [(ngModel)]="seleccionado2" #mySelect2 (change)='onOptionsSelected2(mySelect2.value)'>
-                    <option *ngFor="let item2 of poblaciones" [value]="item2.cp">{{item2.nombre}}, {{item2.cp}}</option>
-                </select>
-                <div *ngIf="poblacion.invalid && (poblacion.dirty || poblacion.touched) ">
-                    <div class="mensaje" *ngIf="poblacion.errors.required">
-                        *La poblacion es obligatoria
-                    </div>
-                </div>
-                <!-- <label>Provincia:</label><input type="text" formControlName="provincia" disabled="true"><br> -->
-                <label>*CP:</label><input *ngIf="cp != null" type="text" formControlName="cp" disabled="true" value="{{cp}}"><br>
             </div>
             
             <!-- Datos cuenta -->
             <div class="cont-secc">
-                <p class="tit2">Datos cuenta</p>
-                <label>*Email:</label><input type="text" formControlName="email"><br>
-                <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">
-                    <div *ngIf="email.errors.required">
-                        *El email es obligatorio
-                    </div>
-                    <div class="mensaje" *ngIf="email.errors.pattern">
-                        *El email tiene que cumplir unos requisitos
-                    </div>
+                <div class="div-titdd">
+                    <p class="tit2">Datos cuenta</p>
                 </div>
-                <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br>
-                <label>*Contraseña:</label><input type="text" formControlName="password1"><br>
-                <div *ngIf="password1.invalid && (password1.dirty || password1.touched) ">
-                    <div class="mensaje" *ngIf="password1.errors.required">
-                        *La contraseña es obligatoria
+                <label class="lbl-dc">*Email:</label><input type="text" formControlName="email"><br>
+                
+                <!-- <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br> -->
+                <label class="lbl-dc">*Contraseña:</label><input type="text" formControlName="password1"><br>
+               
+                <label class="lbl-dc">*Repite la contraseña:</label><input type="text" formControlName="password2"><br>
+                
+                <div class="div-mensdc">
+                    <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">
+                        <div *ngIf="email.errors.required">
+                            *El email es obligatorio
+                        </div>
+                        <div class="mensaje" *ngIf="email.errors.pattern">
+                            *El email tiene que cumplir unos requisitos
+                        </div>
                     </div>
-                    <div class="mensaje" *ngIf="password1.errors.minlength">
-                        *La contraseña tiene que tener más de 4 caracteres
+                    <div *ngIf="password1.invalid && (password1.dirty || password1.touched) ">
+                        <div class="mensaje" *ngIf="password1.errors.required">
+                            *La contraseña es obligatoria
+                        </div>
+                        <div class="mensaje" *ngIf="password1.errors.minlength">
+                            *La contraseña tiene que tener más de 4 caracteres
+                        </div>
                     </div>
-                </div>
-                <label>*Repite la contraseña:</label><input type="text" formControlName="password2"><br>
-                <div *ngIf="password2.invalid && (password2.dirty || password2.touched) ">
-                    <div *ngIf="password2.errors.mustMatch">
-                        *La contraseña no coincide
-                    </div>
-                    <div class="mensaje" *ngIf="password2.errors.required">
-                        *La contraseña es obligatoria
+                    <div *ngIf="password2.invalid && (password2.dirty || password2.touched) ">
+                        <div *ngIf="password2.errors.mustMatch">
+                            *La contraseña no coincide
+                        </div>
+                        <div class="mensaje" *ngIf="password2.errors.required">
+                            *La contraseña es obligatoria
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,11 +217,9 @@
             <!-- Botones -->
             <div class="div-btns">
                 <p [hidden]="formuser.valid">Los campos con * son obligatorios</p>
-                <button class="btn" type="submit"  [disabled]="!formuser.valid">Aceptar</button><br>
-                <a routerLink="/login" href="#"><button class="btn" type="button">Cancelar</button></a>
+                <button class="btn" type="submit"  [disabled]="!formuser.valid">Aceptar</button>
+                <a class="abtn"routerLink="/login" href="#"><button class="btn" type="button">Cancelar</button></a>
             </div>
         </div>
     </form>
-    <!-- <a routerLink="/user" href="#"><button class="btn" type="button">USER</button></a>
-    <a routerLink="/registrar" href="#"><button class="btn" type="button">REGISTRAR</button></a> -->
 </div>

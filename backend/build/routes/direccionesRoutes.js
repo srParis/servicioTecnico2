@@ -13,6 +13,7 @@ class DireccionesRoutes {
         this.router.put('/:id', direccionesController_1.direccionesController.update);
         this.router.delete('/:id', direccionesController_1.direccionesController.delete);
         this.router.get('/:id', direccionesController_1.direccionesController.readone);
+        this.router.post('/dir1/', direccionesController_1.direccionesController.readoneByNom);
     }
 }
 const direccionesRoutes = new DireccionesRoutes();

@@ -18,9 +18,13 @@ export class DireccionService {
     return this.http.get('http://localhost:3000/direcciones/' + id);
   }
 
+  getDireccionByNom(direccion: Direccion) {
+    return this.http.post('http://localhost:3000/direcciones/dir1/', direccion);
+  }
+
   saveDireccion( direccion: Direccion): Observable<any> {
     console.log(direccion);
-    return this.http.post('http://localhost:3000/Direcciones', direccion);
+    return this.http.post('http://localhost:3000/direcciones', direccion);
   }
 
   deleteDireccion() {
