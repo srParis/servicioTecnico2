@@ -25,7 +25,7 @@ class TrabajadoresController {
     }
     read(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const trabajadores = yield database_1.default.query('SELECT * FROM trabajadores', [req.body]);
+            const trabajadores = yield database_1.default.query('select * from trabajadores, direcciones, poblaciones, provincias where trabajadores.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia', [req.body]);
             res.json(trabajadores);
         });
     }
@@ -41,7 +41,13 @@ class TrabajadoresController {
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const trabajador = yield database_1.default.query('SELECT * FROM trabajadores WHERE id_trabajador =?', [req.params.id]);
+            const trabajador = yield database_1.default.query('select * from trabajadores, direcciones, poblaciones, provincias where trabajadores.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia and  id_trabajador =?', [req.params.id]);
+            res.json(trabajador);
+        });
+    }
+    filter(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const trabajador = yield database_1.default.query('');
             res.json(trabajador);
         });
     }

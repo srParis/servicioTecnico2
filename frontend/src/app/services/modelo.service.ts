@@ -29,4 +29,8 @@ export class ModeloService {
   updateModelo() {
 
   }
+  getMarca(id: number): Observable<any> {
+    console.log(id);
+    return this.http.get('http://localhost:3000/modelos/marca/' + id);
+  }
 }

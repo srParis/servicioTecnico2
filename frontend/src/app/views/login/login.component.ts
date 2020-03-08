@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
   get email() {
     return this.formlogin.get('email');
   }

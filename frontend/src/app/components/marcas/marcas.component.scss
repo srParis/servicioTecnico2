@@ -11,7 +11,6 @@
 .fichausuario{
   width:100%;
   grid-area:fichausuario;
-  
   display: grid;
   grid-template-columns:6fr 6fr;
   grid-template-areas:"crear filtrar"
@@ -32,12 +31,13 @@
   display:flex;
   flex-direction:column;
   justify-content:start ;
-  text-align:center;
+  text-align: center;
+  align-items: center;
   grid-area:filtrar;
  
 }
 .tabla{
-    widtH:80%;
+    width:80%;
     display:grid;
     grid-area:tabla;
     grid-template-columns:12fr;

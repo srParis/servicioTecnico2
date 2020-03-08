@@ -24,7 +24,7 @@ export class ModelosComponent implements OnInit {
       id_marca: []
     }),
       this.filtrarM = formBuilder.group({
-        nombre: []
+        id_marca2: []
       });
   }
 
@@ -70,6 +70,18 @@ export class ModelosComponent implements OnInit {
     }
   }
   submit2() {
+    //this.id = this.filtrarM.get("id_marca");
+    //console.log(id);
+    this.modeloService.getMarca(35).subscribe(
+      res => {
+        console.log(res);
+        this.modelos = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
   }
   get nombre() {
     return this.formmodelo.get('nombre');

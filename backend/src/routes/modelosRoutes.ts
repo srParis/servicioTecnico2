@@ -13,6 +13,7 @@ class ModelosRoutes {
         this.router.put('/:id',modelosController.update);
         this.router.delete('/:id',modelosController.delete);
         this.router.get('/:id',modelosController.readone);
+        this.router.get('/marca/:id',modelosController.getMarca);
     }
 }
 const modelosRoutes = new ModelosRoutes();

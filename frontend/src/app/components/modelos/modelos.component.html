@@ -1,22 +1,32 @@
 <div class="contenedor">
     <div class="fichausuario">
         <div class="crear">
-            <h3 class="titu">Crear Modelo</h3>
-            <form [formGroup]="formmodelo" (submit)="submit()">
-                Nombre: <input type="text" formControlName="nombre"><br>
-                Modelo: <input type="text" formControlName="modelo"><br>
-                Marca:<select formControlName="id_marca" [(ngModel)]="seleccionado">
-                    <option *ngFor="let item of marcas" [value]="item.id_marca">{{item.nombre}}</option>
-                </select><br>
-                <button type="submit">Crear</button>
-            </form>
+            <div class="enun">
+                <h3 class="titu">Crear Modelo</h3>
+            </div>
+            <div class="formu">
+                <form [formGroup]="formmodelo" (submit)="submit()">
+                    <label class="lab"> Nombre:</label> <input type="text" formControlName="nombre"><br>
+                    <label class="lab"> Modelo:</label> <input type="text" formControlName="modelo"><br>
+                    <label class="lab">Marca:</label><select formControlName="id_marca" [(ngModel)]="seleccionado">
+                        <option *ngFor="let item of marcas" [value]="item.id_marca">{{item.nombre}}</option>
+                    </select><br>
+                    <button type="submit">Crear</button>
+                </form>
+            </div>
         </div>
         <div class="filtrar">
-            <h3>Filtrar Modelo</h3>
-            <form [formGroup]="filtrarM" (submit)="submit2()">
-                Nombre: <input type="text" formControlName="nombre"><br>
-                <button type="submit">Crear</button>
-            </form>
+            <div class="enun">
+                <h3 class="titu">Filtrar Modelo</h3>
+            </div>
+            <div class="formu">
+                <form [formGroup]="filtrarM" (change)="submit2()">
+                    <label class="lab">Marca:</label><select formControlName="id_marca2" [(ngModel)]="seleccionado2">
+                        <option *ngFor="let item of marcas"  [value]="item.id_marca">{{item.nombre}}</option>
+                    </select><br>
+                    <button type="submit">Crear</button>
+                </form>
+            </div>
         </div>
     </div>
 

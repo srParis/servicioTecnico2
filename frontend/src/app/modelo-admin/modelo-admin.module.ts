@@ -29,7 +29,8 @@ import { CrearpedidoComponent } from '../components/crearpedido/crearpedido.comp
     CrearuserComponent,
     PuestosComponent,
     EmpresasComponent,
-    CrearpedidoComponent
+    CrearpedidoComponent,
+
   ],
   imports: [
     CommonModule,

@@ -28,5 +28,9 @@ class ModelosController {
         const modelo = await pool.query('SELECT * FROM modelos WHERE id_modelo=?', [req.params.id]);
         res.json(modelo);
     }
+    public async getMarca(req:Request, res:Response){
+        const modelo = await pool.query('select * from modelos where id_marca = ?', [req.params.id]);
+        res.json(modelo);
+    }
 }
 export const modelosController = new ModelosController;

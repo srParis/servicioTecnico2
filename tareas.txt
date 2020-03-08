@@ -1,7 +1,5 @@
--login
-	- hacer que se guarde la session
 -registrar
-	-añadir campos restantes
+	-hacer que funcione
 -admin
 	-inicio
 		-ver que hacemos con esto
@@ -19,7 +17,6 @@
 		filtrar marcas
 	-modelos
 		filtrar modelos
-		crear modelo
 	- reparaciones
 		filtar tipo reparaciones
 		crear tipo reparacion
@@ -50,8 +47,7 @@
 	ANOTACIONES
 
 	para el dia 13
-	 modelos y tipo
 	controlar al crear un modelo o marcas
 	css general
-	hacer que funcione
+	hacer que funcione el filtrar
 	
