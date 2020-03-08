@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Usuario, Poblacion, Provincia } from 'src/app/modelos/modelos';
+import { Usuario, Poblacion, Provincia, Direccion } from 'src/app/modelos/modelos';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { PoblacionService } from 'src/app/services/poblacion.service';
 import { ProvinciaService } from 'src/app/services/provincia.service';
+import { DireccionService } from 'src/app/services/direccion.service';
 import { MustMatch } from 'src/app/utilidades/validaciones';
 
 @Component({
@@ -17,20 +18,25 @@ export class RegistrarComponent implements OnInit {
   public formuser: FormGroup;
   public usuarios: Usuario;
   public poblaciones: Poblacion;
+  public pobl: Poblacion;
   public provincias: Provincia;
-  public cp: string;
+  public direc: Direccion;
+  public cp2: string;
+  public idDir: number;
 
   private patronEmail = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
   private patronDNI = '[0-9]{8}[A-Za-z]{1}';
   private patronNomb = '[A-Za-z]*';
   private patronApe = '[A-Za-z]*';
   private patronTLF = '[0-9]{0,9}';
-  private patronDir = '[A-Za-z]*';
+  private patronDir = '[A-Za-z/]*';
   private patronNum = '[0-9]*';
 
   constructor( private router: Router, private formBuilder: FormBuilder,
-               private usuarioService: UsuarioService, private poblacionService: PoblacionService,
-               private provinciaService: ProvinciaService) {
+               private usuarioService: UsuarioService,
+               private poblacionService: PoblacionService,
+               private provinciaService: ProvinciaService,
+               private direccionService: DireccionService) {
     this.formuser = formBuilder.group({
       email: ['', [Validators.required,  Validators.pattern(this.patronEmail)]],
       password1: ['', [Validators.required, Validators.minLength(4)]],
@@ -39,14 +45,16 @@ export class RegistrarComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.pattern(this.patronNomb)]],
       dni: ['', [Validators.required, Validators.pattern(this.patronDNI)]],
       tlf: ['', [Validators.required, Validators.pattern(this.patronTLF)]],
-      direccion: ['', [Validators.required, Validators.pattern(this.patronDir)]],
-      num_dir: ['', [Validators.required, Validators.pattern(this.patronNum)]],
-      piso_dir: ['', [Validators.pattern(this.patronDir)]],
-      numpiso_dir: ['', [Validators.pattern(this.patronNum)]],
-      imagen: [''],
+      nombre_dir: ['', [Validators.required, Validators.pattern(this.patronDir)]],
+      numero: ['', [Validators.required, Validators.pattern(this.patronNum)]],
+      piso: ['', [Validators.pattern(this.patronDir)]],
+      numeroPiso: ['', [Validators.pattern(this.patronNum)]],
+      // imagen: [''],
       provincia: ['', [Validators.required]],
       poblacion: ['', [Validators.required]],
-      cp: ['']
+      cp: [''],
+      rol: ['user'],
+      direccion: ['']
     }, {
       validator: MustMatch('password1', 'password2')
     });
@@ -56,6 +64,14 @@ export class RegistrarComponent implements OnInit {
     // );
   }
   ngOnInit() {
+    this.cp2 = '';
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/user']);
+    }
+    if (localStorage.getItem('token_admin')) {
+      this.router.navigate(['/admin']);
+    }
+
     this.provinciaService.getProvincias().subscribe(
       res => {
         console.log(res);
@@ -68,6 +84,28 @@ export class RegistrarComponent implements OnInit {
   }
 
   submit() {
+    // console.log(this.formuser.get('nombre').value);
+    this.direccionService.saveDireccion(this.formuser.value).subscribe(
+      res => {
+        console.log(res);
+        this.idDir = res.insertId;
+        console.log(this.idDir);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    // this.direccionService.getDireccionByNom(this.formuser.value).subscribe(
+    //   res => {
+    //     console.log(res);
+    //     this.direc = res;
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
+
     this.usuarioService.saveUsuario(this.formuser.value).subscribe(
       res => {
         console.log(res);
@@ -106,24 +144,31 @@ export class RegistrarComponent implements OnInit {
     return this.formuser.get('tlf');
   }
 
-  get direccion() {
-    return this.formuser.get('direccion');
+  get nombre_dir() {
+    return this.formuser.get('nombre_dir');
   }
 
-  get num_dir() {
-    return this.formuser.get('num_dir');
+  get numero() {
+    return this.formuser.get('numero');
   }
 
-  get piso_dir() {
-    return this.formuser.get('piso_dir');
+  get piso() {
+    return this.formuser.get('piso');
   }
 
-  get numpiso_dir() {
-    return this.formuser.get('numpiso_dir');
+  get provincia() {
+    return this.formuser.get('provincia');
   }
 
-  get imagen() {
-    return this.formuser.get('imagen');
+  get poblacion() {
+    return this.formuser.get('poblacion');
+  }
+
+  get numeroPiso() {
+    return this.formuser.get('numeroPiso');
+  }
+  get cp() {
+    return this.formuser.get('cp');
   }
 
   public onOptionsSelected(value: number) {
@@ -139,7 +184,15 @@ export class RegistrarComponent implements OnInit {
     );
   }
 
-  public onOptionsSelected2(value: string) {
-    this.cp = value;
+  public onOptionsSelected2(value: number) {
+    this.poblacionService.getPoblacion(value).subscribe(
+      res => {
+        console.log(res);
+        this.pobl = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
