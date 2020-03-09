@@ -14,9 +14,10 @@ class DireccionesController {
             numPiso: req.body.numeroPiso,
             poblacion: req.body.poblacion
         };
-        await pool.query('INSERT INTO direcciones (nombre_calle, numero, piso, numero_piso, Poblaciones_id_poblacion) VALUES (?,?,?,?,?)',
+        const insert = await pool.query('INSERT INTO direcciones (nombre_calle, numero, piso, numero_piso, Poblaciones_id_poblacion) VALUES (?,?,?,?,?)',
                 [dirUser.direccion, dirUser.numDir, dirUser.piso, dirUser.numPiso, dirUser.poblacion]);
-        res.json({'message': 'Se ha creado la direccion'});
+        
+        res.json({'message': 'Se ha creado la direccion', 'idInsert': insert.insertId});
     }
 
     public async read(req:Request,res:Response){
@@ -37,9 +38,5 @@ class DireccionesController {
         res.json(direccion);
     }
 
-    public async readoneByNom(req:Request,res:Response){
-        const direccion = await pool.query('SELECT * FROM direcciones WHERE nombre_calle = ? AND Poblaciones_id_poblacion = ?', [req.body.nombre_dir, req.body.poblacion]);
-        res.json(direccion);
-    }
 }
 export const direccionesController = new DireccionesController;

@@ -24,13 +24,14 @@ class UsuariosController {
             const user = {
                 nombre: req.body.nombre,
                 email: req.body.email,
-                password: req.body.password,
+                password: req.body.password1,
                 direccion: req.body.direccion,
-                nif: req.body.nif,
+                nif: req.body.dni,
                 tlf: req.body.tlf,
                 rol: req.body.rol
             };
-            yield database_1.default.query('INSERT INTO usuarios (nombre, email, password, direccion_id_direccion, NIF, tlf, rol) VALUES(?,?,?,?,?,?,?))', [user.nombre, user.email, user.password, user.direccion, user.nif, user.tlf, user.rol]);
+            console.log(user);
+            yield database_1.default.query('INSERT INTO usuarios (nombre, email, password, direccion_id_direccion, NIF, tlf, rol) VALUES(?,?,?,?,?,?,?)', [user.nombre, user.email, user.password, user.direccion, user.nif, user.tlf, user.rol]);
             res.json({ 'message': 'Se ha creado el usuario' });
         });
     }
