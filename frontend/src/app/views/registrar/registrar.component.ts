@@ -90,7 +90,6 @@ export class RegistrarComponent implements OnInit {
         console.log(res);
         this.idDir = res.idInsert;
         this.formuser.get('direccion').setValue(this.idDir);
-        // setTimeout(() => {  console.log('Stop'); }, 2000);
         console.log(this.idDir);
       },
       err => {
@@ -98,16 +97,19 @@ export class RegistrarComponent implements OnInit {
       }
     );
 
-    console.log(this.formuser.value);
-    this.usuarioService.saveUsuario(this.formuser.value).subscribe(
-      res => {
-        console.log(res);
-        this.router.navigate(['/login']);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    setTimeout(() => {
+      console.log('Stop');
+      console.log(this.formuser.value);
+      this.usuarioService.saveUsuario(this.formuser.value).subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/login']);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }, 2000);
   }
 
   get email() {

@@ -32,9 +32,7 @@ export class UsuarioService {
   }
 
   getLogin(usuario: Usuario): Observable<any> {
-
     return this.http.post('http://localhost:3000/usuarios/login', usuario);
-
   }
 
   logIn() {
