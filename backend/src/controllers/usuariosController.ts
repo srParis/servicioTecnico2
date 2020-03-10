@@ -30,7 +30,7 @@ class UsuariosController {
     }
 
     public async read(req: Request, res: Response) {
-        const usuarios = await pool.query('SELECT * FROM usuarios', [req.body]);
+        const usuarios = await pool.query('select usuarios.*, direcciones.*, poblaciones.* from usuarios, direcciones, poblaciones, provincias where usuarios.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia', [req.body]);
         res.json(usuarios);
     }
 
@@ -43,7 +43,7 @@ class UsuariosController {
     }
 
     public async readone(req: Request, res: Response) {
-        const usuario = await pool.query('SELECT * FROM usuarios WHERE id_usuario =?', [req.params.id]);
+        const usuario = await pool.query('SELECT * from usuarios, direcciones, poblaciones, provincias where usuarios.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia and id_usuario =?', [req.params.id]);
         res.json(usuario);
     }
 
@@ -80,6 +80,10 @@ class UsuariosController {
         }
 
         
+    }
+    public async filter(req:Request, res:Response){
+        const usuario = await pool.query("select * from modelos where modelos.nombre like '%?%", [req.body.nombre]);
+        res.json(usuario);
     }
 }
 export const usuariosController = new UsuariosController;

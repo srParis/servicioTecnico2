@@ -10,14 +10,14 @@ import { MarcaService } from 'src/app/services/marcas.service';
 })
 export class MarcasComponent implements OnInit {
   private formmarc: FormGroup;
-  private filtrarMo: FormGroup;
+  private filtrarMarc: FormGroup;
   public marcas: Marca;
-
+  public nombreMarca: Marca;
   constructor(private formBuilder: FormBuilder, private marcaService: MarcaService) {
     this.formmarc = formBuilder.group({
       nombre: [],
     }),
-    this.filtrarMo = formBuilder.group({
+    this.filtrarMarc = formBuilder.group({
       marca: []
     });
 
@@ -54,5 +54,18 @@ export class MarcasComponent implements OnInit {
     }
 
   }
+  filter() {
 
+    console.log(this.filtrarMarc.value);
+    this.marcaService.filterMarca(this.filtrarMarc.value).subscribe(
+      res => {
+        console.log(res);
+        this.marcas = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+  }
 }

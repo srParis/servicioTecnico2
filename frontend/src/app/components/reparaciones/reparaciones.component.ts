@@ -12,6 +12,7 @@ export class ReparacionesComponent implements OnInit {
   private formRep: FormGroup;
   private filtrarRep: FormGroup;
   public tipoReparacion: TipoReparacion;
+  public tipo: TipoReparacion;
   constructor(private formBuilder: FormBuilder, private tipoReparacionService: TipoReparacionService,
     ) {
       this.formRep = formBuilder.group({
@@ -22,7 +23,7 @@ export class ReparacionesComponent implements OnInit {
         nombre: [],
       });
      }
-
+     private nombre;
   ngOnInit() {
     this.tipoReparacionService.getTipoReparaciones().subscribe(
       res => {
@@ -33,6 +34,21 @@ export class ReparacionesComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  submit2() {
+
+    this.tipo = this.filtrarRep.value;
+    console.log(this.tipo);
+    this.tipoReparacionService.filterTipoReparacion(this.tipo).subscribe(
+      res => {
+        console.log(res);
+        this.tipoReparacion = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
   }
 
 }

@@ -1,19 +1,26 @@
 <div class="contenedor">
     <div class="fichausuario">
         <div class="crear">
-            <h3 class="titu">Crear Marca</h3>
-            <form [formGroup]="formmarc" (submit)="submit()">
-                Nueva Marca: <input type="text" formControlName="nombre">
-        
-                <button type="submit">Crear</button>
-            </form>
+            <div class="enun">
+                <h3 class="titu">Crear Marca</h3>
+            </div>
+            <div class="formu">
+                <form [formGroup]="formmarc" (submit)="submit()">
+                    Nueva Marca: <input type="text" formControlName="nombre"><br>
+
+                    <button type="submit">Crear</button>
+                </form>
+            </div>
         </div>
         <div class="filtrar">
-            <h3>Filtrar Marca</h3>
-            <form [formGroup]="filtrarMo" (submit)="submit2()">
-                Marca: <input type="text" formControlName="marca"><br>
-                <button type="submit">Crear</button>
-            </form>
+            <div class="enun">
+                <h3 class="titu">Filtrar Marca</h3>
+            </div>
+            <div class="formu">
+                <form [formGroup]="filtrarMarc" (keyup)="filter()">
+                    Marca: <input type="text" formControlName="marca"><br>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -41,4 +48,3 @@
 
     </div>
 </div>
-

@@ -39,7 +39,7 @@ class UsuariosController {
     }
     read(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const usuarios = yield database_1.default.query('SELECT * FROM usuarios', [req.body]);
+            const usuarios = yield database_1.default.query('select usuarios.*, direcciones.*, poblaciones.* from usuarios, direcciones, poblaciones, provincias where usuarios.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia', [req.body]);
             res.json(usuarios);
         });
     }
@@ -55,7 +55,7 @@ class UsuariosController {
     }
     readone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const usuario = yield database_1.default.query('SELECT * FROM usuarios WHERE id_usuario =?', [req.params.id]);
+            const usuario = yield database_1.default.query('SELECT * from usuarios, direcciones, poblaciones, provincias where usuarios.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia and id_usuario =?', [req.params.id]);
             res.json(usuario);
         });
     }
@@ -86,6 +86,12 @@ class UsuariosController {
                     res.json({ message: 'Error al loguearse' });
                 }
             }
+        });
+    }
+    filter(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const usuario = yield database_1.default.query("select * from modelos where modelos.nombre like '%?%", [req.body.nombre]);
+            res.json(usuario);
         });
     }
 }

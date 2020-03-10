@@ -23,10 +23,16 @@ export class MarcaService {
   }
 
   deleteMarca(id: number) {
+    console.log(id);
     return this.http.delete('http://localhost:3000/marcas/' + id);
   }
 
   updateMarca() {
 
+  }
+  filterMarca(marca: Marca): Observable <any> {
+    console.log(marca);
+   // marca = '%' + marca + '%';
+    return this.http.post('http://localhost:3000/marcas/filter', marca);
   }
 }

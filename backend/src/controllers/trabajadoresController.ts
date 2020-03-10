@@ -12,7 +12,7 @@ class TrabajadoresController {
     }
 
     public async read(req:Request,res:Response){
-        const trabajadores = await pool.query('SELECT * FROM trabajadores', [req.body]);
+        const trabajadores = await pool.query('select * from trabajadores, direcciones, poblaciones, provincias where trabajadores.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia', [req.body]);
         res.json(trabajadores);
     }
 
@@ -25,7 +25,11 @@ class TrabajadoresController {
     }
 
     public async readone(req:Request,res:Response){
-        const trabajador = await pool.query('SELECT * FROM trabajadores WHERE id_trabajador =?', [req.params.id]);
+        const trabajador = await pool.query('select * from trabajadores, direcciones, poblaciones, provincias where trabajadores.direccion_id_direccion = direcciones.id_direccion and direcciones.Poblaciones_id_poblacion = poblaciones.id_poblacion and poblaciones.id_provincia = provincias.id_provincia and  id_trabajador =?', [req.params.id]);
+        res.json(trabajador);
+    }
+    public async filter(req:Request, res:Response){
+        const trabajador = await pool.query('');
         res.json(trabajador);
     }
 }

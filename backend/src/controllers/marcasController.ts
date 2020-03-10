@@ -28,5 +28,11 @@ class MarcasController {
         const marca = await pool.query('SELECT * FROM marcas WHERE id_marca =?', [req.params.id]);
         res.json(marca);
     }
+    public async filter(req:Request, res:Response){
+        const marc = req.body.marca;
+        const marc2 = '%'+ marc+'%';
+        const marca2 = await pool.query('SELECT * FROM marcas WHERE marcas.nombre LIKE ? ',[marc2]);
+        res.json(marca2);
+    }
 }
 export const marcasController = new MarcasController;

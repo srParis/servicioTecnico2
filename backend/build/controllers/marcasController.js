@@ -45,5 +45,13 @@ class MarcasController {
             res.json(marca);
         });
     }
+    filter(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const marc = req.body.marca;
+            const marc2 = '%' + marc + '%';
+            const marca2 = yield database_1.default.query('SELECT * FROM marcas WHERE marcas.nombre LIKE ? ', [marc2]);
+            res.json(marca2);
+        });
+    }
 }
 exports.marcasController = new MarcasController;

@@ -16,22 +16,41 @@
   grid-template-areas:"crear filtrar"
 }
 .crear{
-  display:flex;
-  justify-content: space-around;
-  flex-direction: column;
-  text-align: center;
+  display:grid;
+  grid-template-rows: 3fr 3fr;
+  grid-template-areas: "enun"
+                        "formu";
+
   grid-area:crear;
 
 }
+.enun{
+  grid-area:enun;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.formu{
+  grid-area:formu;
+  display:flex;
+  flex-direction:column;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.lab{
+  width:4rem;
+  text-align: right;
+}
+
 .titu{
   color:#01c0ae;
 }
 .filtrar{
- 
-  display:flex;
-  flex-direction:column;
-  justify-content:start ;
-  text-align:center;
+  display:grid;
+  grid-template-rows: 3fr 3fr;
+  grid-template-areas: "enun"
+                        "formu";
   grid-area:filtrar;
  
 }

@@ -14,12 +14,13 @@ import { CompruebatokenService } from './services/compruebatoken.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegistrarComponent
+    RegistrarComponent,
   ],
   imports: [
     BrowserModule,

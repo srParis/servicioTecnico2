@@ -15,7 +15,7 @@ export class ModelosComponent implements OnInit {
   private filtrarM: FormGroup;
   public modelos: Modelo;
   public marcas: Marca;
-  public idMarcas: Marca;
+  public marcaF: Marca;
 
   constructor(private formBuilder: FormBuilder, private modeloService: ModeloService, private marcasService: MarcaService) {
     this.formmodelo = formBuilder.group({
@@ -24,7 +24,7 @@ export class ModelosComponent implements OnInit {
       id_marca: []
     }),
       this.filtrarM = formBuilder.group({
-        nombre: []
+        id_marca2: []
       });
   }
 
@@ -70,7 +70,20 @@ export class ModelosComponent implements OnInit {
     }
   }
   submit2() {
+    const valorMarca = this.filtrarM.value;
+    this.modeloService.getMarcas(valorMarca.id_marca2).subscribe(
+      res => {
+        this.modelos = null;
+        this.modelos = res;
+        console.log(this.modelos);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
   }
+
   get nombre() {
     return this.formmodelo.get('nombre');
   }

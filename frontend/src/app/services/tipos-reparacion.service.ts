@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TipoReparacion} from '../modelos/modelos';
+import { TipoReparacion } from '../modelos/modelos';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,4 +29,10 @@ export class TipoReparacionService {
   updateTipoReparacion() {
 
   }
+
+  filterTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {
+    console.log('%' + tipoReparacion.nombre + '%');
+    return this.http.post('http://localhost:3000/tipoReparacion/filter', tipoReparacion.nombre);
+  }
 }
+

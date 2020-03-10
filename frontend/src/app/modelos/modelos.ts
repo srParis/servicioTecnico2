@@ -55,6 +55,7 @@ export interface Marca {
 export interface Modelo {
     id?: number;
     modelo?: string;
+    id_marca?: number;
 }
 export interface Poblacion {
     id?: number;
@@ -93,6 +94,8 @@ export interface Trabajadores {
     tlf?: number;
     email?: string;
     password?: string;
+    id_direccion?: number;
+    nombre_calle?: string;
 }
 export interface Usuario {
     id?: number;
