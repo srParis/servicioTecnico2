@@ -49,5 +49,6 @@
 	para el dia 13
 	controlar al crear un modelo o marcas
 	css general
-	hacer que funcione el filtrar
+	ver lo de los mensajes
+	loguear con google
 	

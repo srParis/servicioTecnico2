@@ -13,6 +13,7 @@ class MarcasRoutes {
         this.router.put('/:id', marcasController_1.marcasController.update);
         this.router.delete('/:id', marcasController_1.marcasController.delete);
         this.router.get('/:id', marcasController_1.marcasController.readone);
+        this.router.post('/filter', marcasController_1.marcasController.filter);
     }
 }
 const marcasRoutes = new MarcasRoutes();

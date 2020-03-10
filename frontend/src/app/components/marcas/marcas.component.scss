@@ -16,23 +16,41 @@
   grid-template-areas:"crear filtrar"
 }
 .crear{
-  display:flex;
-  justify-content: space-around;
-  flex-direction: column;
-  text-align: center;
+  display:grid;
+  grid-template-rows: 2fr 3.5fr;
+  grid-template-areas: "enun"
+                        "formu";
+
   grid-area:crear;
 
+}
+.enun{
+  grid-area:enun;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.formu{
+  grid-area:formu;
+  display:flex;
+  
+  text-align: center;
+  
+  
+}
+.lab{
+  width:4rem;
+  text-align: right;
 }
 .titu{
   color:#01c0ae;
 }
 .filtrar{
- 
-  display:flex;
-  flex-direction:column;
-  justify-content:start ;
-  text-align: center;
-  align-items: center;
+  display:grid;
+  grid-template-rows: 2fr 4fr;
+  grid-template-areas: "enun"
+                        "formu";
   grid-area:filtrar;
  
 }
@@ -57,10 +75,8 @@
 .filaencabezados{
     grid-area:filaencabezados;
     display:grid;
-    grid-template-columns:2fr 10fr ;
-    grid-template-areas:"tid tnombre";
-    font-size:1.5rem;
-    background-color: #91FF85;
+    grid-template-columns:2fr 5fr 5fr;
+    grid-template-areas:"tid tnombre tmodelo";
 }
 .tid{
     grid-area:tid;
@@ -74,12 +90,17 @@
   justify-content: center;
 
 }
+.tmodelo{
+    grid-area:tmodelo;
+    display:flex;
+    justify-content: center;;
 
+}
 
 .datosusuario{
     grid-area:datosusuario;
     display:grid;
-    grid-template-columns:2fr 10fr;
+    grid-template-columns:2fr 5fr 5fr;
     grid-auto-rows: auto;
 }
 .datosusuario:nth-child(odd){

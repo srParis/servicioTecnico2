@@ -37,8 +37,9 @@ export class ReparacionesComponent implements OnInit {
   }
   submit2() {
 
-    this.nombre = this.filtrarRep.get(' nombre ' );
-    this.tipoReparacionService.filterTipoReparacion(this.nombre).subscribe(
+    this.tipo = this.filtrarRep.value;
+    console.log(this.tipo);
+    this.tipoReparacionService.filterTipoReparacion(this.tipo).subscribe(
       res => {
         console.log(res);
         this.tipoReparacion = res;

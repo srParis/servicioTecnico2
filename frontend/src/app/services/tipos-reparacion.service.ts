@@ -29,9 +29,10 @@ export class TipoReparacionService {
   updateTipoReparacion() {
 
   }
-  filterTipoReparacion(tipoReparacion: any): Observable<any> {
-    console.log('%' + tipoReparacion + '%');
-    return this.http.post('http://localhost:3000/tipoReparacion/filter', tipoReparacion);
+
+  filterTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {
+    console.log('%' + tipoReparacion.nombre + '%');
+    return this.http.post('http://localhost:3000/tipoReparacion/filter', tipoReparacion.nombre);
   }
 }
 
