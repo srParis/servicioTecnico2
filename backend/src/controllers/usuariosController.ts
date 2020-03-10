@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import pool from '../database';
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = 'MiClaveSecreta1234';
+const bcrypt = require('bcryptjs');
 
 
 class UsuariosController {
@@ -22,9 +23,9 @@ class UsuariosController {
 
         console.log(user);
 
-        
+        const hash = bcrypt.hashSync(user.password, 10);
         await pool.query('INSERT INTO usuarios (nombre, email, password, direccion_id_direccion, NIF, tlf, rol) VALUES(?,?,?,?,?,?,?)',
-                [user.nombre, user.email, user.password, user.direccion, user.nif, user.tlf, user.rol]);
+                [user.nombre, user.email, hash, user.direccion, user.nif, user.tlf, user.rol]);
         res.json({ 'message': 'Se ha creado el usuario' });
     }
 
@@ -52,7 +53,9 @@ class UsuariosController {
             email: req.body.email,
             password: req.body.password
         };
-        const usuario = await pool.query('SELECT * FROM usuarios where email = ? and password = ?', [req.body.email, req.body.password]);
+        // const hash = bcrypt.hashSync(copiaUsuario.password, 10);
+        // console.log(hash);
+        const usuario = await pool.query('SELECT * FROM usuarios where email = ?', [req.body.email]);
         console.log(usuario);
         console.log(usuario.length);
 
@@ -60,14 +63,20 @@ class UsuariosController {
         if(usuario.length == 0){
             res.json({message: 'Error al loguearse'})
         }else{
-            const expiresIn = 24*60*60;
-            const accessToken = jwt.sign({ id: copiaUsuario.email},
-                                            SECRET_KEY, {expiresIn: expiresIn});
-            let usu: any;
-            usu = {usuario, accessToken};
+            if(bcrypt.compareSync(copiaUsuario.password, usuario[0].password)){
+                const expiresIn = 24*60*60;
+                const accessToken = jwt.sign({ id: copiaUsuario.email},
+                                                SECRET_KEY, {expiresIn: expiresIn});
+                let usu: any;
+                usu = {usuario, accessToken};
 
-            res.json(usu);
-            console.log(usu);
+                res.json(usu);
+                console.log(usu);
+            }
+            else{
+                res.json({message: 'Error al loguearse'})
+            }
+            
         }
 
         
