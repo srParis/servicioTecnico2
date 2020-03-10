@@ -2,19 +2,22 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #f2f2f2;
+    background-color: #b7f6ec;
 }
 
 .titulo {
     width: 100%;
-    height: 20%;
+    background-color: white;
     align-items: center;
+    justify-items: center;
 }
 
 .tit1 {
+    padding-top: 1rem;
     text-align: center;
     font-size: 30px; 
     font-weight: bolder;
+    color: #01c0ae;
 }
 
 .registrar-box {
@@ -26,15 +29,23 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
 }
 
 // CONTROL DATOS PERSONALES
 .cont-secp {
-    width: 100%;
+    width: 80%;
     height: 30%;
 
+    background-color: white;
     display: flex;
     flex-direction: column;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 17px 10px 5px 0px rgba(0,0,0,0.4);
 }
 
 .div-titdp {
@@ -45,9 +56,10 @@
 .div-contdp, .div-contdd {
     display: grid;
     grid-template-columns: repeat(auto-fill, 1fr);
+    padding-top: 1rem;
 }
 
-@media (min-width: 36rem) {
+@media (min-width: 42rem) {
     .div-contdp {
        display: flex;
        align-items: center;
@@ -63,7 +75,7 @@
     width: 100%;
 
     display: grid;
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 3fr 9fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "div-tildp div-tibdp" "div-til2dp div-tib2dp";
     justify-items: center;
@@ -96,7 +108,7 @@
     width: 100%;
 
     display: grid;
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 3fr 9fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "div-tdldp div-tdbdp" "div-tdl2dp div-tdb2dp";
     justify-items: center;
@@ -134,10 +146,15 @@
 
 // CONTROL DATOS DIRECCIÓN
 .cont-secd {
-    width: 100%;
+    width: 80%;
     height: 30%;
+    background-color: white;
     display: flex;
     flex-direction: column;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 17px 10px 5px 0px rgba(0,0,0,0.4);
 }
 
 .div-titdd {
@@ -150,7 +167,7 @@
     width: 100%;
 
     display: grid;
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 3fr 9fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas: "div-til1dd div-tib1dd" 
                         "div-til2dd div-tib2dd" 
@@ -208,7 +225,7 @@
     width: 100%;
 
     display: grid;
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 3fr 9fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas: "div-tdl1dd div-tdb1dd" 
                         "div-tdl2dd div-tdb2dd" 
@@ -259,12 +276,25 @@
 
 // CONTROL DATOS CUENTA
 .cont-secc {
-    width: 100%;
-    grid-area: cont-secc;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 17px 10px 5px 0px rgba(0,0,0,0.4);
 }
+
 .lbl-dc {
-    width: 10rem;
-    text-align: right;
+    // text-align: right;
+    padding-left: 2rem;
+}
+
+.btn-dc {
+    // text-align: right;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .div-btns {
@@ -276,8 +306,12 @@
 }
 
 .tit2 {
-    font-size: 30px; 
+    font-size: 20px; 
     font-weight: bolder;
+    padding-top: 1rem;
+    color: #01c0ae;
+    border-bottom: 3px solid #01c0ae;
+    // #fd9a61;
 }
 
 .abtn {
@@ -299,4 +333,15 @@
     cursor: pointer;
     margin: 12px 0;
     position: relative;
+}
+
+.lbls {
+    color: #555555;
+    // font-weight: bolder;
+    font-family: sans-serif;
+}
+
+.mensaje {
+    color: #555555;
+    font-family: sans-serif;
 }

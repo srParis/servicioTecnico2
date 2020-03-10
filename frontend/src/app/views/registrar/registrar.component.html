@@ -8,18 +8,18 @@
             <!-- Datos personales -->
             <div class="cont-secp">
                 <div class="div-titdp">
-                    <p class="tit2">Datos personales</p>
+                    <label class="tit2">Datos personales</label>
                 </div>
                 <div class="div-contdp">
                     <div class="div-tidp">
                         <div class="div-tildp">
-                            <label>*Nombre:</label>
+                            <label class="lbls">*Nombre:</label>
                         </div>
                         <div class="div-tibdp">
                             <input type="text" formControlName="nombre">
                         </div>
                         <div class="div-til2dp">
-                            <label>*DNI:</label>
+                            <label class="lbls">*DNI:</label>
                         </div>
                         <div class="div-tib2dp">
                             <input type="text" formControlName="dni">
@@ -27,13 +27,13 @@
                     </div>
                     <div class="div-tddp">
                         <div class="div-tdldp">
-                            <label>*Apellidos:</label>
+                            <label class="lbls">*Apellidos:</label>
                         </div>
                         <div class="div-tdbdp">
                             <input type="text" formControlName="apellidos">
                         </div>
                         <div class="div-tdl2dp">
-                            <label>*Telefono:</label>
+                            <label class="lbls">*Telefono:</label>
                         </div>
                         <div class="div-tdb2dp">
                             <input type="text" formControlName="tlf">
@@ -79,30 +79,30 @@
             <!-- Datos direccion -->
             <div class="cont-secd">
                 <div class="div-titdd">
-                    <p class="tit2">Datos dirección</p>
+                    <label class="tit2">Datos dirección</label>
                 </div>
                 <div class="div-contdd">
                     <div class="div-tidd">
                         <div class="div-til1dd">
-                            <label>*Direccion:</label>
+                            <label class="lbls">*Direccion:</label>
                         </div>
                         <div class="div-tib1dd">
                             <input type="text" formControlName="nombre_dir">
                         </div>
                         <div class="div-til2dd">
-                            <label>*Nº:</label>
+                            <label class="lbls">*Nº:</label>
                         </div>
                         <div class="div-tib2dd">
                             <input type="text" formControlName="numero">
                         </div>
                         <div class="div-til3dd">
-                            <label>Nº piso:</label>
+                            <label class="lbls">Nº piso:</label>
                         </div>
                         <div class="div-tib3dd">
                             <input type="text" formControlName="numeroPiso">
                         </div>
                         <div class="div-til4dd">
-                            <label>Piso:</label>
+                            <label class="lbls">Piso:</label>
                         </div>
                         <div class="div-tib4dd">
                             <input type="text" formControlName="piso">
@@ -110,7 +110,7 @@
                     </div>
                     <div class="div-tddd">
                         <div class="div-tdl1dd">
-                            <label>*Provincia:</label>
+                            <label class="lbls">*Provincia:</label>
                         </div>
                         <div class="div-tdb1dd">
                             <select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
@@ -118,7 +118,7 @@
                             </select>
                         </div>
                         <div class="div-tdl2dd">
-                            <label>*Localidad:</label>
+                            <label class="lbls">*Localidad:</label>
                             
                         </div>
                         <div class="div-tdb2dd">
@@ -127,10 +127,10 @@
                             </select>
                         </div>
                         <div class="div-tdl3dd">
-                            <label>*CP:</label>
+                            <label class="lbls">*CP:</label>
                         </div>
                         <div class="div-tdb3dd">
-                            <input  type="text" formControlName="cp" disabled="true" *ngFor="let item3 of pobl" [value]="item3.cp">
+                            <input type="text" formControlName="cp" disabled="true" *ngFor="let item3 of pobl" [value]="item3.cp">
                         </div>
                     </div>
                 </div>
@@ -177,14 +177,14 @@
             <!-- Datos cuenta -->
             <div class="cont-secc">
                 <div class="div-titdd">
-                    <p class="tit2">Datos cuenta</p>
+                    <label class="tit2">Datos cuenta</label>
                 </div>
-                <label class="lbl-dc">*Email:</label><input type="text" formControlName="email"><br>
+                <label class="lbl-dc">*Email:</label><input class="btn-dc" type="text" formControlName="email"><br>
                 
                 <!-- <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br> -->
-                <label class="lbl-dc">*Contraseña:</label><input type="text" formControlName="password1"><br>
+                <label class="lbl-dc">*Contraseña:</label><input class="btn-dc" type="password" formControlName="password1"><br>
                
-                <label class="lbl-dc">*Repite la contraseña:</label><input type="text" formControlName="password2"><br>
+                <label class="lbl-dc">*Repite la contraseña:</label><input class="btn-dc" type="password" formControlName="password2"><br>
                 
                 <div class="div-mensdc">
                     <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">

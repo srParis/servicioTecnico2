@@ -26,10 +26,10 @@ export class RegistrarComponent implements OnInit {
 
   private patronEmail = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
   private patronDNI = '[0-9]{8}[A-Za-z]{1}';
-  private patronNomb = '[A-Za-z]*';
-  private patronApe = '[A-Za-z]*';
+  private patronNomb = '[A-Za-z ]*';
+  private patronApe = '[A-Za-z ]*';
   private patronTLF = '[0-9]{0,9}';
-  private patronDir = '[A-Za-z/]*';
+  private patronDir = '[A-Za-z/ ]*';
   private patronNum = '[0-9]*';
 
   constructor( private router: Router, private formBuilder: FormBuilder,
