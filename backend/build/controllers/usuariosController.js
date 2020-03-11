@@ -104,5 +104,24 @@ class UsuariosController {
             }
         });
     }
+    userEmail(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const email = req.body.email;
+            const usuario = yield database_1.default.query('SELECT * FROM usuarios where email = ?', [email]);
+            console.log(usuario.length);
+            if (usuario.length == 0) {
+                res.json({ message: 'No existe ese usuario' });
+            }
+            else {
+                res.json(usuario);
+            }
+        });
+    }
+    filter(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const usuario = yield database_1.default.query("select * from modelos where modelos.nombre like '%?%", [req.body.nombre]);
+            res.json(usuario);
+        });
+    }
 }
 exports.usuariosController = new UsuariosController;

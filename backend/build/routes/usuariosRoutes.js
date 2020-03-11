@@ -15,6 +15,7 @@ class UsuariosRoutes {
         this.router.get('/:id', usuariosController_1.usuariosController.readone);
         this.router.post('/login', usuariosController_1.usuariosController.readlogin);
         this.router.post('/loginGF', usuariosController_1.usuariosController.readloginGoogle);
+        this.router.post('/userEm', usuariosController_1.usuariosController.userEmail);
     }
 }
 const usuariosRoutes = new UsuariosRoutes();

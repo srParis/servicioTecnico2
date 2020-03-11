@@ -85,7 +85,27 @@ export class RegistrarComponent implements OnInit {
   }
 
   submit() {
-    // console.log(this.formuser.get('nombre').value);
+    const userEm = this.formuser.get('email').value;
+    this.usuarioService.userEmail(userEm).toPromise().then(
+      res => {
+        console.log('-------------------------');
+        console.log(res);
+        console.log('-------------------------');
+
+        try {
+          if (res.message === 'No existe ese usuario') {
+            this.crearUser();
+          }
+        } catch (error) {}
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  public crearUser() {
     this.direccionService.saveDireccion(this.formuser.value).subscribe(
       res => {
         console.log(res);
