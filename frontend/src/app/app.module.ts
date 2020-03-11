@@ -15,6 +15,7 @@ import { CompruebatokenService } from './services/compruebatoken.service';
 
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { NotifyComponent } from './components/errores/notify/notify.component';
 
 
 const config = new AuthServiceConfig([
@@ -38,8 +39,7 @@ export function provideConfig() {
     HomeComponent,
     LoginComponent,
     RegistrarComponent,
-
-
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,

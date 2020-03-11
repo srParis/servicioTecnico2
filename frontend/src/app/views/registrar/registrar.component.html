@@ -16,13 +16,13 @@
                             <label class="lbls">*Nombre:</label>
                         </div>
                         <div class="div-tibdp">
-                            <input type="text" formControlName="nombre">
+                            <input class="inps" type="text" formControlName="nombre">
                         </div>
                         <div class="div-til2dp">
                             <label class="lbls">*DNI:</label>
                         </div>
                         <div class="div-tib2dp">
-                            <input type="text" formControlName="dni">
+                            <input class="inps" type="text" formControlName="dni">
                         </div>
                     </div>
                     <div class="div-tddp">
@@ -30,13 +30,13 @@
                             <label class="lbls">*Apellidos:</label>
                         </div>
                         <div class="div-tdbdp">
-                            <input type="text" formControlName="apellidos">
+                            <input class="inps" type="text" formControlName="apellidos">
                         </div>
                         <div class="div-tdl2dp">
                             <label class="lbls">*Telefono:</label>
                         </div>
                         <div class="div-tdb2dp">
-                            <input type="text" formControlName="tlf">
+                            <input class="inps" type="text" formControlName="tlf">
                         </div>
                     </div>
                 </div>
@@ -87,25 +87,25 @@
                             <label class="lbls">*Direccion:</label>
                         </div>
                         <div class="div-tib1dd">
-                            <input type="text" formControlName="nombre_dir">
+                            <input class="inps" type="text" formControlName="nombre_dir">
                         </div>
                         <div class="div-til2dd">
                             <label class="lbls">*Nº:</label>
                         </div>
                         <div class="div-tib2dd">
-                            <input type="text" formControlName="numero">
+                            <input class="inps" type="text" formControlName="numero">
                         </div>
                         <div class="div-til3dd">
                             <label class="lbls">Nº piso:</label>
                         </div>
                         <div class="div-tib3dd">
-                            <input type="text" formControlName="numeroPiso">
+                            <input class="inps" type="text" formControlName="numeroPiso">
                         </div>
                         <div class="div-til4dd">
                             <label class="lbls">Piso:</label>
                         </div>
                         <div class="div-tib4dd">
-                            <input type="text" formControlName="piso">
+                            <input class="inps" type="text" formControlName="piso">
                         </div>
                     </div>
                     <div class="div-tddd">
@@ -113,7 +113,7 @@
                             <label class="lbls">*Provincia:</label>
                         </div>
                         <div class="div-tdb1dd">
-                            <select formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+                            <select class="inps" formControlName="provincia" [(ngModel)]="seleccionado" #mySelect (change)='onOptionsSelected(mySelect.value)'>
                                 <option *ngFor="let item of provincias" [value]="item.id_provincia">{{item.nombre}}</option>
                             </select>
                         </div>
@@ -122,7 +122,7 @@
                             
                         </div>
                         <div class="div-tdb2dd">
-                            <select formControlName="poblacion" [(ngModel)]="seleccionado2" #mySelect2 (change)='onOptionsSelected2(mySelect2.value)'>
+                            <select class="inps" formControlName="poblacion" [(ngModel)]="seleccionado2" #mySelect2 (change)='onOptionsSelected2(mySelect2.value)'>
                                 <option *ngFor="let item2 of poblaciones" [value]="item2.id_poblacion" >{{item2.nombre}}, {{item2.cp}}</option>
                             </select>
                         </div>
@@ -179,12 +179,15 @@
                 <div class="div-titdd">
                     <label class="tit2">Datos cuenta</label>
                 </div>
-                <label class="lbl-dc">*Email:</label><input class="btn-dc" type="text" formControlName="email"><br>
+                <label class="lbl-dc">*Email:</label>
+                <input class="btn-dc" type="text" formControlName="email"><br>
                 
                 <!-- <label>Imagen de perfil:</label><input type="file" formControlName="imagen"><br> -->
-                <label class="lbl-dc">*Contraseña:</label><input class="btn-dc" type="password" formControlName="password1"><br>
+                <label class="lbl-dc">*Contraseña:</label>
+                <input class="btn-dc" type="password" formControlName="password1"><br>
                
-                <label class="lbl-dc">*Repite la contraseña:</label><input class="btn-dc" type="password" formControlName="password2"><br>
+                <label class="lbl-dc">*Repite la contraseña:</label>
+                <input class="btn-dc" type="password" formControlName="password2"><br>
                 
                 <div class="div-mensdc">
                     <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">
@@ -217,6 +220,7 @@
             <!-- Botones -->
             <div class="div-btns">
                 <p [hidden]="formuser.valid">Los campos con * son obligatorios</p>
+                <app-notify *ngIf="formuser.errors" [message]="formuser.errors.login"></app-notify>
                 <button class="btn" type="submit"  [disabled]="!formuser.valid">Aceptar</button>
                 <a class="abtn"routerLink="/login" href="#"><button class="btn" type="button">Cancelar</button></a>
             </div>

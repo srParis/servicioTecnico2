@@ -4,18 +4,18 @@
             <img class="img-log"  src="../../../assets/logoLogin.png" alt="">
         </div>
         <div class="textbox">
-            <input type="text" formControlName="email" placeholder="Email">
+            <input type="text" class="txt_log" formControlName="email" placeholder="Email">
         </div>
         <div class="mensaje" *ngIf="email.invalid && (email.dirty || email.touched) ">
             <div *ngIf="email.errors.required">
                 *El email es obligatorio
             </div>
             <div class="mensaje" *ngIf="email.errors.pattern">
-                *El email tiene que cumplir unos requisitos
+                *El email no tiene el formato correcto
             </div>
         </div>
         <div class="textbox">
-            <input type="password" formControlName="password" placeholder="Password">
+            <input type="password" class="txt_log" formControlName="password" placeholder="Password">
         </div>
         <div *ngIf="password.invalid && (password.dirty || password.touched) ">
             <div class="mensaje" *ngIf="password.errors.required">
@@ -26,6 +26,7 @@
             </div>
         </div>
         <div class="div-btns">
+            <app-notify *ngIf="formlogin.errors" [message]="formlogin.errors.login"></app-notify>
             <button class="btn" type="submit" [disabled]="!formlogin.valid">ENTRAR</button><br>
             <a routerLink="/registrar" href="#"><button class="btn" type="button">REGISTRAR</button></a>
             <a routerLink="/user" href="#"><button class="btn2" (click)="signInWithGoogle()" type="button">LOGIN CON GOOGLE</button></a>
