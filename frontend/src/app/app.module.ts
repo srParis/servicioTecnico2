@@ -11,6 +11,7 @@ import { ModeloUsuarioModule } from './modelo-usuario/modelo-usuario.module';
 import { ModeloAdminModule } from './modelo-admin/modelo-admin.module';
 import { GLoginUserGuard } from './services/glogin-user.guard';
 import { CompruebatokenService } from './services/compruebatoken.service';
+import { NotifyadminComponent } from './components/errores/notifyadmin/notifyadmin.component';
 
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
@@ -37,6 +38,7 @@ export function provideConfig() {
     HomeComponent,
     LoginComponent,
     RegistrarComponent,
+    NotifyadminComponent,
   ],
   imports: [
     BrowserModule,
