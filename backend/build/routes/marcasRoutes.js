@@ -14,6 +14,7 @@ class MarcasRoutes {
         this.router.delete('/:id', marcasController_1.marcasController.delete);
         this.router.get('/:id', marcasController_1.marcasController.readone);
         this.router.post('/filter', marcasController_1.marcasController.filter);
+        this.router.post('/get', marcasController_1.marcasController.readonenombre);
     }
 }
 const marcasRoutes = new MarcasRoutes();

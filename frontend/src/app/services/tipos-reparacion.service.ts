@@ -35,5 +35,6 @@ export class TipoReparacionService {
     // marca = '%' + marca + '%';
     return this.http.post('http://localhost:3000/tipoReparacion/filter', tipoReparacion);
   }
+
 }
 
