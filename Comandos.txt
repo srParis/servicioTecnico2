@@ -1,0 +1,4 @@
+Comandos extra para que la aplicación funcione correctamente:
+	- npm i -s bcryptjs 
+	- npm i -s jsonwebtoken
+	- npm install --save angularx-social-login

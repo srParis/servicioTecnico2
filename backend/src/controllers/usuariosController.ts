@@ -79,14 +79,9 @@ class UsuariosController {
 
 
     public async readloginGoogle(req: Request, res: Response) {
-      
-             const email= req.body.email;
-       
-        
+        const email= req.body.email;
         const usuario = await pool.query('SELECT * FROM usuarios where email = ?', [email]);
-       
         console.log(usuario.length);
-
 
         if(usuario.length == 0){
             res.json({message: 'Error al loguearse'})
@@ -99,6 +94,18 @@ class UsuariosController {
 
             res.json(usu);
             console.log(usu);
+        }
+    }
+
+    public async userEmail(req: Request, res: Response) {
+        const email= req.body.email;
+        const usuario = await pool.query('SELECT * FROM usuarios where email = ?', [email]);
+        console.log(usuario.length);
+
+        if(usuario.length == 0){
+            res.json({message: 'No existe ese usuario'})
+        }else{
+            res.json(usuario);
         }
     }
 

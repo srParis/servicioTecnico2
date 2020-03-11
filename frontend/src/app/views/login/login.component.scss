@@ -44,7 +44,22 @@
     width: 100%;
     background: #01c0ae;
     border: 4px solid #013631;
+    border-radius: 5px;
     color: white;
+    font-family: fantasy;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 12px 0;
+    position: relative;
+}
+
+.btn2 {
+    width: 100%;
+    background: rgb(250, 106, 86);
+    border: 4px solid rgb(63, 62, 62);
+    border-radius: 5px;
+    color: rgb(241, 230, 230);
     font-family: fantasy;
     padding: 5px;
     font-size: 14px;

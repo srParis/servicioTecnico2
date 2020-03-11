@@ -16,7 +16,12 @@ export class UsuarioService {
 
   getUsuario(usuario: Usuario) {
     const id = usuario.id;
-    return this.http.get('http:/localhost:3000/usuarios/' + id );
+    return this.http.get('http://localhost:3000/usuarios/' + id );
+  }
+
+  userEmail(email: any): Observable<any> {
+    console.log(email);
+    return this.http.post('http://localhost:3000/usuarios/userEm', {email});
   }
 
   saveUsuario(usuario: Usuario): Observable<any> {

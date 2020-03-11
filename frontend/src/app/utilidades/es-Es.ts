@@ -11,9 +11,10 @@ export const literal = {
     },
     error: {
         login: 'Error al loguearte, revisa el usuario o el pass',
+        checkIn: 'Ya existe un usuario con ese email',
         emptyForm: 'Uno de los campos esta vacio',
         errorModel: 'Error al crear el modelo',
-        errorMarca: 'Erros al crear la clase',
+        errorMarca: 'Erros al crear la marca',
         errorRepair: 'Error al crear el tipo de reparacion',
         errorBusiness: 'Error al crear la empresa',
         errorEmployee: 'Error al crear al trabajador',
