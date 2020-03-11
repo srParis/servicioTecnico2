@@ -48,13 +48,11 @@ class UsuariosController {
     }
 
     public async readlogin(req: Request, res: Response) {
-
         const copiaUsuario = {
             email: req.body.email,
             password: req.body.password
         };
-        // const hash = bcrypt.hashSync(copiaUsuario.password, 10);
-        // console.log(hash);
+        
         const usuario = await pool.query('SELECT * FROM usuarios where email = ?', [req.body.email]);
         console.log(usuario);
         console.log(usuario.length);
@@ -76,10 +74,32 @@ class UsuariosController {
             else{
                 res.json({message: 'Error al loguearse'})
             }
-            
         }
+    }
 
+
+    public async readloginGoogle(req: Request, res: Response) {
+      
+             const email= req.body.email;
+       
         
+        const usuario = await pool.query('SELECT * FROM usuarios where email = ?', [email]);
+       
+        console.log(usuario.length);
+
+
+        if(usuario.length == 0){
+            res.json({message: 'Error al loguearse'})
+        }else{
+            const expiresIn = 24*60*60;
+            const accessToken = jwt.sign({ id: usuario.email},
+                                            SECRET_KEY, {expiresIn: expiresIn});
+            let usu: any;
+            usu = {usuario, accessToken};
+
+            res.json(usu);
+            console.log(usu);
+        }
     }
 }
 export const usuariosController = new UsuariosController;

@@ -28,7 +28,10 @@
         <div class="div-btns">
             <button class="btn" type="submit" [disabled]="!formlogin.valid">ENTRAR</button><br>
             <a routerLink="/registrar" href="#"><button class="btn" type="button">REGISTRAR</button></a>
+            <a routerLink="/user" href="#"><button class="btn" (click)="signInWithGoogle()" type="button">LOGIN CON GOOGLE</button></a>
+            <!-- <a routerLink="/user" href="#"><button class="btn" (click)="signInWithFB()" type="button">LOGIN CON FACEBOOK</button></a> -->
         </div>
+       
     </form>
 
     <!-- <a routerLink="/user" routerLinkActive="router-link-active" href="#"><button class="btn" type="button">USER</button></a>

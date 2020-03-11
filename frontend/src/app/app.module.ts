@@ -13,8 +13,24 @@ import { GLoginUserGuard } from './services/glogin-user.guard';
 import { CompruebatokenService } from './services/compruebatoken.service';
 
 
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 
 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('306551655611-ud1lh62acdnesrimhjpgj79q8t7216pq.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('297738407870109')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -30,7 +46,7 @@ import { CompruebatokenService } from './services/compruebatoken.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    SocialLoginModule
   ],
   providers: [
     GLoginUserGuard,
@@ -38,6 +54,10 @@ import { CompruebatokenService } from './services/compruebatoken.service';
       provide: HTTP_INTERCEPTORS,
       useClass: CompruebatokenService,
       multi: true
+    },
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
     }
   ],
   bootstrap: [AppComponent]

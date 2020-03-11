@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+import { AuthService } from 'angularx-social-login';
+
 @Component({
   selector: 'app-barranavegacion',
   templateUrl: './barranavegacion.component.html',
@@ -8,9 +10,14 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class BarranavegacionComponent implements OnInit {
 
-  constructor(public usuarioservice: UsuarioService) { }
+  constructor(public usuarioservice: UsuarioService, private authService: AuthService) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.usuarioservice.logOut();
+    this.authService.signOut();
   }
 
 }
