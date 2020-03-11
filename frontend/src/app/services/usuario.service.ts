@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../modelos/modelos';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +34,10 @@ export class UsuarioService {
 
   getLogin(usuario: Usuario): Observable<any> {
     return this.http.post('http://localhost:3000/usuarios/login', usuario);
+  }
+
+  getLoginGF(email: any): Observable<any> {
+    return this.http.post('http://localhost:3000/usuarios/loginGF', {email});
   }
 
   logIn() {
