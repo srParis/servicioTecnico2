@@ -9,7 +9,8 @@
                     Nueva Marca: <input type="text" formControlName="nombre"><br>
 
                     <button type="submit">Crear</button>
-                </form>
+                </form><br>
+                <app-notifyadmin *ngIf="formmarc.errors" [message]="formmarc.errors.login"></app-notifyadmin>
             </div>
         </div>
         <div class="filtrar">
@@ -20,6 +21,7 @@
                 <form [formGroup]="filtrarMarc" (keyup)="filter()">
                     Marca: <input type="text" formControlName="marca"><br>
                 </form>
+                <app-notifyadmin *ngIf="filtrarMarc.errors" [message]="filtrarMarc.errors.login"></app-notifyadmin>
             </div>
         </div>
     </div>

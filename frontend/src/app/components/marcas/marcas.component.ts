@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Marca } from 'src/app/modelos/modelos';
 import { MarcaService } from 'src/app/services/marcas.service';
+import { literal } from 'src/app/utilidades/es-Es';
 
 @Component({
   selector: 'app-marcas',
@@ -17,9 +18,9 @@ export class MarcasComponent implements OnInit {
     this.formmarc = formBuilder.group({
       nombre: [],
     }),
-    this.filtrarMarc = formBuilder.group({
-      marca: []
-    });
+      this.filtrarMarc = formBuilder.group({
+        marca: []
+      });
 
   }
 
@@ -38,8 +39,8 @@ export class MarcasComponent implements OnInit {
   submit() {
 
     const marc = this.formmarc.value;
-    if (this.marcaService.getMarca(marc)) {
-
+    if (!this.marcaService.getMarca(marc)) {
+      console.log('no exite');
       this.marcaService.saveMarca(marc).subscribe(
         res => {
           console.log(res);
@@ -50,17 +51,21 @@ export class MarcasComponent implements OnInit {
         }
       );
     } else {
-      console.log('Ya existe');
+      this.formmarc.setErrors({ login: literal.error.errorMarca });
     }
 
   }
   filter() {
 
-    console.log(this.filtrarMarc.value);
+
     this.marcaService.filterMarca(this.filtrarMarc.value).subscribe(
       res => {
         console.log(res);
         this.marcas = res;
+        if (res.length === 0) {
+
+          this.filtrarMarc.setErrors({ login: literal.error.errorFiltrar });
+        }
       },
       err => {
         console.log(err);

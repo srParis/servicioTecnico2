@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TipoReparacion } from 'src/app/modelos/modelos';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { TipoReparacionService } from 'src/app/services/tipos-reparacion.service';
+import { literal } from 'src/app/utilidades/es-Es';
 
 @Component({
   selector: 'app-reparaciones',
@@ -37,12 +38,16 @@ export class ReparacionesComponent implements OnInit {
   }
   submit2() {
 
-    this.tipo = this.filtrarRep.value;
-    console.log(this.tipo);
-    this.tipoReparacionService.filterTipoReparacion(this.tipo).subscribe(
+
+
+    this.tipoReparacionService.filterTipoReparacion(this.filtrarRep.value).subscribe(
       res => {
         console.log(res);
         this.tipoReparacion = res;
+        if ( res.length === 0) {
+
+            this.filtrarRep.setErrors({login: literal.error.errorFiltrar });
+        }
       },
       err => {
         console.log(err);

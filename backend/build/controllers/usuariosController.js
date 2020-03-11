@@ -88,11 +88,5 @@ class UsuariosController {
             }
         });
     }
-    filter(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const usuario = yield database_1.default.query("select * from modelos where modelos.nombre like '%?%", [req.body.nombre]);
-            res.json(usuario);
-        });
-    }
 }
 exports.usuariosController = new UsuariosController;

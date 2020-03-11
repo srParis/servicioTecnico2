@@ -11,7 +11,7 @@ import { ModeloUsuarioModule } from './modelo-usuario/modelo-usuario.module';
 import { ModeloAdminModule } from './modelo-admin/modelo-admin.module';
 import { GLoginUserGuard } from './services/glogin-user.guard';
 import { CompruebatokenService } from './services/compruebatoken.service';
-import { NotifyadminComponent } from './components/errores/notifyadmin/notifyadmin.component';
+
 
 
 
@@ -22,13 +22,15 @@ import { NotifyadminComponent } from './components/errores/notifyadmin/notifyadm
     HomeComponent,
     LoginComponent,
     RegistrarComponent,
-    NotifyadminComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+
   ],
   providers: [
     GLoginUserGuard,

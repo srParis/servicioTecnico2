@@ -18,5 +18,7 @@ export const literal = {
         errorBusiness: 'Error al crear la empresa',
         errorEmployee: 'Error al crear al trabajador',
         errorJobPositions: 'Error al crear el puesto de trabajo',
+        errorRegistrar: 'Error al registrarte',
+        errorFiltrar: 'No se ha encontrado nada'
     }
 };

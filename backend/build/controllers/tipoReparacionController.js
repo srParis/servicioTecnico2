@@ -47,7 +47,10 @@ class TipoReparacionController {
     }
     filter(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const tipoReparacion = yield database_1.default.query("SELECT * FROM tipos_reparacion WHERE tipos_reparacion.nombre LIKE ? ", [req.body]);
+            console.log(req.body);
+            const rep = req.body.nombre;
+            const rep2 = '%' + rep + '%';
+            const tipoReparacion = yield database_1.default.query("SELECT * FROM tipos_reparacion WHERE tipos_reparacion.nombre LIKE ? ", [rep2]);
             res.json(tipoReparacion);
         });
     }

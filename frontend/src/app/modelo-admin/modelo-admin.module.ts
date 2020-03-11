@@ -14,6 +14,7 @@ import { AdminComponent } from '../views/admin/admin.component';
 import { PuestosComponent } from '../components/puestos/puestos.component';
 import { EmpresasComponent } from '../components/empresas/empresas.component';
 import { CrearpedidoComponent } from '../components/crearpedido/crearpedido.component';
+import { NotifyadminComponent } from '../components/errores/notifyadmin/notifyadmin.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CrearpedidoComponent } from '../components/crearpedido/crearpedido.comp
     PuestosComponent,
     EmpresasComponent,
     CrearpedidoComponent,
+    NotifyadminComponent,
 
   ],
   imports: [

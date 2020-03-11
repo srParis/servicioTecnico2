@@ -81,9 +81,5 @@ class UsuariosController {
 
         
     }
-    public async filter(req:Request, res:Response){
-        const usuario = await pool.query("select * from modelos where modelos.nombre like '%?%", [req.body.nombre]);
-        res.json(usuario);
-    }
 }
 export const usuariosController = new UsuariosController;
