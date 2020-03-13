@@ -62,7 +62,7 @@ export class ReparacionesComponent implements OnInit {
           }
         );
       } else {
-        this.formRep.setErrors({ login: literal.error.errorRepair });
+        this.formRep.setErrors({ login: literal.error.errorNuevotipoRep });
       }
     }, 100);
   }

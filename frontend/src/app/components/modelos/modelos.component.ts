@@ -68,7 +68,7 @@ export class ModelosComponent implements OnInit {
         this.modeloService.saveModelo(this.formmodelo.value).subscribe(
           res => {
             console.log(res);
-            this.formmodelo.setErrors({login: literal.notify.notifyModel});
+            this.formmodelo.setErrors({ login: literal.notify.notifyModel });
             this.ngOnInit();
           },
           err => {
@@ -76,10 +76,11 @@ export class ModelosComponent implements OnInit {
           }
         );
       } else {
-        this.formmodelo.setErrors({ login: literal.error.errorModel });
+        this.formmodelo.setErrors({ login: literal.error.errorNuevoModelo });
       }
     }, 100);
   }
+
   submit2() {
     const valorMarca = this.filtrarM.value;
     this.modeloService.getMarcas(valorMarca.id_marca2).subscribe(
@@ -87,10 +88,10 @@ export class ModelosComponent implements OnInit {
         this.modelos = null;
         this.modelos = res;
         console.log(this.modelos);
-        if ( res.length === 0) {
+        if (res.length === 0) {
 
-          this.filtrarM.setErrors({login: literal.error.errorFiltrar });
-      }
+          this.filtrarM.setErrors({ login: literal.error.errorFiltrar });
+        }
       },
       err => {
         console.log(err);

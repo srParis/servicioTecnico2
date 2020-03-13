@@ -1,6 +1,8 @@
 Comandos extra para que la aplicaci�n funcione correctamente:
+	backend
 	- npm i -s bcryptjs 
 	- npm i -s jsonwebtoken
+	frontend
 	- npm install --save angularx-social-login
 
 	DATOS PARA ACCEDER AL USUARIO

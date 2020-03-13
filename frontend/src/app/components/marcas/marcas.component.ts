@@ -62,7 +62,7 @@ export class MarcasComponent implements OnInit {
           }
         );
       } else {
-        this.formmarc.setErrors({ login: literal.error.errorMarca });
+        this.formmarc.setErrors({ login: literal.error.errorNuevaMarca });
       }
     }, 100);
   }

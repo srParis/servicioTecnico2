@@ -20,6 +20,9 @@ export const literal = {
         errorEmployee: 'Error al crear al trabajador',
         errorJobPositions: 'Error al crear el puesto de trabajo',
         errorRegistrar: 'Error al registrarte',
-        errorFiltrar: 'No se ha encontrado nada'
+        errorFiltrar: 'No se ha encontrado nada',
+        errorNuevaMarca: 'Esta marca ya existe',
+        errorNuevoModelo: 'Este modelo ya existe',
+        errorNuevotipoRep: 'Este tipo de reparacion ya existe'
     }
 };
