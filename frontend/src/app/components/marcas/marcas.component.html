@@ -8,7 +8,7 @@
                 <form [formGroup]="formmarc" (submit)="enviar()" class="fo">
                     Nueva Marca: <input type="text" formControlName="nombre"><br>
 
-                    <button type="submit">Crear</button>
+                    <button type="submit" class="boton">Crear</button>
                 </form><br>
                 <app-notifyadmin *ngIf="formmarc.errors" [message]="formmarc.errors.login"></app-notifyadmin>
             </div>

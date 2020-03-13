@@ -11,7 +11,7 @@
                     <label class="lab">Marca:</label><select formControlName="id_marca" [(ngModel)]="seleccionado">
                         <option *ngFor="let item of marcas" [value]="item.id_marca">{{item.nombre}}</option>
                     </select><br>
-                    <button type="submit">Crear</button>
+                    <button type="submit" class="boton">Crear</button>
                 </form>
                 <app-notifyadmin *ngIf="formmodelo.errors" [message]="formmodelo.errors.login"></app-notifyadmin>
             </div>
