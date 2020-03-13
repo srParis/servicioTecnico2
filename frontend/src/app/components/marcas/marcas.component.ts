@@ -14,6 +14,7 @@ export class MarcasComponent implements OnInit {
   private filtrarMarc: FormGroup;
   public marcas: Marca;
   public nombreMarca: Marca;
+  private existe: number;
   constructor(private formBuilder: FormBuilder, private marcaService: MarcaService) {
     this.formmarc = formBuilder.group({
       nombre: [],
@@ -36,22 +37,36 @@ export class MarcasComponent implements OnInit {
     );
   }
 
-  submit() {
-
-    const marc = this.formmarc.value;
-    this.marcaService.saveMarca(marc).subscribe(
+  enviar() {
+    this.marcaService.leer(this.formmarc.value).subscribe(
       res => {
+        // console.log(res);
+        this.existe = res.length;
+        // console.log(this.existe);
 
-        console.log(res);
-        this.ngOnInit();
-
-        this.formmarc.setErrors({ login: literal.notify.notifyMarca });
       },
       err => {
         console.log(err);
       }
     );
+    setTimeout(() => {
+      if (this.existe === 0) {
+        this.marcaService.saveMarca(this.formmarc.value).subscribe(
+          res => {
+            console.log(res);
+            this.formmarc.setErrors({login: literal.notify.notifyMarca});
+            this.ngOnInit();
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      } else {
+        this.formmarc.setErrors({ login: literal.error.errorMarca });
+      }
+    }, 100);
   }
+
 
 
 

@@ -48,7 +48,8 @@ class MarcasController {
     }
     readonename(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const marca = yield database_1.default.query('SELECT * FROM marcas WHERE nombre = ?', [req.body.nombre]);
+            const newMarca = req.body.nombre;
+            const marca = yield database_1.default.query('SELECT * FROM marcas WHERE nombre = ?', [newMarca]);
             res.json(marca);
         });
     }

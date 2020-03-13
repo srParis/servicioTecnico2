@@ -17,6 +17,7 @@ export class ModelosComponent implements OnInit {
   public modelos: Modelo;
   public marcas: Marca;
   public marcaF: Marca;
+  private existe: number;
 
   constructor(private formBuilder: FormBuilder, private modeloService: ModeloService, private marcasService: MarcaService) {
     this.formmodelo = formBuilder.group({
@@ -53,22 +54,31 @@ export class ModelosComponent implements OnInit {
 
 
   submit() {
+    this.modeloService.leer(this.formmodelo.value).subscribe(
+      res => {
+        this.existe = res.length;
 
-    const modelo = this.formmodelo.value;
-    if (this.modeloService.getModelos()) {
-
-      this.modeloService.saveModelo(modelo).subscribe(
-        res => {
-          console.log(res);
-          this.ngOnInit();
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    } else {
-      console.log('Ya existe');
-    }
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    setTimeout(() => {
+      if (this.existe === 0) {
+        this.modeloService.saveModelo(this.formmodelo.value).subscribe(
+          res => {
+            console.log(res);
+            this.formmodelo.setErrors({login: literal.notify.notifyModel});
+            this.ngOnInit();
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      } else {
+        this.formmodelo.setErrors({ login: literal.error.errorModel });
+      }
+    }, 100);
   }
   submit2() {
     const valorMarca = this.filtrarM.value;

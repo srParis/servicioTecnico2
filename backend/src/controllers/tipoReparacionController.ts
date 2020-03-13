@@ -37,5 +37,13 @@ class TipoReparacionController {
         const tipoReparacion = await pool.query("SELECT * FROM tipos_reparacion WHERE tipos_reparacion.nombre LIKE ? ",[ rep2]);
         res.json(tipoReparacion);
     }
+
+    public async readonename(req:Request,res:Response){
+        const nombre= req.body.nombre;
+        console.log(nombre);
+        const tipoReparacion= await pool.query('SELECT * FROM tipos_reparacion WHERE nombre = ?', [nombre]);
+        res.json(tipoReparacion);
+    }
+
 }
 export const tipoReparacionController = new TipoReparacionController;

@@ -14,6 +14,7 @@ class TipoReparacionRoutes {
         this.router.delete('/:id',tipoReparacionController.delete);
         this.router.get('/:id',tipoReparacionController.readone);
         this.router.post('/filter',tipoReparacionController.filter);
+        this.router.post('/leer',tipoReparacionController.readonename);
     }
 }
 const tipoReparacionRoutes = new TipoReparacionRoutes();

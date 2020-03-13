@@ -14,6 +14,7 @@ class ModelosRoutes {
         this.router.delete('/:id', modelosController_1.modelosController.delete);
         this.router.get('/:id', modelosController_1.modelosController.readone);
         this.router.get('/marca/:id', modelosController_1.modelosController.getMarca);
+        this.router.post('/leer', modelosController_1.modelosController.readonename);
     }
 }
 const modelosRoutes = new ModelosRoutes();

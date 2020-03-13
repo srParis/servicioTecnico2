@@ -14,6 +14,7 @@ export class ReparacionesComponent implements OnInit {
   private filtrarRep: FormGroup;
   public tipoReparacion: TipoReparacion;
   public tipo: TipoReparacion;
+  private existe: number;
   constructor(private formBuilder: FormBuilder, private tipoReparacionService: TipoReparacionService,
   ) {
     this.formRep = formBuilder.group({
@@ -38,22 +39,32 @@ export class ReparacionesComponent implements OnInit {
   }
 
   submit() {
-    const rep = this.formRep.value;
-    // if (this.tipoReparacionService.get()) {
-    console.log(rep);
-    this.tipoReparacionService.saveTipoReparacion(rep).subscribe(
+    this.tipoReparacionService.leer(this.formRep.value).subscribe(
       res => {
-        console.log(res);
-        this.ngOnInit();
+        this.existe = res.length;
+
 
       },
       err => {
         console.log(err);
       }
     );
-    // } else {
-    // console.log('Ya existe');
-    // }
+    setTimeout(() => {
+      if (this.existe === 0) {
+        this.tipoReparacionService.saveTipoReparacion(this.formRep.value).subscribe(
+          res => {
+            console.log(res);
+            this.formRep.setErrors({login: literal.notify.notifyRepair});
+            this.ngOnInit();
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      } else {
+        this.formRep.setErrors({ login: literal.error.errorRepair });
+      }
+    }, 100);
   }
   submit2() {
 

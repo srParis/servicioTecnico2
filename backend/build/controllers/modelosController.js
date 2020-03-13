@@ -45,6 +45,13 @@ class ModelosController {
             res.json(modelo);
         });
     }
+    readonename(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const newModelo = req.body.nombre;
+            const modelo = yield database_1.default.query('SELECT * FROM modelos WHERE nombre = ?', [newModelo]);
+            res.json(modelo);
+        });
+    }
     getMarca(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const modelo = yield database_1.default.query('select * from modelos where id_marca = ?', [req.params.id]);

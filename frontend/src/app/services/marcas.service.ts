@@ -31,17 +31,11 @@ export class MarcaService {
 
   }
   filterMarca(marca: Marca): Observable <any> {
-    console.log(marca);
-   // marca = '%' + marca + '%';
+
     return this.http.post('http://localhost:3000/marcas/filter', marca);
   }
-  marcaNombre(marca: Marca) {
-    console.log('hola2');
-    return this.http.post('http://localhost:3000/marcas/buscar', marca);
-  }
-  leer(marca: Marca) {
-    console.log(marca);
-    const prueba = this.leer(marca);
+  leer(marca: Marca): Observable <any> {
+
     return this.http.post('http://localhost:3000/marcas/leer', marca);
   }
 }

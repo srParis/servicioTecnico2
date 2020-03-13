@@ -30,9 +30,8 @@ class MarcasController {
         res.json(marca);
     }
     public async readonename(req:Request,res:Response){
-        
-        
-        const marca = await pool.query('SELECT * FROM marcas WHERE nombre = ?', [req.body.nombre]);
+        const newMarca = req.body.nombre;
+        const marca = await pool.query('SELECT * FROM marcas WHERE nombre = ?', [newMarca]);
         res.json(marca);
     }
 

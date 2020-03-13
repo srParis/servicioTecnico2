@@ -10,6 +10,7 @@
                    <label class="lab"> Precio:</label> <input type="text" formControlName="precio_reparacion"><br>
                     <button type="submit">Crear</button>
                 </form>
+                <app-notifyadmin *ngIf="formRep.errors" [message]="formRep.errors.login"></app-notifyadmin>
             </div>
         </div>
         <div class="filtrar">

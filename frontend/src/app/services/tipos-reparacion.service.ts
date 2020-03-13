@@ -32,6 +32,10 @@ export class TipoReparacionService {
   filterTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {
     return this.http.post('http://localhost:3000/tipoReparacion/filter', tipoReparacion);
   }
+  leer(tipoReparacion: TipoReparacion): Observable <any> {
+
+    return this.http.post('http://localhost:3000/tipoReparacion/leer', tipoReparacion);
+  }
 
 }
 

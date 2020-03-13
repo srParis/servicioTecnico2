@@ -32,4 +32,8 @@ export class ModeloService {
   getMarcas(id: number): Observable<any> {
     return this.http.get('http://localhost:3000/modelos/marca/' + id);
   }
+  leer(modelos: Modelo): Observable <any> {
+
+    return this.http.post('http://localhost:3000/modelos/leer', modelos);
+  }
 }
