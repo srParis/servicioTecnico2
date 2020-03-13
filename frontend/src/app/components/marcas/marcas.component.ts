@@ -39,25 +39,24 @@ export class MarcasComponent implements OnInit {
   submit() {
 
     const marc = this.formmarc.value;
-    if (!this.marcaService.getMarca(marc)) {
-      console.log('no exite');
-      this.marcaService.saveMarca(marc).subscribe(
-        res => {
-          console.log(res);
-          this.ngOnInit();
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    } else {
-      this.formmarc.setErrors({ login: literal.error.errorMarca });
-    }
+    this.marcaService.saveMarca(marc).subscribe(
+      res => {
 
+        console.log(res);
+        this.ngOnInit();
+
+        this.formmarc.setErrors({ login: literal.notify.notifyMarca });
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
+
+
+
+
   filter() {
-
-
     this.marcaService.filterMarca(this.filtrarMarc.value).subscribe(
       res => {
         console.log(res);

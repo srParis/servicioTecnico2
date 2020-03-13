@@ -5,7 +5,7 @@
                 <h3 class="titu">Crear Marca</h3>
             </div>
             <div class="formu">
-                <form [formGroup]="formmarc" (submit)="submit()">
+                <form [formGroup]="formmarc" (submit)="submit()" class="fo">
                     Nueva Marca: <input type="text" formControlName="nombre"><br>
 
                     <button type="submit">Crear</button>
@@ -18,7 +18,7 @@
                 <h3 class="titu">Filtrar Marca</h3>
             </div>
             <div class="formu">
-                <form [formGroup]="filtrarMarc" (keyup)="filter()">
+                <form [formGroup]="filtrarMarc" (keyup)="filter()" class="fo">
                     Marca: <input type="text" formControlName="marca"><br>
                 </form>
                 <app-notifyadmin *ngIf="filtrarMarc.errors" [message]="filtrarMarc.errors.login"></app-notifyadmin>

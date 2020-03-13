@@ -7,8 +7,9 @@ class TipoReparacionController {
     }
 
     public async create(req:Request,res:Response){
+        console.log(req.body);
         await pool.query('INSERT INTO tipos_reparacion SET ?', [req.body]);
-        res.json({'message': 'Se ha creado el usuario'});
+        res.json({'message': 'Se ha creado la reparacion'});
     }
 
     public async read(req:Request,res:Response){

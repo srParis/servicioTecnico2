@@ -3,6 +3,7 @@ import { MarcaService } from 'src/app/services/marcas.service';
 import { ModeloService } from 'src/app/services/modelo.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Modelo, Marca } from 'src/app/modelos/modelos';
+import { literal } from 'src/app/utilidades/es-Es';
 
 
 @Component({
@@ -76,6 +77,10 @@ export class ModelosComponent implements OnInit {
         this.modelos = null;
         this.modelos = res;
         console.log(this.modelos);
+        if ( res.length === 0) {
+
+          this.filtrarM.setErrors({login: literal.error.errorFiltrar });
+      }
       },
       err => {
         console.log(err);

@@ -1,4 +1,13 @@
-Comandos extra para que la aplicaci�n funcione correctamente:
+Comandos extra para que la aplicaci�n funcione correctamente:
 	- npm i -s bcryptjs 
 	- npm i -s jsonwebtoken
 	- npm install --save angularx-social-login
+
+	DATOS PARA ACCEDER AL USUARIO
+	
+	El usuario para poder acceder al administrador es:
+	eduardo@gmail.com y contraseña 123456
+	y para poder acceder al user
+	edubskt7@gmail.com y contraseña 123456
+
+		

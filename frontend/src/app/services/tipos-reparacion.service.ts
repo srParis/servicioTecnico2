@@ -18,7 +18,6 @@ export class TipoReparacionService {
   }
 
   saveTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {
-    console.log(tipoReparacion);
     return this.http.post('http://localhost:3000/tipoReparacion', tipoReparacion);
   }
 
@@ -31,8 +30,6 @@ export class TipoReparacionService {
   }
 
   filterTipoReparacion(tipoReparacion: TipoReparacion): Observable<any> {
-    console.log(tipoReparacion);
-    // marca = '%' + marca + '%';
     return this.http.post('http://localhost:3000/tipoReparacion/filter', tipoReparacion);
   }
 

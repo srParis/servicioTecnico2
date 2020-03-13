@@ -35,8 +35,13 @@ export class MarcaService {
    // marca = '%' + marca + '%';
     return this.http.post('http://localhost:3000/marcas/filter', marca);
   }
-  getMarcaNombre(marca: Marca) {
+  marcaNombre(marca: Marca) {
+    console.log('hola2');
+    return this.http.post('http://localhost:3000/marcas/buscar', marca);
+  }
+  leer(marca: Marca) {
     console.log(marca);
-    return this.http.post('http://localhost:3000/marcas/get', marca);
+    const prueba = this.leer(marca);
+    return this.http.post('http://localhost:3000/marcas/leer', marca);
   }
 }

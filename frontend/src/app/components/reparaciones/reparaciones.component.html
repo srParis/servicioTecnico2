@@ -7,7 +7,7 @@
             <div class="formu">
                 <form [formGroup]="formRep" (submit)="submit()" class="formular">
                    <label class="lab"> Nombre:</label> <input type="text" formControlName="nombre"><br>
-                   <label class="lab"> Precio:</label> <input type="text" formControlName="precio"><br>
+                   <label class="lab"> Precio:</label> <input type="text" formControlName="precio_reparacion"><br>
                     <button type="submit">Crear</button>
                 </form>
             </div>
@@ -18,7 +18,8 @@
             </div>
             <div class="formu">
                 <form [formGroup]="filtrarRep" (keyup)="submit2()">
-                    <label class="lab">Nombre:</label> <input type="text" formControlName="nombre"><br>    
+                    <label class="lab">Nombre:</label> <input type="text" formControlName="nombre"><br>
+                    <app-notifyadmin *ngIf="filtrarRep.errors" [message]="filtrarRep.errors.login"></app-notifyadmin>
                 </form>
             </div>
         </div>

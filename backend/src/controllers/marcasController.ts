@@ -7,6 +7,7 @@ class MarcasController {
     }
 
     public async create(req:Request,res:Response){
+        console.log(req.body);
         await pool.query('INSERT INTO marcas SET ?', [req.body]);
         res.json({'message': 'Se ha creado la marca'});
     }
@@ -28,11 +29,13 @@ class MarcasController {
         const marca = await pool.query('SELECT * FROM marcas WHERE id_marca =?', [req.params.id]);
         res.json(marca);
     }
-    public async readonenombre(req:Request,res:Response){
-        const marc = req.body;
-        const marca = await pool.query('SELECT * FROM marcas WHERE nombre =?', [marc]);
+    public async readonename(req:Request,res:Response){
+        
+        
+        const marca = await pool.query('SELECT * FROM marcas WHERE nombre = ?', [req.body.nombre]);
         res.json(marca);
     }
+
     public async filter(req:Request, res:Response){
         const marc = req.body.marca;
         const marc2 = '%'+ marc+'%';

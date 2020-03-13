@@ -4,7 +4,7 @@
   display:grid; 
   justify-items: center; 
   grid-template-columns:2fr 10fr 2fr;
-  grid-template-rows:2fr 10fr ;
+  grid-template-rows:1.5fr 10fr ;
   grid-template-areas:". fichausuario ."
                       ". tabla ."
 }
@@ -111,4 +111,7 @@
 .datosusuario:nth-child(even){
     background-color:lightgrey;
   text-align: center;
+}
+.fo{
+  width:100%;
 }

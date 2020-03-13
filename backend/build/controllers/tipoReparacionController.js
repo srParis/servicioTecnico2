@@ -19,8 +19,9 @@ class TipoReparacionController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
             yield database_1.default.query('INSERT INTO tipos_reparacion SET ?', [req.body]);
-            res.json({ 'message': 'Se ha creado el usuario' });
+            res.json({ 'message': 'Se ha creado la reparacion' });
         });
     }
     read(req, res) {

@@ -19,6 +19,7 @@ class MarcasController {
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
             yield database_1.default.query('INSERT INTO marcas SET ?', [req.body]);
             res.json({ 'message': 'Se ha creado la marca' });
         });
@@ -45,10 +46,9 @@ class MarcasController {
             res.json(marca);
         });
     }
-    readonenombre(req, res) {
+    readonename(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const marc = req.body;
-            const marca = yield database_1.default.query('SELECT * FROM marcas WHERE nombre =?', [marc]);
+            const marca = yield database_1.default.query('SELECT * FROM marcas WHERE nombre = ?', [req.body.nombre]);
             res.json(marca);
         });
     }
