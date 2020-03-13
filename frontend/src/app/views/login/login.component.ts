@@ -118,7 +118,7 @@ export class LoginComponent implements OnInit {
       res => {
         try {
           if (res.message) {
-            // Mostrar mensaje error
+            this.formlogin.setErrors({ login: '*Usuario o contraseña incorrecta' });
           } else {
             console.log('--------------------------' + res.usuario[0].rol);
             console.log('--------------------------' + res.accessToken);

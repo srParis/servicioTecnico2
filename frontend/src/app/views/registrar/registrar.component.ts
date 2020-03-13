@@ -7,6 +7,7 @@ import { PoblacionService } from 'src/app/services/poblacion.service';
 import { ProvinciaService } from 'src/app/services/provincia.service';
 import { DireccionService } from 'src/app/services/direccion.service';
 import { MustMatch } from 'src/app/utilidades/validaciones';
+import { literal } from 'src/app/utilidades/es-Es';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { MustMatch } from 'src/app/utilidades/validaciones';
 export class RegistrarComponent implements OnInit {
 
   public formuser: FormGroup;
+  private userRegis: FormGroup;
   public usuarios: Usuario;
   public poblaciones: Poblacion;
   public pobl: Poblacion;
@@ -95,9 +97,13 @@ export class RegistrarComponent implements OnInit {
         try {
           if (res.message === 'No existe ese usuario') {
             this.crearUser();
+          } else {
+            console.log('Estoy en el else');
+            this.formuser.setErrors({ login: 'Ya existe un usuario con ese email' });
           }
-        } catch (error) {}
-
+        } catch (error) {
+          console.log('Estoy en el catch');
+        }
       },
       err => {
         console.log(err);
