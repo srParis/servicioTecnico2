@@ -34,7 +34,7 @@
 .formu{
   grid-area:formu;
   display:flex;
-  
+  flex-direction: column;
   text-align: center;
   
   
@@ -75,7 +75,7 @@
 .filaencabezados{
     grid-area:filaencabezados;
     display:grid;
-    grid-template-columns:2fr 5fr 5fr;
+    grid-template-columns:4fr 8fr;
     grid-template-areas:"tid tnombre tmodelo";
 }
 .tid{
@@ -100,8 +100,9 @@
 .datosusuario{
     grid-area:datosusuario;
     display:grid;
-    grid-template-columns:2fr 5fr 5fr;
+    grid-template-columns:4fr 8fr ;
     grid-auto-rows: auto;
+    
 }
 .datosusuario:nth-child(odd){
   background-color:whitesmoke;
