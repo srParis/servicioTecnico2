@@ -10,12 +10,12 @@ import { literal } from 'src/app/utilidades/es-Es';
   styleUrls: ['./reparaciones.component.scss']
 })
 export class ReparacionesComponent implements OnInit {
-  private formRep: FormGroup;
-  private filtrarRep: FormGroup;
+  public formRep: FormGroup;
+  public filtrarRep: FormGroup;
   public tipoReparacion: TipoReparacion;
   public tipo: TipoReparacion;
-  private existe: number;
-  constructor(private formBuilder: FormBuilder, private tipoReparacionService: TipoReparacionService,
+  public existe: number;
+  constructor(public formBuilder: FormBuilder, public tipoReparacionService: TipoReparacionService,
   ) {
     this.formRep = formBuilder.group({
       nombre: [],
@@ -25,7 +25,7 @@ export class ReparacionesComponent implements OnInit {
         nombre: [],
       });
   }
-  private nombre;
+  public nombre;
   ngOnInit() {
     this.tipoReparacionService.getTipoReparaciones().subscribe(
       res => {

@@ -12,18 +12,19 @@ import { literal } from 'src/app/utilidades/es-Es';
   styleUrls: ['./modelos.component.scss']
 })
 export class ModelosComponent implements OnInit {
-  private formmodelo: FormGroup;
-  private filtrarM: FormGroup;
+  public formmodelo: FormGroup;
+  public filtrarM: FormGroup;
   public modelos: Modelo;
   public marcas: Marca;
   public marcaF: Marca;
   private existe: number;
 
-  constructor(private formBuilder: FormBuilder, private modeloService: ModeloService, private marcasService: MarcaService) {
+  constructor(public formBuilder: FormBuilder, public modeloService: ModeloService, public marcasService: MarcaService) {
     this.formmodelo = formBuilder.group({
       nombre: [],
       modelo: [],
       id_marca: []
+
     }),
       this.filtrarM = formBuilder.group({
         id_marca2: []
@@ -109,6 +110,12 @@ export class ModelosComponent implements OnInit {
   }
   get id_marca() {
     return this.formmodelo.get('id_marca');
+  }
+  get seleccionado() {
+    return this.formmodelo.get('seleccionado');
+  }
+  get seleccionado2() {
+    return this.formmodelo.get('seleccionado2');
   }
 
 

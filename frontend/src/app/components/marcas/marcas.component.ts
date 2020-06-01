@@ -10,12 +10,12 @@ import { literal } from 'src/app/utilidades/es-Es';
   styleUrls: ['./marcas.component.scss']
 })
 export class MarcasComponent implements OnInit {
-  private formmarc: FormGroup;
-  private filtrarMarc: FormGroup;
+  public formmarc: FormGroup;
+  public filtrarMarc: FormGroup;
   public marcas: Marca;
   public nombreMarca: Marca;
   private existe: number;
-  constructor(private formBuilder: FormBuilder, private marcaService: MarcaService) {
+  constructor(public formBuilder: FormBuilder, public marcaService: MarcaService) {
     this.formmarc = formBuilder.group({
       nombre: [],
     }),

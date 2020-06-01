@@ -64,41 +64,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
- /* signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      console.log(this.user);
-      console.log('------------' + this.user.email);
-      this.loggedIn = (user != null);
-      if (user != null) {
-        this.usuarioService.getLoginGF(this.user.email).subscribe(
-          res => {
-            try {
-              if (res.message) {
-                // Mostrar mensaje error
-              } else {
-                console.log('--------------------------' + res.usuario[0].rol);
-                console.log('--------------------------' + res.accessToken);
-                // localStorage.setItem('tipo', this.usuarios.password);
-                if (res.usuario[0].rol === 'user') {
-                  localStorage.setItem('token', res.accessToken);
-                  this.router.navigate(['/user']);
-                } else {
-                  localStorage.setItem('token_admin', res.accessToken);
-                  this.router.navigate(['/admin']);
-                }
-              }
-            } catch (error) { }
-          },
-          err => {
-            console.log(err);
-          }
-        );
-      }
-
-    });
-  }*/
 
   signOut(): void {
     this.authService.signOut();

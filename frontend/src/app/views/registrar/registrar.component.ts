@@ -18,7 +18,7 @@ import { literal } from 'src/app/utilidades/es-Es';
 export class RegistrarComponent implements OnInit {
 
   public formuser: FormGroup;
-  private userRegis: FormGroup;
+  public userRegis: FormGroup;
   public usuarios: Usuario;
   public poblaciones: Poblacion;
   public pobl: Poblacion;

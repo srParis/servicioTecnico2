@@ -14,17 +14,17 @@ import { Router } from '@angular/router';
 })
 export class CrearuserComponent implements OnInit {
 
-  private formregistrar: FormGroup;
+  public formregistrar: FormGroup;
   public usuarios: Usuario;
   public poblaciones: Poblacion;
   public provincias: Provincia;
   public cp: string;
-  private patron = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
+  public patron = '[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}';
 
 
-  constructor(private router: Router, private formBuilder: FormBuilder,
-              private usuarioService: UsuarioService, private poblacionService: PoblacionService,
-              private provinciaService: ProvinciaService) {
+  constructor(public router: Router, public formBuilder: FormBuilder,
+              public usuarioService: UsuarioService, public poblacionService: PoblacionService,
+              public provinciaService: ProvinciaService) {
 
 
     this.formregistrar = formBuilder.group({
